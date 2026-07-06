@@ -185,7 +185,7 @@ const translations = {
     'education.languagesTitle': 'Языки',
     'education.languagesText': 'Английский B2 · русский родной · азербайджанский родной / свободный',
     'contact.eyebrow': 'Контакты',
-    'contact.title': 'Контакты для обсуждения Unity-разработки.',
+    'contact.title': 'Связь по вопросам Unity-разработки.',
     'contact.text': 'Приоритетные направления: gameplay architecture, performance, tooling, CI/CD и автоматизация production-процессов.',
     'footer.back': 'Наверх'
   }
