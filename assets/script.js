@@ -207,7 +207,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const languageButtons = document.querySelectorAll('[data-lang]');
 const metaDescription = document.querySelector('meta[name="description"]');
 const languageTransitionMs = 170;
-const compactHeaderOffset = 90;
+const compactHeaderEnterOffset = 160;
+const compactHeaderExitOffset = 40;
 
 function getSavedLanguage() {
   try {
@@ -278,7 +279,15 @@ languageButtons.forEach((button) => {
 });
 
 function updateHeaderState() {
-  document.body.classList.toggle('is-header-compact', window.scrollY > compactHeaderOffset);
+  const isCompact = document.body.classList.contains('is-header-compact');
+
+  if (!isCompact && window.scrollY > compactHeaderEnterOffset) {
+    document.body.classList.add('is-header-compact');
+  }
+
+  if (isCompact && window.scrollY < compactHeaderExitOffset) {
+    document.body.classList.remove('is-header-compact');
+  }
 }
 
 window.addEventListener('scroll', updateHeaderState, { passive: true });
