@@ -344,28 +344,46 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
     align-items: stretch;
     flex-direction: column;
     border-radius: 26px;
-    transition: top 260ms ease, width 260ms ease, margin 260ms ease, padding 260ms ease, gap 260ms ease, background 260ms ease, border-radius 260ms ease, box-shadow 260ms ease;
+    transition:
+      top 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      margin 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      gap 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      background 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-radius 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 560ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: top, width, margin, padding, gap, border-radius;
   }
   .brand {
     max-width: 260px;
     max-height: 42px;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 120ms ease, transform 220ms ease, max-width 260ms ease 90ms, max-height 260ms ease 90ms;
+    transition:
+      opacity 420ms ease,
+      transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      max-width 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      max-height 560ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform, max-width, max-height;
   }
   .header-actions {
     width: auto;
     align-items: stretch;
     flex-direction: column;
     gap: 10px;
-    transition: gap 260ms ease;
+    transition: gap 560ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .nav { display: grid; grid-template-columns: repeat(4, 1fr); }
   .nav a {
     text-align: center;
     padding: 8px;
     font-size: 0.88rem;
-    transition: padding 260ms ease, font-size 260ms ease, color 180ms ease, background 180ms ease;
+    transition:
+      padding 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      font-size 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 180ms ease,
+      background 180ms ease;
   }
   .language-switch {
     width: 100%;
@@ -375,7 +393,14 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
     border-width: 1px;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 120ms ease, transform 220ms ease, max-height 260ms ease 90ms, padding 260ms ease 90ms, border-width 260ms ease 90ms, border-color 260ms ease 90ms;
+    transition:
+      opacity 420ms ease,
+      transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      max-height 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-width 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 560ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform, max-height, padding;
   }
   body.is-mobile-header-compact .site-header {
     top: 0;
@@ -393,7 +418,6 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
-    transition: opacity 120ms ease, transform 220ms ease, max-width 260ms ease 90ms, max-height 260ms ease 90ms;
   }
   body.is-mobile-header-compact .header-actions { gap: 0; }
   body.is-mobile-header-compact .language-switch {
@@ -405,7 +429,6 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
     border-width: 0;
     border-color: transparent;
     pointer-events: none;
-    transition: opacity 120ms ease, transform 220ms ease, max-height 260ms ease 90ms, padding 260ms ease 90ms, border-width 260ms ease 90ms, border-color 260ms ease 90ms;
   }
   body.is-mobile-header-compact .nav { width: 100%; gap: 3px; }
   body.is-mobile-header-compact .nav a {
