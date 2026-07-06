@@ -82,11 +82,12 @@ a { color: inherit; text-decoration: none; }
 .section { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; padding: 92px 0; }
 .section.compact { padding: 30px 0 76px; }
 
-.hero { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr); gap: 36px; align-items: center; padding-top: 104px; }
+.hero { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: start; padding-top: 104px; }
+.hero-copy { max-width: 970px; }
 .eyebrow { margin: 0 0 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; font-weight: 800; }
 
 h1, h2, h3 { margin: 0; line-height: 1.05; letter-spacing: -0.045em; }
-h1 { font-size: clamp(3rem, 8vw, 6.8rem); max-width: 970px; }
+h1 { font-size: clamp(3rem, 7vw, 6.2rem); max-width: 970px; }
 h2 { font-size: clamp(2.15rem, 5vw, 4.4rem); }
 h3 { font-size: 1.35rem; letter-spacing: -0.025em; }
 
@@ -108,6 +109,8 @@ h3 { font-size: 1.35rem; letter-spacing: -0.025em; }
 .button:hover { transform: translateY(-2px); }
 
 .status-card {
+  width: 100%;
+  max-width: 930px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
