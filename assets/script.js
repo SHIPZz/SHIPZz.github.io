@@ -207,8 +207,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const languageButtons = document.querySelectorAll('[data-lang]');
 const metaDescription = document.querySelector('meta[name="description"]');
 const languageTransitionMs = 170;
-const compactHeaderEnterOffset = 160;
-const compactHeaderExitOffset = 40;
+const compactHeaderStart = 35;
+const compactHeaderEnd = 210;
 
 function getSavedLanguage() {
   try {
@@ -279,15 +279,50 @@ languageButtons.forEach((button) => {
 });
 
 function updateHeaderState() {
-  const isCompact = document.body.classList.contains('is-header-compact');
+  const rawProgress = (window.scrollY - compactHeaderStart) / (compactHeaderEnd - compactHeaderStart);
+  const progress = Math.max(0, Math.min(1, rawProgress));
+  const eased = progress * progress * (3 - 2 * progress);
+  const viewportWidth = window.innerWidth;
+  const isMobile = viewportWidth <= 700;
+  const fullSideSpace = Math.max((viewportWidth - 1160) / 2, 16);
+  const startTop = isMobile ? 10 : 18;
+  const startRadius = isMobile ? 26 : 999;
+  const startActionGap = isMobile ? 10 : 12;
 
-  if (!isCompact && window.scrollY > compactHeaderEnterOffset) {
-    document.body.classList.add('is-header-compact');
-  }
+  const lerp = (from, to) => from + (to - from) * eased;
+  const setPx = (name, value) => {
+    document.documentElement.style.setProperty(name, `${value.toFixed(2)}px`);
+  };
 
-  if (isCompact && window.scrollY < compactHeaderExitOffset) {
-    document.body.classList.remove('is-header-compact');
-  }
+  setPx('--header-top', lerp(startTop, 0));
+  setPx('--header-width', viewportWidth - lerp(fullSideSpace, 0) * 2);
+  setPx('--header-margin-top', lerp(18, 0));
+  setPx('--header-padding-y', lerp(12, 6));
+  setPx('--header-padding-x', lerp(14, 6));
+  setPx('--header-gap', lerp(18, 0));
+  setPx('--header-radius-top', lerp(startRadius, 0));
+  setPx('--header-radius-bottom', lerp(startRadius, 18));
+  setPx('--brand-max-width', lerp(260, 0));
+  setPx('--brand-max-height', lerp(42, 0));
+  setPx('--brand-translate-y', lerp(0, -8));
+  setPx('--language-max-width', lerp(100, 0));
+  setPx('--language-max-height', lerp(40, 0));
+  setPx('--language-translate-y', lerp(0, -8));
+  setPx('--language-padding-y', lerp(3, 0));
+  setPx('--language-border-width', lerp(1, 0));
+  setPx('--actions-gap', lerp(startActionGap, 0));
+  setPx('--actions-width', lerp(isMobile ? viewportWidth - 32 : 474, viewportWidth));
+  setPx('--nav-gap', lerp(6, 3));
+  setPx('--nav-padding-y', lerp(10, 7));
+  setPx('--nav-padding-x', lerp(14, 12));
+  setPx('--nav-padding-x-mobile', lerp(8, 4));
+  setPx('--nav-width', lerp(isMobile ? viewportWidth - 32 : 376, Math.min(viewportWidth, 620)));
+  document.documentElement.style.setProperty('--brand-opacity', (1 - eased).toFixed(3));
+  document.documentElement.style.setProperty('--language-opacity', (1 - eased).toFixed(3));
+  document.documentElement.style.setProperty('--header-background-alpha', lerp(0.74, 0.48).toFixed(3));
+  document.documentElement.style.setProperty('--nav-font-size', `${lerp(1, 0.82).toFixed(3)}rem`);
+  document.documentElement.style.setProperty('--nav-font-size-mobile', `${lerp(0.88, 0.78).toFixed(3)}rem`);
+  document.body.classList.toggle('is-header-collapsed', eased > 0.98);
 }
 
 window.addEventListener('scroll', updateHeaderState, { passive: true });
