@@ -303,7 +303,7 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
 }
 
 @media (max-width: 700px) {
-  .site-header { align-items: stretch; border-radius: 26px; flex-direction: column; }
+  .site-header { position: static; align-items: stretch; border-radius: 26px; flex-direction: column; }
   .header-actions { align-items: stretch; flex-direction: column; gap: 10px; }
   .nav { display: grid; grid-template-columns: repeat(4, 1fr); }
   .nav a { text-align: center; padding: 8px; font-size: 0.88rem; }
