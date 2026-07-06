@@ -289,10 +289,29 @@ function updateHeaderState() {
   const collapseEased = collapseProgress * collapseProgress * (3 - 2 * collapseProgress);
   const viewportWidth = window.innerWidth;
   const isMobile = viewportWidth <= 700;
+
+  if (isMobile) {
+    const isMobileCompact = document.body.classList.contains('is-mobile-header-compact');
+
+    document.body.classList.remove('is-header-collapsed');
+
+    if (!isMobileCompact && window.scrollY > 160) {
+      document.body.classList.add('is-mobile-header-compact');
+    }
+
+    if (isMobileCompact && window.scrollY < 40) {
+      document.body.classList.remove('is-mobile-header-compact');
+    }
+
+    return;
+  }
+
+  document.body.classList.remove('is-mobile-header-compact');
+
   const fullSideSpace = Math.max((viewportWidth - 1160) / 2, 16);
-  const startTop = isMobile ? 10 : 18;
-  const startRadius = isMobile ? 26 : 999;
-  const startActionGap = isMobile ? 10 : 12;
+  const startTop = 18;
+  const startRadius = 999;
+  const startActionGap = 12;
 
   const lerp = (from, to) => from + (to - from) * eased;
   const setPx = (name, value) => {
@@ -316,12 +335,12 @@ function updateHeaderState() {
   setPx('--language-padding-y', 3 + (0 - 3) * collapseEased);
   setPx('--language-border-width', 1 + (0 - 1) * collapseEased);
   setPx('--actions-gap', lerp(startActionGap, 0));
-  setPx('--actions-width', lerp(isMobile ? viewportWidth - 32 : 474, viewportWidth));
+  setPx('--actions-width', lerp(474, viewportWidth));
   setPx('--nav-gap', lerp(6, 3));
   setPx('--nav-padding-y', lerp(10, 7));
   setPx('--nav-padding-x', lerp(14, 12));
   setPx('--nav-padding-x-mobile', lerp(8, 4));
-  setPx('--nav-width', lerp(isMobile ? viewportWidth - 32 : 376, Math.min(viewportWidth, 620)));
+  setPx('--nav-width', lerp(376, Math.min(viewportWidth, 620)));
   document.documentElement.style.setProperty('--brand-opacity', (1 - fadeEased).toFixed(3));
   document.documentElement.style.setProperty('--language-opacity', (1 - fadeEased).toFixed(3));
   document.documentElement.style.setProperty('--header-background-alpha', lerp(0.74, 0.48).toFixed(3));
