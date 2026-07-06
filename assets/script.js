@@ -209,6 +209,7 @@ const metaDescription = document.querySelector('meta[name="description"]');
 const languageTransitionMs = 170;
 const compactHeaderStart = 35;
 const compactHeaderEnd = 210;
+let headerFrame = null;
 
 function getSavedLanguage() {
   try {
@@ -282,6 +283,10 @@ function updateHeaderState() {
   const rawProgress = (window.scrollY - compactHeaderStart) / (compactHeaderEnd - compactHeaderStart);
   const progress = Math.max(0, Math.min(1, rawProgress));
   const eased = progress * progress * (3 - 2 * progress);
+  const fadeProgress = Math.max(0, Math.min(1, progress / 0.32));
+  const fadeEased = fadeProgress * fadeProgress * (3 - 2 * fadeProgress);
+  const collapseProgress = Math.max(0, Math.min(1, (progress - 0.28) / 0.72));
+  const collapseEased = collapseProgress * collapseProgress * (3 - 2 * collapseProgress);
   const viewportWidth = window.innerWidth;
   const isMobile = viewportWidth <= 700;
   const fullSideSpace = Math.max((viewportWidth - 1160) / 2, 16);
@@ -302,14 +307,14 @@ function updateHeaderState() {
   setPx('--header-gap', lerp(18, 0));
   setPx('--header-radius-top', lerp(startRadius, 0));
   setPx('--header-radius-bottom', lerp(startRadius, 18));
-  setPx('--brand-max-width', lerp(260, 0));
-  setPx('--brand-max-height', lerp(42, 0));
-  setPx('--brand-translate-y', lerp(0, -8));
-  setPx('--language-max-width', lerp(100, 0));
-  setPx('--language-max-height', lerp(40, 0));
-  setPx('--language-translate-y', lerp(0, -8));
-  setPx('--language-padding-y', lerp(3, 0));
-  setPx('--language-border-width', lerp(1, 0));
+  setPx('--brand-max-width', 260 + (0 - 260) * collapseEased);
+  setPx('--brand-max-height', 42 + (0 - 42) * collapseEased);
+  setPx('--brand-translate-y', 0 + (-8 - 0) * fadeEased);
+  setPx('--language-max-width', 100 + (0 - 100) * collapseEased);
+  setPx('--language-max-height', 40 + (0 - 40) * collapseEased);
+  setPx('--language-translate-y', 0 + (-8 - 0) * fadeEased);
+  setPx('--language-padding-y', 3 + (0 - 3) * collapseEased);
+  setPx('--language-border-width', 1 + (0 - 1) * collapseEased);
   setPx('--actions-gap', lerp(startActionGap, 0));
   setPx('--actions-width', lerp(isMobile ? viewportWidth - 32 : 474, viewportWidth));
   setPx('--nav-gap', lerp(6, 3));
@@ -317,15 +322,27 @@ function updateHeaderState() {
   setPx('--nav-padding-x', lerp(14, 12));
   setPx('--nav-padding-x-mobile', lerp(8, 4));
   setPx('--nav-width', lerp(isMobile ? viewportWidth - 32 : 376, Math.min(viewportWidth, 620)));
-  document.documentElement.style.setProperty('--brand-opacity', (1 - eased).toFixed(3));
-  document.documentElement.style.setProperty('--language-opacity', (1 - eased).toFixed(3));
+  document.documentElement.style.setProperty('--brand-opacity', (1 - fadeEased).toFixed(3));
+  document.documentElement.style.setProperty('--language-opacity', (1 - fadeEased).toFixed(3));
   document.documentElement.style.setProperty('--header-background-alpha', lerp(0.74, 0.48).toFixed(3));
   document.documentElement.style.setProperty('--nav-font-size', `${lerp(1, 0.82).toFixed(3)}rem`);
   document.documentElement.style.setProperty('--nav-font-size-mobile', `${lerp(0.88, 0.78).toFixed(3)}rem`);
   document.body.classList.toggle('is-header-collapsed', eased > 0.98);
 }
 
-window.addEventListener('scroll', updateHeaderState, { passive: true });
+function scheduleHeaderStateUpdate() {
+  if (headerFrame !== null) {
+    return;
+  }
+
+  headerFrame = window.requestAnimationFrame(() => {
+    headerFrame = null;
+    updateHeaderState();
+  });
+}
+
+window.addEventListener('scroll', scheduleHeaderStateUpdate, { passive: true });
+window.addEventListener('resize', scheduleHeaderStateUpdate);
 updateHeaderState();
 
 applyLanguage(getSavedLanguage() || 'en');
