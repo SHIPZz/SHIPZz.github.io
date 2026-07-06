@@ -207,6 +207,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const languageButtons = document.querySelectorAll('[data-lang]');
 const metaDescription = document.querySelector('meta[name="description"]');
 const languageTransitionMs = 170;
+const compactHeaderOffset = 90;
 
 function getSavedLanguage() {
   try {
@@ -275,5 +276,12 @@ function applyLanguage(language, options = {}) {
 languageButtons.forEach((button) => {
   button.addEventListener('click', () => applyLanguage(button.dataset.lang, { animate: true }));
 });
+
+function updateHeaderState() {
+  document.body.classList.toggle('is-header-compact', window.scrollY > compactHeaderOffset);
+}
+
+window.addEventListener('scroll', updateHeaderState, { passive: true });
+updateHeaderState();
 
 applyLanguage(getSavedLanguage() || 'en');
