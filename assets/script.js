@@ -206,6 +206,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 const languageButtons = document.querySelectorAll('[data-lang]');
 const metaDescription = document.querySelector('meta[name="description"]');
+const languageTransitionMs = 170;
 
 function getSavedLanguage() {
   try {
@@ -223,7 +224,7 @@ function saveLanguage(language) {
   }
 }
 
-function applyLanguage(language) {
+function updateLanguageContent(language) {
   const dictionary = translations[language] || translations.en;
 
   document.documentElement.lang = language;
@@ -253,8 +254,26 @@ function applyLanguage(language) {
   saveLanguage(language);
 }
 
+function applyLanguage(language, options = {}) {
+  const currentLanguage = document.documentElement.lang;
+  const shouldAnimate = options.animate && currentLanguage !== language;
+
+  if (!shouldAnimate) {
+    updateLanguageContent(language);
+    return;
+  }
+
+  document.body.classList.add('is-language-changing');
+  window.setTimeout(() => {
+    updateLanguageContent(language);
+    window.requestAnimationFrame(() => {
+      document.body.classList.remove('is-language-changing');
+    });
+  }, languageTransitionMs);
+}
+
 languageButtons.forEach((button) => {
-  button.addEventListener('click', () => applyLanguage(button.dataset.lang));
+  button.addEventListener('click', () => applyLanguage(button.dataset.lang, { animate: true }));
 });
 
 applyLanguage(getSavedLanguage() || 'en');

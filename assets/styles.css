@@ -286,6 +286,13 @@ li + li { margin-top: 9px; }
 
 [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 650ms ease, transform 650ms ease; }
 [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+[data-i18n] { transition: opacity 170ms ease, transform 170ms ease; }
+body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-i18n] { transition: none; }
+  body.is-language-changing [data-i18n] { opacity: 1; transform: none; }
+}
 
 @media (max-width: 980px) {
   .hero, .split, .skills-section, .education, .contact { grid-template-columns: 1fr; }
