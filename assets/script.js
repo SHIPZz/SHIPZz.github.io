@@ -1,7 +1,7 @@
 const translations = {
   en: {
     metaTitle: 'Kenan Ibragimov - Unity Developer',
-    metaDescription: 'Kenan Ibragimov - Senior Unity Developer / DevOps & Build Automation portfolio.',
+    metaDescription: 'Kenan Ibragimov - Senior Unity Developer portfolio.',
     'nav.about': 'About',
     'nav.impact': 'Impact',
     'nav.projects': 'Projects',
@@ -46,8 +46,13 @@ const translations = {
     'projects.watchVideo': 'watch video',
     'projects.mahjongTag': 'Mobile puzzle',
     'projects.mahjongText': 'Mobile puzzle production work with UI flow, SDK integrations, localization and release-oriented polishing.',
-    'projects.busyTag': 'Casual and simulator',
-    'projects.busyText': 'Casual and simulator projects focused on gameplay loops, UI, editor tooling, platform SDKs and production integrations.',
+    'projects.mobileTag': 'Mobile production',
+    'projects.mobileTitle': 'Casual production systems',
+    'projects.mobileText': 'Gameplay loops, UI, editor tooling, platform SDKs and production integrations for casual and simulator projects.',
+    'projects.busyBrainTag': 'Mobile casual',
+    'projects.busyBrainText': 'Casual mobile project with production gameplay, UI flows, integrations and release-focused polish.',
+    'projects.storeTag': 'Mobile simulator',
+    'projects.storeText': 'Mobile simulator project with gameplay loops, UI, platform integrations and production delivery work.',
     'skills.eyebrow': 'Core skills',
     'skills.title': 'Most important technical areas',
     'skills.archTitle': 'Unity architecture',
@@ -65,7 +70,7 @@ const translations = {
     'experience.eyebrow': 'Experience',
     'experience.title': 'Production responsibility',
     'experience.currentDate': 'Feb 2025 - Present',
-    'experience.currentRole': 'Senior Unity Developer / DevOps & Build Automation',
+    'experience.currentRole': 'Senior Unity Developer / Build Automation',
     'experience.currentCompany': 'Rhinotales · Critical Shift - AA tactical RPG for PC, PlayStation and Xbox',
     'experience.currentItem1': 'Owned production-critical Unity areas across gameplay, UI/meta systems, performance, rendering features and build delivery.',
     'experience.currentItem2': 'Stabilized legacy UI and feature architecture by reducing lifecycle risks, hidden dependencies and maintenance cost.',
@@ -139,8 +144,13 @@ const translations = {
     'projects.watchVideo': 'смотреть видео',
     'projects.mahjongTag': 'Mobile puzzle',
     'projects.mahjongText': 'Mobile puzzle production work: UI flow, SDK integrations, localization и release-oriented polishing.',
-    'projects.busyTag': 'Casual and simulator',
-    'projects.busyText': 'Casual и simulator-проекты с фокусом на gameplay loops, UI, editor tooling, platform SDKs и production integrations.',
+    'projects.mobileTag': 'Mobile production',
+    'projects.mobileTitle': 'Casual production systems',
+    'projects.mobileText': 'Gameplay loops, UI, editor tooling, platform SDKs и production integrations для casual и simulator-проектов.',
+    'projects.busyBrainTag': 'Mobile casual',
+    'projects.busyBrainText': 'Casual mobile-проект: production gameplay, UI flows, integrations и release-focused polish.',
+    'projects.storeTag': 'Mobile simulator',
+    'projects.storeText': 'Mobile simulator-проект: gameplay loops, UI, platform integrations и production delivery work.',
     'skills.eyebrow': 'Ключевые навыки',
     'skills.title': 'Самые важные технические зоны',
     'skills.archTitle': 'Unity architecture',
@@ -158,7 +168,7 @@ const translations = {
     'experience.eyebrow': 'Опыт',
     'experience.title': 'Production responsibility',
     'experience.currentDate': 'Февраль 2025 - настоящее время',
-    'experience.currentRole': 'Senior Unity Developer / DevOps & Build Automation',
+    'experience.currentRole': 'Senior Unity Developer / Build Automation',
     'experience.currentCompany': 'Rhinotales · Critical Shift - AA tactical RPG для PC, PlayStation и Xbox',
     'experience.currentItem1': 'Отвечал за production-critical Unity areas: gameplay, UI/meta systems, performance, rendering features и build delivery.',
     'experience.currentItem2': 'Стабилизировал legacy UI и feature architecture, снижая lifecycle risks, hidden dependencies и стоимость поддержки.',
@@ -331,12 +341,12 @@ function updateHeaderState() {
   setPx('--language-padding-y', 3 + (0 - 3) * collapseEased);
   setPx('--language-border-width', 1 + (0 - 1) * collapseEased);
   setPx('--actions-gap', lerp(startActionGap, 0));
-  setPx('--actions-width', lerp(474, viewportWidth));
+  setPx('--actions-width', lerp(620, viewportWidth));
   setPx('--nav-gap', lerp(6, 3));
   setPx('--nav-padding-y', lerp(10, 7));
   setPx('--nav-padding-x', lerp(14, 12));
   setPx('--nav-padding-x-mobile', lerp(8, 4));
-  setPx('--nav-width', lerp(376, Math.min(viewportWidth, 620)));
+  setPx('--nav-width', lerp(480, Math.min(viewportWidth, 720)));
   document.documentElement.style.setProperty('--brand-opacity', (1 - fadeEased).toFixed(3));
   document.documentElement.style.setProperty('--language-opacity', (1 - fadeEased).toFixed(3));
   document.documentElement.style.setProperty('--header-background-alpha', lerp(0.74, 0.48).toFixed(3));
