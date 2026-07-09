@@ -46,9 +46,6 @@ const translations = {
     'projects.watchVideo': 'watch video',
     'projects.mahjongTag': 'Mobile puzzle',
     'projects.mahjongText': 'Mobile puzzle production work with UI flow, SDK integrations, localization and release-oriented polishing.',
-    'projects.mobileTag': 'Mobile production',
-    'projects.mobileTitle': 'Casual production systems',
-    'projects.mobileText': 'Gameplay loops, UI, editor tooling, platform SDKs and production integrations for casual and simulator projects.',
     'projects.busyBrainTag': 'Mobile casual',
     'projects.busyBrainText': 'Casual mobile project with production gameplay, UI flows, integrations and release-focused polish.',
     'projects.storeTag': 'Mobile simulator',
@@ -95,7 +92,7 @@ const translations = {
     'contact.eyebrow': 'Contact',
     'contact.title': "Let's build production-ready Unity systems.",
     'contact.text': 'Open to Unity development roles focused on gameplay architecture, performance, tooling, CI/CD and production automation.',
-    'footer.back': 'Back to top'
+    'footer.back': '↑ Back to top'
   },
   ru: {
     metaTitle: 'Кенан Ибрагимов - Senior Unity Developer',
@@ -144,9 +141,6 @@ const translations = {
     'projects.watchVideo': 'смотреть видео',
     'projects.mahjongTag': 'Mobile puzzle',
     'projects.mahjongText': 'Mobile puzzle production work: UI flow, SDK integrations, localization и release-oriented polishing.',
-    'projects.mobileTag': 'Mobile production',
-    'projects.mobileTitle': 'Casual production systems',
-    'projects.mobileText': 'Gameplay loops, UI, editor tooling, platform SDKs и production integrations для casual и simulator-проектов.',
     'projects.busyBrainTag': 'Mobile casual',
     'projects.busyBrainText': 'Casual mobile-проект: production gameplay, UI flows, integrations и release-focused polish.',
     'projects.storeTag': 'Mobile simulator',
@@ -193,7 +187,7 @@ const translations = {
     'contact.eyebrow': 'Контакты',
     'contact.title': 'Связь по вопросам Unity-разработки.',
     'contact.text': 'Приоритетные направления: gameplay architecture, performance, tooling, CI/CD и автоматизация production-процессов.',
-    'footer.back': 'Наверх'
+    'footer.back': '↑ Наверх'
   }
 };
 
