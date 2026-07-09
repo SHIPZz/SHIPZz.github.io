@@ -356,7 +356,34 @@ li + li { margin-top: 9px; }
   border-radius: var(--radius);
   background: var(--panel);
 }
+.skills-layout article {
+  display: grid;
+  gap: 16px;
+  border-color: rgba(216, 242, 117, 0.22);
+  background: linear-gradient(135deg, rgba(255,255,255,0.085), rgba(216,242,117,0.055));
+}
+.skills-layout h3 {
+  color: var(--text);
+}
 .skills-layout p, .education-grid p { color: var(--muted); margin-bottom: 0; }
+.skill-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.skill-highlights span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(216, 242, 117, 0.56);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(216, 242, 117, 0.08);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
 
 .education { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 52px; }
 .education-grid { display: grid; gap: 16px; }
