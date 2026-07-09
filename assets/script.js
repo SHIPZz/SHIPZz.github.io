@@ -204,6 +204,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 const languageButtons = document.querySelectorAll('[data-lang]');
 const metaDescription = document.querySelector('meta[name="description"]');
+const navLinks = Array.from(document.querySelectorAll('.nav a'));
+const navTargets = navLinks
+  .map((link) => ({ link, target: document.querySelector(link.getAttribute('href')) }))
+  .filter((item) => item.target);
 const languageTransitionMs = 170;
 const compactHeaderStart = 35;
 const compactHeaderEnd = 210;
@@ -275,6 +279,35 @@ function applyLanguage(language, options = {}) {
 
 languageButtons.forEach((button) => {
   button.addEventListener('click', () => applyLanguage(button.dataset.lang, { animate: true }));
+});
+
+function updateActiveNav() {
+  const activationLine = window.scrollY + window.innerHeight * 0.36;
+  const firstTargetTop = navTargets[0]?.target.offsetTop ?? 0;
+  let activeLink = null;
+
+  if (activationLine >= firstTargetTop - 120) {
+    navTargets.forEach(({ link, target }) => {
+      if (target.offsetTop <= activationLine) {
+        activeLink = link;
+      }
+    });
+  }
+
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
+    activeLink = navTargets[navTargets.length - 1]?.link ?? activeLink;
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.toggle('is-active', link === activeLink);
+  });
+}
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    window.setTimeout(updateActiveNav, 260);
+    window.setTimeout(updateActiveNav, 720);
+  });
 });
 
 function updateHeaderState() {
@@ -355,11 +388,14 @@ function scheduleHeaderStateUpdate() {
   headerFrame = window.requestAnimationFrame(() => {
     headerFrame = null;
     updateHeaderState();
+    updateActiveNav();
   });
 }
 
 window.addEventListener('scroll', scheduleHeaderStateUpdate, { passive: true });
+window.addEventListener('scrollend', updateActiveNav);
 window.addEventListener('resize', scheduleHeaderStateUpdate);
 updateHeaderState();
+updateActiveNav();
 
 applyLanguage(getSavedLanguage() || 'en');
