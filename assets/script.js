@@ -285,6 +285,8 @@ const navTargets = navLinks
 const languageTransitionMs = 170;
 const compactHeaderStart = 35;
 const compactHeaderEnd = 210;
+const mobileCompactEnter = 140;
+const mobileCompactExit = 90;
 const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 let headerFrame = null;
 
@@ -423,11 +425,11 @@ function updateHeaderState() {
 
     document.body.classList.remove('is-header-collapsed');
 
-    if (!isMobileCompact && window.scrollY > 160) {
+    if (!isMobileCompact && window.scrollY > mobileCompactEnter) {
       document.body.classList.add('is-mobile-header-compact');
     }
 
-    if (isMobileCompact && window.scrollY < 40) {
+    if (isMobileCompact && window.scrollY < mobileCompactExit) {
       document.body.classList.remove('is-mobile-header-compact');
     }
 
