@@ -744,7 +744,21 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
 
 @media (max-width: 700px) {
   section[id] { scroll-margin-top: 64px; }
-  html, body { background-color: #111318; }
+  html { background: #111318; }
+  body {
+    background-color: #111318;
+    background-image:
+      radial-gradient(circle at 16% 10%, rgba(216, 242, 117, 0.2), transparent 24rem),
+      radial-gradient(circle at 84% 28%, rgba(142, 230, 209, 0.17), transparent 23rem),
+      radial-gradient(circle at 24% 54%, rgba(175, 140, 255, 0.14), transparent 25rem),
+      radial-gradient(circle at 82% 78%, rgba(142, 230, 209, 0.12), transparent 22rem),
+      linear-gradient(145deg, #111318 0%, #191d28 46%, #10131a 100%);
+    background-size: 145% 34rem, 150% 38rem, 155% 42rem, 145% 38rem, 100% 100%;
+    background-position: -20% 0, 112% 16rem, -18% 46rem, 110% 82rem, 0 0;
+    background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
+    background-attachment: scroll;
+    animation: mobile-background-flow 24s ease-in-out infinite alternate;
+  }
   main { padding-top: 112px; }
   .ambient-background, .noise { display: none; }
   .site-header {
@@ -868,4 +882,17 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
   .footer { flex-direction: column; gap: 10px; }
   h1 { font-size: 2.85rem; }
   .profile-panel dl div { grid-template-columns: 1fr; gap: 4px; }
+}
+
+@keyframes mobile-background-flow {
+  from {
+    background-position: -20% 0, 112% 16rem, -18% 46rem, 110% 82rem, 0 0;
+  }
+  to {
+    background-position: 8% 5rem, 86% 21rem, 12% 52rem, 88% 76rem, 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 700px) {
+  body { animation: none; }
 }
