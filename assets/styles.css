@@ -746,17 +746,7 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
   section[id] { scroll-margin-top: 64px; }
   html, body { background-color: #111318; }
   main { padding-top: 112px; }
-  .ambient-background { inset: -12vh 0; }
-  .ambient-background::after { display: none; }
-  .ambient-background::before { opacity: 0.34; animation-duration: 28s; }
-  .ambient-orb {
-    width: 92vw;
-    opacity: 0.12;
-    mix-blend-mode: normal;
-    animation: none;
-    will-change: transform;
-  }
-  .noise { opacity: 0.2; }
+  .ambient-background, .noise { display: none; }
   .site-header {
     position: fixed;
     top: 12px;
@@ -769,7 +759,7 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
     align-items: stretch;
     flex-direction: column;
     border-radius: 26px;
-    transform: translateZ(0);
+    transform: none;
     background: rgba(17, 19, 24, 0.94);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;

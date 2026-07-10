@@ -519,7 +519,7 @@ function scheduleHeaderStateUpdate() {
 }
 
 function updateAmbientBackground() {
-  if (reducedMotionQuery.matches) {
+  if (reducedMotionQuery.matches || window.innerWidth <= 700) {
     document.documentElement.style.removeProperty('--ambient-primary-y');
     document.documentElement.style.removeProperty('--ambient-secondary-y');
     document.documentElement.style.removeProperty('--ambient-tertiary-x');
