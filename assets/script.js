@@ -285,10 +285,14 @@ const navTargets = navLinks
 const languageTransitionMs = 170;
 const compactHeaderStart = 35;
 const compactHeaderEnd = 210;
-const mobileCompactEnter = 140;
-const mobileCompactExit = 90;
+const mobileCompactEnter = 96;
+const mobileCompactExit = 48;
+const mobileExpandDistance = 28;
 const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 let headerFrame = null;
+let lastMobileScrollY = window.scrollY;
+let mobileScrollDirection = 0;
+let mobileScrollDistance = 0;
 
 function getSavedLanguage() {
   try {
@@ -422,21 +426,43 @@ function updateHeaderState() {
 
   if (isMobile) {
     const isMobileCompact = document.body.classList.contains('is-mobile-header-compact');
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastMobileScrollY;
+    const scrollDirection = Math.sign(scrollDelta);
 
     document.body.classList.remove('is-header-collapsed');
 
-    if (!isMobileCompact && window.scrollY > mobileCompactEnter) {
-      document.body.classList.add('is-mobile-header-compact');
+    if (scrollDirection !== 0) {
+      if (scrollDirection !== mobileScrollDirection) {
+        mobileScrollDirection = scrollDirection;
+        mobileScrollDistance = 0;
+      }
+
+      mobileScrollDistance += Math.abs(scrollDelta);
     }
 
-    if (isMobileCompact && window.scrollY < mobileCompactExit) {
+    lastMobileScrollY = currentScrollY;
+
+    if (!isMobileCompact && currentScrollY > mobileCompactEnter && scrollDirection > 0) {
+      document.body.classList.add('is-mobile-header-compact');
+      mobileScrollDistance = 0;
+    }
+
+    if (isMobileCompact && (
+      currentScrollY < mobileCompactExit ||
+      (scrollDirection < 0 && mobileScrollDistance >= mobileExpandDistance)
+    )) {
       document.body.classList.remove('is-mobile-header-compact');
+      mobileScrollDistance = 0;
     }
 
     return;
   }
 
   document.body.classList.remove('is-mobile-header-compact');
+  lastMobileScrollY = window.scrollY;
+  mobileScrollDirection = 0;
+  mobileScrollDistance = 0;
 
   const fullSideSpace = Math.max((viewportWidth - 1160) / 2, 16);
   const startTop = 18;
