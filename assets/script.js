@@ -1,7 +1,11 @@
 const translations = {
   en: {
-    metaTitle: 'Kenan Ibragimov - Unity Developer',
-    metaDescription: 'Kenan Ibragimov - Senior Unity Developer portfolio.',
+    metaTitle: 'Kenan Ibragimov - Senior Unity Developer',
+    metaDescription: 'Senior Unity Developer with 5+ years in gameplay architecture, performance optimization, Addressables, tooling and CI/CD for PC, console and mobile games.',
+    metaShareDescription: 'Production Unity engineering: gameplay architecture, performance, tooling and delivery automation.',
+    'aria.mainNav': 'Main navigation',
+    'aria.languageSelector': 'Language selector',
+    'aria.contactLinks': 'Contact links',
     'nav.about': 'About',
     'nav.impact': 'Impact',
     'nav.projects': 'Projects',
@@ -10,20 +14,43 @@ const translations = {
     'hero.title': 'Kenan Ibragimov',
     'hero.text': 'I build production Unity systems for AA, midcore, casual and mobile RPG projects: gameplay architecture, performance optimization, AI integrations, tooling and release automation.',
     'hero.emailCta': 'Email',
-    'hero.pdfCta': 'Download PDF',
+    'hero.pdfCta': 'Download CV - EN',
+    'hero.casesCta': 'View case studies',
     'impact.title': 'Strongest production metrics',
     'impact.loadTitle': 'Hub loading time',
-    'impact.loadText': 'Reworked Addressables groups and loading order to reduce blocking asset initialization.',
+    'impact.loadText': 'Reorganized Addressables groups and introduced distance-based deferred world spawning.',
     'impact.missionTitle': 'Mission loading time',
-    'impact.missionText': 'Split heavy content into cleaner loading stages and reduced redundant dependency pulls.',
+    'impact.missionText': 'Isolated scene dependencies with Pack Separately to avoid pulling oversized bundles.',
     'impact.memoryTitle': 'Memory pressure',
-    'impact.memoryText': 'Tracked shader/rendering and lifecycle leaks with Unity profiling tools and removed retained runtime objects.',
-    'impact.fpsTitle': 'FPS degradation fixed',
-    'impact.fpsText': 'Found gameplay-side bottlenecks behind drops from 100-120 FPS to 15-20 FPS and removed the root causes.',
+    'impact.memoryText': 'Reduced mission memory from 10-12 GB to 6-8 GB by removing duplicated content and retained runtime graphs.',
+    'impact.fpsMetric': 'Combat FPS stabilized',
+    'impact.fpsTitle': 'Ability and AI performance',
+    'impact.fpsText': 'Removed redundant combat calculations and allocation-heavy processing behind severe frame drops during ability simulation and enemy turns.',
     'impact.sizeTitle': 'Build size reduction',
     'impact.sizeText': 'Cut the package by about 48% through Addressables cleanup, asset audit and build pipeline discipline.',
     'impact.deliveryTitle': 'Delivery automation',
     'impact.deliveryText': 'Moved build handoffs into TeamCity, Cloudflare R2, n8n delivery pages and Discord notifications.',
+    'cases.eyebrow': 'Selected case studies',
+    'cases.title': 'How the production results were achieved',
+    'cases.intro': 'Measured on production builds with Unity Profiler, Memory Profiler snapshots and Addressables Build Report.',
+    'cases.problem': 'Problem',
+    'cases.solution': 'Solution',
+    'cases.result': 'Result',
+    'cases.loadingLabel': 'Loading and Addressables',
+    'cases.loadingTitle': 'Smaller dependency pulls and deferred world spawning',
+    'cases.loadingProblem': 'Scene loading pulled oversized bundles and created enemies, loot and interactive objects up front.',
+    'cases.loadingSolution': 'Isolated scenes and their dependencies in Addressables groups with Pack Separately, then introduced distance-based deferred spawning.',
+    'cases.loadingResult': 'Hub loading dropped from 30s to 18s; mission loading from 47s to 23s.',
+    'cases.memoryLabel': 'Memory lifecycle',
+    'cases.memoryTitle': 'Removed retained mission graphs and duplicated content',
+    'cases.memoryProblem': 'Duplicated shaders and assets, insufficient shader stripping and mission objects retained by static events, closures and global services.',
+    'cases.memorySolution': 'Used Memory Profiler snapshots to trace retention chains, fixed subscriptions and references, and disposed the mission ECS context that retained the entire object graph.',
+    'cases.memoryResult': 'Menu memory fell from 3-4 GB to about 1.8 GB, hub from 7-8 GB to 4-4.5 GB, missions from 10-12 GB to 6-8 GB.',
+    'cases.performanceLabel': 'Combat performance',
+    'cases.performanceTitle': 'Stabilized ability simulation and enemy turns',
+    'cases.performanceProblem': 'Repeated ability and pathfinding evaluation, together with allocation-heavy temporary data, caused severe frame degradation during combat simulation.',
+    'cases.performanceSolution': 'Removed redundant evaluation passes, reduced repeated pathfinding work and replaced temporary allocations with custom thread-safe pooled collections.',
+    'cases.performanceResult': 'Removed the severe combat frame degradation and stabilized the ability-processing pipeline.',
     'about.eyebrow': 'About',
     'about.title': 'Who I am',
     'about.text1': 'Senior Unity Developer with 5+ years of commercial production experience across AA, midcore, casual and mobile RPG projects. I focus on systems that directly affect delivery quality: gameplay architecture, UI frameworks, optimization, SDK integrations, build pipelines and AI-assisted internal tools.',
@@ -40,9 +67,17 @@ const translations = {
     'projects.title': 'Production work and technology stacks',
     'projects.criticalTag': 'AA tactical RPG',
     'projects.criticalText': 'Hardcore turn-based RPG for PC, PlayStation and Xbox. Gameplay systems, UI/meta, URP rendering features, SDK integrations, build automation and QA delivery workflows.',
+    'projects.contributionTitle': 'My contribution',
+    'projects.criticalContribution': 'Production-critical gameplay and UI/meta systems, performance and Addressables optimization, URP features and automated QA delivery.',
     'projects.forgeTag': 'Midcore RPG',
     'projects.forgeText': 'Turn-based mobile RPG with server-connected gameplay modules, chat, social features, quests, leaderboards and cloud saves.',
-    'projects.watchVideo': 'watch video',
+    'projects.forgeContribution': 'Gameplay architecture, MVP-based UI and real-time social features built through REST API and SignalR.',
+    'projects.watchVideo': 'Watch video',
+    'projects.playCritical': 'Watch video: Critical Shift trailer',
+    'projects.playForge': 'Watch video: Forge of Heroes gameplay',
+    'projects.playMahjong': 'Watch video: Mahjong Solitaire Classic gameplay',
+    'projects.playBusyBrain': 'Watch video: BusyBrain gameplay',
+    'projects.playStore': 'Watch video: Store Mania gameplay',
     'projects.mahjongTag': 'Mobile puzzle',
     'projects.mahjongText': 'Mobile puzzle production work with UI flow, SDK integrations, localization and release-oriented polishing.',
     'projects.busyBrainTag': 'Mobile casual',
@@ -52,7 +87,7 @@ const translations = {
     'skills.eyebrow': 'Core skills',
     'skills.title': 'Most important technical areas',
     'skills.archTitle': 'Unity architecture',
-    'skills.archText': 'C#, .NET, Unity Engine, ECS, Entitas, LeoECS, OOP, SOLID, Clean Code, MVP, MVVM, GoF patterns, Zenject, VContainer.',
+    'skills.archText': 'C#, .NET, Unity Engine, ECS, Entitas, LeoECS, MVP/MVVM, Zenject, VContainer, uGUI, UI Toolkit, Addressables, Spine, Animancer and DOTween.',
     'skills.gameplayTitle': 'Gameplay and UI systems',
     'skills.gameplayText': 'uGUI, UI Toolkit, IMGUI, responsive layouts, Addressables, Asset Bundles, Spine, Animancer, DOTween, Odin Inspector.',
     'skills.performanceTitle': 'Performance and rendering',
@@ -60,7 +95,7 @@ const translations = {
     'skills.networkTitle': 'Networking and services',
     'skills.networkText': 'REST API, SignalR, WebSockets, Photon Fusion, Firebase, Adjust, Facebook SDK, Unity Analytics, Remote Config, Crashlytics, IAP, Localization.',
     'skills.cicdTitle': 'CI/CD and automation',
-    'skills.cicdText': 'Git, GitHub, GitLab, TeamCity, n8n, Unity build automation, Cloudflare R2, build distribution, Discord integrations.',
+    'skills.cicdText': 'Git, GitHub, GitLab, TeamCity, n8n, Unity build automation, Cloudflare R2, NUnit, AltTester and AI-assisted code review workflows.',
     'skills.testingTitle': 'Testing and AI tooling',
     'skills.testingText': 'NUnit, TDD, AltTester, Claude Code, Cursor, Codex CLI, Gemini CLI, prompt engineering and AI-assisted code review.',
     'experience.eyebrow': 'Experience',
@@ -96,6 +131,10 @@ const translations = {
   ru: {
     metaTitle: 'Кенан Ибрагимов - Senior Unity Developer',
     metaDescription: 'Портфолио Кенана Ибрагимова: Unity-разработка, игровая архитектура, оптимизация и автоматизация сборок.',
+    metaShareDescription: 'Production Unity-разработка: gameplay-архитектура, производительность, инструменты и автоматизация доставки.',
+    'aria.mainNav': 'Основная навигация',
+    'aria.languageSelector': 'Выбор языка',
+    'aria.contactLinks': 'Ссылки для связи',
     'nav.about': 'Обо мне',
     'nav.impact': 'Результаты',
     'nav.projects': 'Проекты',
@@ -103,21 +142,44 @@ const translations = {
     'hero.eyebrow': 'Senior Unity Developer',
     'hero.title': 'Kenan Ibragimov',
     'hero.text': 'Проектирую production-ready Unity-системы для AA, midcore, casual и mobile RPG-проектов: gameplay-архитектуру, оптимизацию производительности, AI-интеграции, tooling и релизную автоматизацию.',
-    'hero.emailCta': 'Email',
-    'hero.pdfCta': 'Download PDF',
-    'impact.title': 'Самые сильные production-метрики',
+    'hero.emailCta': 'Почта',
+    'hero.pdfCta': 'Скачать CV - EN',
+    'hero.casesCta': 'Посмотреть кейсы',
+    'impact.title': 'Ключевые production-метрики',
     'impact.loadTitle': 'Загрузка хаба',
-    'impact.loadText': 'Переработал Addressables-группы и порядок загрузки, чтобы уменьшить блокирующую инициализацию ассетов.',
+    'impact.loadText': 'Перестроил Addressables-группы и добавил отложенное создание объектов по расстоянию до игрока.',
     'impact.missionTitle': 'Загрузка миссии',
-    'impact.missionText': 'Разделил тяжелый контент на более чистые стадии загрузки и сократил лишние dependency pulls.',
+    'impact.missionText': 'Изолировал зависимости сцен через Pack Separately, чтобы не загружать целиком крупные бандлы.',
     'impact.memoryTitle': 'Нагрузка на память',
-    'impact.memoryText': 'Через Unity profiling tools отследил shader/rendering и lifecycle leaks, затем убрал удерживаемые runtime-объекты.',
-    'impact.fpsTitle': 'Просадки FPS',
-    'impact.fpsText': 'По Profiler traces нашел gameplay-side bottlenecks за просадками со 100-120 FPS до 15-20 FPS и убрал root causes.',
+    'impact.memoryText': 'Снизил потребление памяти миссий с 10-12 до 6-8 ГБ, убрав дубликаты контента и удерживаемые графы объектов.',
+    'impact.fpsMetric': 'Стабильный FPS в бою',
+    'impact.fpsTitle': 'Производительность абилок и AI',
+    'impact.fpsText': 'Убрал лишние расчёты боя и аллокации, вызывавшие критические просадки при симуляции абилок и ходе противника.',
     'impact.sizeTitle': 'Размер билда',
     'impact.sizeText': 'Сократил пакет примерно на 48% через Addressables cleanup, asset audit и дисциплину build pipeline.',
     'impact.deliveryTitle': 'Автоматизация доставки',
     'impact.deliveryText': 'Перенес передачу билдов в TeamCity, Cloudflare R2, n8n delivery pages и Discord notifications.',
+    'cases.eyebrow': 'Избранные кейсы',
+    'cases.title': 'Как были получены production-результаты',
+    'cases.intro': 'Результаты измерялись на production-билдах с помощью Unity Profiler, снимков Memory Profiler и Addressables Build Report.',
+    'cases.problem': 'Проблема',
+    'cases.solution': 'Решение',
+    'cases.result': 'Результат',
+    'cases.loadingLabel': 'Загрузка и Addressables',
+    'cases.loadingTitle': 'Уменьшение зависимостей и отложенное создание мира',
+    'cases.loadingProblem': 'При загрузке сцен подтягивались крупные бандлы, а враги, лут и интерактивные объекты создавались сразу.',
+    'cases.loadingSolution': 'Вынес сцены и их зависимости в Addressables-группы с Pack Separately и добавил создание объектов по расстоянию до игрока.',
+    'cases.loadingResult': 'Загрузка хаба сократилась с 30 до 18 секунд, миссии - с 47 до 23 секунд.',
+    'cases.memoryLabel': 'Жизненный цикл памяти',
+    'cases.memoryTitle': 'Убрал удерживаемые графы миссий и дубликаты контента',
+    'cases.memoryProblem': 'Дубли шейдеров и ассетов, недостаточный shader stripping и объекты миссий, удерживаемые статическими событиями, замыканиями и глобальными сервисами.',
+    'cases.memorySolution': 'По снимкам Memory Profiler отследил цепочки удержания, исправил подписки и ссылки, а также уничтожение ECS-контекста миссии, который сохранял весь граф объектов.',
+    'cases.memoryResult': 'Меню: 3-4 ГБ до примерно 1,8 ГБ; хаб: 7-8 до 4-4,5 ГБ; миссии: 10-12 до 6-8 ГБ.',
+    'cases.performanceLabel': 'Производительность боя',
+    'cases.performanceTitle': 'Стабилизировал симуляцию абилок и ходы противника',
+    'cases.performanceProblem': 'Повторные расчёты абилок и поиска пути вместе с временными аллокациями вызывали критические просадки кадров во время симуляции боя.',
+    'cases.performanceSolution': 'Убрал лишние проходы расчёта, сократил повторный поиск пути и заменил временные аллокации самописными потокобезопасными пулами коллекций.',
+    'cases.performanceResult': 'Устранил критические просадки кадров и стабилизировал пайплайн обработки абилок.',
     'about.eyebrow': 'Обо мне',
     'about.title': 'Кто я',
     'about.text1': 'Senior Unity Developer с 5+ годами коммерческого production-опыта в AA, midcore, casual и mobile RPG-проектах. Основной фокус - системы, которые напрямую влияют на качество разработки и релизов: gameplay-архитектура, UI frameworks, оптимизация, SDK-интеграции, build pipelines и AI-assisted internal tools.',
@@ -134,9 +196,17 @@ const translations = {
     'projects.title': 'Production work и технологические стеки',
     'projects.criticalTag': 'AA tactical RPG',
     'projects.criticalText': 'Хардкорная пошаговая RPG для PC, PlayStation и Xbox. Gameplay systems, UI/meta, URP rendering features, SDK integrations, build automation и QA delivery workflows.',
+    'projects.contributionTitle': 'Мой вклад',
+    'projects.criticalContribution': 'Production-critical gameplay и UI/meta-системы, оптимизация производительности и Addressables, URP-функции и автоматизация доставки билдов для QA.',
     'projects.forgeTag': 'Midcore RPG',
     'projects.forgeText': 'Пошаговая mobile RPG с server-connected gameplay modules, чатом, social features, quests, leaderboards и cloud saves.',
-    'projects.watchVideo': 'смотреть видео',
+    'projects.forgeContribution': 'Gameplay-архитектура, MVP-интерфейсы и real-time social-функции через REST API и SignalR.',
+    'projects.watchVideo': 'Смотреть видео',
+    'projects.playCritical': 'Смотреть видео: трейлер Critical Shift',
+    'projects.playForge': 'Смотреть видео: Forge of Heroes',
+    'projects.playMahjong': 'Смотреть видео: Mahjong Solitaire Classic',
+    'projects.playBusyBrain': 'Смотреть видео: BusyBrain',
+    'projects.playStore': 'Смотреть видео: Store Mania',
     'projects.mahjongTag': 'Mobile puzzle',
     'projects.mahjongText': 'Mobile puzzle production work: UI flow, SDK integrations, localization и release-oriented polishing.',
     'projects.busyBrainTag': 'Mobile casual',
@@ -146,7 +216,7 @@ const translations = {
     'skills.eyebrow': 'Ключевые навыки',
     'skills.title': 'Самые важные технические зоны',
     'skills.archTitle': 'Unity architecture',
-    'skills.archText': 'C#, .NET, Unity Engine, ECS, Entitas, LeoECS, OOP, SOLID, Clean Code, MVP, MVVM, GoF patterns, Zenject, VContainer.',
+    'skills.archText': 'C#, .NET, Unity Engine, ECS, Entitas, LeoECS, MVP/MVVM, Zenject, VContainer, uGUI, UI Toolkit, Addressables, Spine, Animancer и DOTween.',
     'skills.gameplayTitle': 'Gameplay and UI systems',
     'skills.gameplayText': 'uGUI, UI Toolkit, IMGUI, responsive layouts, Addressables, Asset Bundles, Spine, Animancer, DOTween, Odin Inspector.',
     'skills.performanceTitle': 'Performance and rendering',
@@ -154,7 +224,7 @@ const translations = {
     'skills.networkTitle': 'Networking and services',
     'skills.networkText': 'REST API, SignalR, WebSockets, Photon Fusion, Firebase, Adjust, Facebook SDK, Unity Analytics, Remote Config, Crashlytics, IAP, Localization.',
     'skills.cicdTitle': 'CI/CD and automation',
-    'skills.cicdText': 'Git, GitHub, GitLab, TeamCity, n8n, Unity build automation, Cloudflare R2, build distribution, Discord integrations.',
+    'skills.cicdText': 'Git, GitHub, GitLab, TeamCity, n8n, Unity build automation, Cloudflare R2, NUnit, AltTester и AI-assisted code review workflows.',
     'skills.testingTitle': 'Testing and AI tooling',
     'skills.testingText': 'NUnit, TDD, AltTester, Claude Code, Cursor, Codex CLI, Gemini CLI, prompt engineering и AI-assisted code review.',
     'experience.eyebrow': 'Опыт',
@@ -204,6 +274,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 const languageButtons = document.querySelectorAll('[data-lang]');
 const metaDescription = document.querySelector('meta[name="description"]');
+const socialTitleMeta = document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]');
+const socialDescriptionMeta = document.querySelectorAll('meta[property="og:description"], meta[name="twitter:description"]');
+const socialLocaleMeta = document.querySelector('meta[property="og:locale"]');
+const videoPosters = document.querySelectorAll('.video-poster');
 const navLinks = Array.from(document.querySelectorAll('.nav a'));
 const navTargets = navLinks
   .map((link) => ({ link, target: document.querySelector(link.getAttribute('href')) }))
@@ -211,6 +285,7 @@ const navTargets = navLinks
 const languageTransitionMs = 170;
 const compactHeaderStart = 35;
 const compactHeaderEnd = 210;
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 let headerFrame = null;
 
 function getSavedLanguage() {
@@ -235,6 +310,9 @@ function updateLanguageContent(language) {
   document.documentElement.lang = language;
   document.title = dictionary.metaTitle;
   metaDescription.setAttribute('content', dictionary.metaDescription);
+  socialTitleMeta.forEach((meta) => meta.setAttribute('content', dictionary.metaTitle));
+  socialDescriptionMeta.forEach((meta) => meta.setAttribute('content', dictionary.metaShareDescription));
+  socialLocaleMeta.setAttribute('content', language === 'ru' ? 'ru_RU' : 'en_US');
 
   document.querySelectorAll('[data-i18n]').forEach((element) => {
     const key = element.dataset.i18n;
@@ -279,6 +357,25 @@ function applyLanguage(language, options = {}) {
 
 languageButtons.forEach((button) => {
   button.addEventListener('click', () => applyLanguage(button.dataset.lang, { animate: true }));
+});
+
+videoPosters.forEach((poster) => {
+  poster.addEventListener('click', () => {
+    const videoId = poster.dataset.videoId;
+    const start = Number.parseInt(poster.dataset.videoStart || '0', 10);
+    const params = new URLSearchParams({ autoplay: '1', rel: '0' });
+
+    if (start > 0) {
+      params.set('start', String(start));
+    }
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+    iframe.title = poster.dataset.videoTitle || 'Project video';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    poster.parentElement.replaceChildren(iframe);
+  });
 });
 
 function updateActiveNav() {
@@ -387,14 +484,33 @@ function scheduleHeaderStateUpdate() {
 
   headerFrame = window.requestAnimationFrame(() => {
     headerFrame = null;
+    updateAmbientBackground();
     updateHeaderState();
     updateActiveNav();
   });
 }
 
+function updateAmbientBackground() {
+  if (reducedMotionQuery.matches) {
+    document.documentElement.style.removeProperty('--ambient-primary-y');
+    document.documentElement.style.removeProperty('--ambient-secondary-y');
+    document.documentElement.style.removeProperty('--ambient-tertiary-x');
+    document.documentElement.style.removeProperty('--ambient-tertiary-y');
+    return;
+  }
+
+  const scroll = window.scrollY;
+  document.documentElement.style.setProperty('--ambient-primary-y', `${(-scroll * 0.045).toFixed(1)}px`);
+  document.documentElement.style.setProperty('--ambient-secondary-y', `${(scroll * 0.032).toFixed(1)}px`);
+  document.documentElement.style.setProperty('--ambient-tertiary-x', `${(Math.sin(scroll * 0.0014) * 44).toFixed(1)}px`);
+  document.documentElement.style.setProperty('--ambient-tertiary-y', `${(-scroll * 0.018).toFixed(1)}px`);
+}
+
 window.addEventListener('scroll', scheduleHeaderStateUpdate, { passive: true });
 window.addEventListener('scrollend', updateActiveNav);
 window.addEventListener('resize', scheduleHeaderStateUpdate);
+reducedMotionQuery.addEventListener('change', scheduleHeaderStateUpdate);
+updateAmbientBackground();
 updateHeaderState();
 updateActiveNav();
 

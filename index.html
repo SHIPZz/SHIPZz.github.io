@@ -3,22 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kenan Ibragimov - Senior Unity Developer portfolio." />
+  <meta name="description" content="Senior Unity Developer with 5+ years in gameplay architecture, performance optimization, Addressables, tooling and CI/CD for PC, console and mobile games." />
   <meta name="theme-color" content="#111318" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shipzz.github.io/" />
+  <meta property="og:title" content="Kenan Ibragimov - Senior Unity Developer" />
+  <meta property="og:description" content="Production Unity engineering: gameplay architecture, performance, tooling and delivery automation." />
+  <meta property="og:image" content="https://shipzz.github.io/assets/social-preview.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Kenan Ibragimov - Senior Unity Developer" />
+  <meta property="og:image:width" content="1729" />
+  <meta property="og:image:height" content="910" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kenan Ibragimov - Senior Unity Developer" />
+  <meta name="twitter:description" content="Production Unity engineering: gameplay architecture, performance, tooling and delivery automation." />
+  <meta name="twitter:image" content="https://shipzz.github.io/assets/social-preview.png" />
+  <meta name="twitter:image:alt" content="Kenan Ibragimov - Senior Unity Developer" />
   <title>Kenan Ibragimov - Unity Developer</title>
-  <link rel="stylesheet" href="assets/styles.css?v=30" />
+  <link rel="canonical" href="https://shipzz.github.io/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/styles.css?v=31" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kenan Ibragimov",
+      "url": "https://shipzz.github.io/",
+      "jobTitle": "Senior Unity Developer",
+      "email": "mailto:shoxssisa@gmail.com",
+      "sameAs": [
+        "https://t.me/kenanIbragimov",
+        "https://www.linkedin.com/in/kenan-ibragimov-b1a934321/"
+      ],
+      "knowsAbout": [
+        "Unity",
+        "C#",
+        "Gameplay architecture",
+        "Performance optimization",
+        "Addressables",
+        "CI/CD"
+      ]
+    }
+  </script>
 </head>
 <body>
+  <div class="ambient-background" aria-hidden="true">
+    <span class="ambient-orb ambient-orb-primary"></span>
+    <span class="ambient-orb ambient-orb-secondary"></span>
+    <span class="ambient-orb ambient-orb-tertiary"></span>
+  </div>
   <div class="noise" aria-hidden="true"></div>
   <header class="site-header" data-reveal>
     <div class="header-actions">
-      <nav class="nav" aria-label="Main navigation">
+      <nav class="nav" data-i18n-aria-label="aria.mainNav" aria-label="Main navigation">
         <a href="#cases" data-i18n="nav.impact">Impact</a>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#projects" data-i18n="nav.projects">Projects</a>
         <a href="#skills" data-i18n="nav.skills">Skills</a>
       </nav>
-      <div class="language-switch" aria-label="Language selector">
+      <div class="language-switch" data-i18n-aria-label="aria.languageSelector" aria-label="Language selector">
         <button class="language-button is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
         <button class="language-button" type="button" data-lang="ru" aria-pressed="false">RU</button>
       </div>
@@ -34,10 +78,13 @@
           I build production Unity systems for AA, midcore, casual and mobile RPG projects: gameplay architecture, performance optimization, AI integrations, tooling and release automation.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="mailto:shoxssisa@gmail.com" data-i18n="hero.emailCta">Email</a>
-          <a class="button ghost" href="https://t.me/kenanIbragimov" target="_blank" rel="noreferrer">Telegram</a>
-          <a class="button ghost" href="https://www.linkedin.com/in/kenan-ibragimov-b1a934321/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="button ghost" href="Kenan_Ibragimov_Unity_Developer.pdf" download data-i18n="hero.pdfCta">Download PDF</a>
+          <a class="button primary" href="Kenan_Ibragimov_Unity_Developer.pdf" download data-i18n="hero.pdfCta">Download CV - EN</a>
+          <a class="button ghost" href="#case-studies" data-i18n="hero.casesCta">View case studies</a>
+        </div>
+        <div class="hero-links" data-i18n-aria-label="aria.contactLinks" aria-label="Contact links">
+          <a href="mailto:shoxssisa@gmail.com" data-i18n="hero.emailCta">Email</a>
+          <a href="https://t.me/kenanIbragimov" target="_blank" rel="noreferrer">Telegram</a>
+          <a href="https://www.linkedin.com/in/kenan-ibragimov-b1a934321/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
     </section>
@@ -48,27 +95,27 @@
       </div>
       <div class="impact-list">
         <article class="impact-card warm">
-          <span class="metric-value">30s -> 18s</span>
+          <span class="metric-value">30s &rarr; 18s</span>
           <h3 data-i18n="impact.loadTitle">Hub loading time</h3>
           <p data-i18n="impact.loadText">Reworked Addressables groups and loading order to reduce blocking asset initialization.</p>
         </article>
         <article class="impact-card teal">
-          <span class="metric-value">47s -> 23s</span>
+          <span class="metric-value">47s &rarr; 23s</span>
           <h3 data-i18n="impact.missionTitle">Mission loading time</h3>
           <p data-i18n="impact.missionText">Split heavy content into cleaner loading stages and reduced redundant dependency pulls.</p>
         </article>
         <article class="impact-card blue">
-          <span class="metric-value">-7.5 GB RAM</span>
+          <span class="metric-value">10-12 &rarr; 6-8 GB</span>
           <h3 data-i18n="impact.memoryTitle">Memory pressure</h3>
           <p data-i18n="impact.memoryText">Tracked shader/rendering and lifecycle leaks with Unity profiling tools and removed retained runtime objects.</p>
         </article>
         <article class="impact-card lime">
-          <span class="metric-value">Multiple FPS drops</span>
-          <h3 data-i18n="impact.fpsTitle">FPS degradation fixed</h3>
-          <p data-i18n="impact.fpsText">Found gameplay-side performance bottlenecks with Profiler traces and removed the causes of severe frame drops.</p>
+          <span class="metric-value" data-i18n="impact.fpsMetric">Combat FPS stabilized</span>
+          <h3 data-i18n="impact.fpsTitle">Ability and AI performance</h3>
+          <p data-i18n="impact.fpsText">Removed redundant combat calculations and allocation-heavy processing behind severe frame drops during ability simulation and enemy turns.</p>
         </article>
         <article class="impact-card violet">
-          <span class="metric-value">23 GB -> 12 GB</span>
+          <span class="metric-value">23 GB &rarr; 12 GB</span>
           <h3 data-i18n="impact.sizeTitle">Build size reduction</h3>
           <p data-i18n="impact.sizeText">Cut the package by about 48% through Addressables cleanup, asset audit and build pipeline discipline.</p>
         </article>
@@ -76,6 +123,63 @@
           <span class="metric-value">CI/CD</span>
           <h3 data-i18n="impact.deliveryTitle">Delivery automation</h3>
           <p data-i18n="impact.deliveryText">Moved build handoffs into TeamCity, Cloudflare R2, n8n delivery pages and Discord notifications.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="case-studies" class="section case-studies" data-reveal>
+      <div class="section-heading centered">
+        <p class="eyebrow" data-i18n="cases.eyebrow">Selected case studies</p>
+        <h2 data-i18n="cases.title">How the production results were achieved</h2>
+        <p class="section-intro" data-i18n="cases.intro">Measured on production builds with Unity Profiler, Memory Profiler snapshots and Addressables Build Report.</p>
+      </div>
+      <div class="case-study-list">
+        <article class="case-study-card">
+          <div class="case-study-number">01</div>
+          <div class="case-study-content">
+            <div class="case-study-heading">
+              <p class="eyebrow" data-i18n="cases.loadingLabel">Loading and Addressables</p>
+              <h3 data-i18n="cases.loadingTitle">Smaller dependency pulls and deferred world spawning</h3>
+            </div>
+            <dl class="case-study-details">
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.loadingProblem">Scene loading pulled oversized bundles and created enemies, loot and interactive objects up front.</dd></div>
+              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.loadingSolution">Isolated scenes and their dependencies in Addressables groups with Pack Separately, then introduced distance-based deferred spawning.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.loadingResult">Hub loading dropped from 30s to 18s; mission loading from 47s to 23s.</dd></div>
+            </dl>
+            <div class="case-study-tags"><span>Addressables</span><span>Pack Separately</span><span>Windows PC</span><span>Steam Deck</span><span>Xbox</span></div>
+          </div>
+        </article>
+
+        <article class="case-study-card">
+          <div class="case-study-number">02</div>
+          <div class="case-study-content">
+            <div class="case-study-heading">
+              <p class="eyebrow" data-i18n="cases.memoryLabel">Memory lifecycle</p>
+              <h3 data-i18n="cases.memoryTitle">Removed retained mission graphs and duplicated content</h3>
+            </div>
+            <dl class="case-study-details">
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Duplicated shaders and assets, insufficient shader stripping and mission objects retained by static events, closures and global services.</dd></div>
+              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.memorySolution">Used Memory Profiler snapshots to trace retention chains, fixed subscriptions and references, and disposed the mission ECS context that retained the entire object graph.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Menu memory fell from 3-4 GB to about 1.8 GB, hub from 7-8 GB to 4-4.5 GB, missions from 10-12 GB to 6-8 GB.</dd></div>
+            </dl>
+            <div class="case-study-tags"><span>Memory Profiler</span><span>Snapshots</span><span>ECS lifecycle</span><span>Shader stripping</span></div>
+          </div>
+        </article>
+
+        <article class="case-study-card">
+          <div class="case-study-number">03</div>
+          <div class="case-study-content">
+            <div class="case-study-heading">
+              <p class="eyebrow" data-i18n="cases.performanceLabel">Combat performance</p>
+              <h3 data-i18n="cases.performanceTitle">Stabilized ability simulation and enemy turns</h3>
+            </div>
+            <dl class="case-study-details">
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Repeated ability and pathfinding evaluation, together with allocation-heavy temporary data, caused severe frame degradation during combat simulation.</dd></div>
+              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.performanceSolution">Removed redundant evaluation passes, reduced repeated pathfinding work and replaced temporary allocations with custom thread-safe pooled collections.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.performanceResult">Removed the severe combat frame degradation and stabilized the ability-processing pipeline.</dd></div>
+            </dl>
+            <div class="case-study-tags"><span>Unity Profiler</span><span>Pathfinding</span><span>Thread-safe pools</span><span>Frame time</span></div>
+          </div>
         </article>
       </div>
     </section>
@@ -117,12 +221,20 @@
       <div class="cards">
         <article class="project-card featured">
           <div class="project-media">
-            <iframe src="https://www.youtube.com/embed/-Gy9umYo748" title="Critical Shift trailer" loading="lazy" allowfullscreen></iframe>
+            <button class="video-poster" type="button" data-video-id="-Gy9umYo748" data-video-title="Critical Shift trailer" data-i18n-aria-label="projects.playCritical" aria-label="Watch video: Critical Shift trailer">
+              <img src="https://i.ytimg.com/vi_webp/-Gy9umYo748/sddefault.webp" alt="" width="640" height="360" loading="lazy" />
+              <span class="video-play" aria-hidden="true"></span>
+              <span class="video-label" data-i18n="projects.watchVideo">Watch video</span>
+            </button>
           </div>
           <div class="project-body">
             <span class="tag" data-i18n="projects.criticalTag">AA tactical RPG</span>
             <h3>Critical Shift</h3>
             <p data-i18n="projects.criticalText">Hardcore turn-based RPG for PC, PlayStation and Xbox. Gameplay systems, UI/meta, URP rendering features, SDK integrations, build automation and QA delivery workflows.</p>
+            <div class="project-contribution">
+              <strong data-i18n="projects.contributionTitle">My contribution</strong>
+              <p data-i18n="projects.criticalContribution">Production-critical gameplay and UI/meta systems, performance and Addressables optimization, URP features and automated QA delivery.</p>
+            </div>
             <div class="stack-list" aria-label="Technology stack">
               <span>Unity</span><span>C#</span><span>URP</span><span>Addressables</span><span>TeamCity</span><span>R2</span>
             </div>
@@ -131,12 +243,20 @@
         </article>
         <article class="project-card">
           <div class="project-media">
-            <iframe src="https://www.youtube.com/embed/k9RWStDq2vw" title="Forge of Heroes gameplay video" loading="lazy" allowfullscreen></iframe>
+            <button class="video-poster" type="button" data-video-id="k9RWStDq2vw" data-video-title="Forge of Heroes gameplay video" data-i18n-aria-label="projects.playForge" aria-label="Watch video: Forge of Heroes gameplay">
+              <img src="https://i.ytimg.com/vi/k9RWStDq2vw/sd2.jpg" alt="" width="640" height="360" loading="lazy" />
+              <span class="video-play" aria-hidden="true"></span>
+              <span class="video-label" data-i18n="projects.watchVideo">Watch video</span>
+            </button>
           </div>
           <div class="project-body">
             <span class="tag" data-i18n="projects.forgeTag">Midcore RPG</span>
             <h3>Forge of Heroes</h3>
             <p data-i18n="projects.forgeText">Turn-based mobile RPG with server-connected gameplay modules, chat, social features, quests, leaderboards and cloud saves.</p>
+            <div class="project-contribution">
+              <strong data-i18n="projects.contributionTitle">My contribution</strong>
+              <p data-i18n="projects.forgeContribution">Gameplay architecture, MVP-based UI and real-time social features built through REST API and SignalR.</p>
+            </div>
             <div class="stack-list" aria-label="Technology stack">
               <span>Unity</span><span>ECS</span><span>SignalR</span><span>REST API</span><span>Firebase</span>
             </div>
@@ -144,7 +264,11 @@
         </article>
         <article class="project-card">
           <div class="project-media">
-            <iframe src="https://www.youtube.com/embed/3GAcHCH5tuQ" title="Mahjong Solitaire Classic gameplay video" loading="lazy" allowfullscreen></iframe>
+            <button class="video-poster" type="button" data-video-id="3GAcHCH5tuQ" data-video-title="Mahjong Solitaire Classic gameplay video" data-i18n-aria-label="projects.playMahjong" aria-label="Watch video: Mahjong Solitaire Classic gameplay">
+              <img src="https://i.ytimg.com/vi_webp/3GAcHCH5tuQ/hqdefault.webp" alt="" width="640" height="360" loading="lazy" />
+              <span class="video-play" aria-hidden="true"></span>
+              <span class="video-label" data-i18n="projects.watchVideo">Watch video</span>
+            </button>
           </div>
           <div class="project-body">
             <span class="tag" data-i18n="projects.mahjongTag">Mobile puzzle</span>
@@ -157,7 +281,11 @@
         </article>
         <article class="project-card">
           <div class="project-media">
-            <iframe src="https://www.youtube.com/embed/BlyINW9U4Rc?start=1" title="BusyBrain gameplay video" loading="lazy" allowfullscreen></iframe>
+            <button class="video-poster" type="button" data-video-id="BlyINW9U4Rc" data-video-start="1" data-video-title="BusyBrain gameplay video" data-i18n-aria-label="projects.playBusyBrain" aria-label="Watch video: BusyBrain gameplay">
+              <img src="https://i.ytimg.com/vi/BlyINW9U4Rc/sddefault.jpg" alt="" width="640" height="360" loading="lazy" />
+              <span class="video-play" aria-hidden="true"></span>
+              <span class="video-label" data-i18n="projects.watchVideo">Watch video</span>
+            </button>
           </div>
           <div class="project-body">
             <span class="tag" data-i18n="projects.busyBrainTag">Mobile casual</span>
@@ -170,7 +298,11 @@
         </article>
         <article class="project-card">
           <div class="project-media">
-            <iframe src="https://www.youtube.com/embed/nhAgMwbnf6w" title="Store Mania gameplay video" loading="lazy" allowfullscreen></iframe>
+            <button class="video-poster" type="button" data-video-id="nhAgMwbnf6w" data-video-title="Store Mania gameplay video" data-i18n-aria-label="projects.playStore" aria-label="Watch video: Store Mania gameplay">
+              <img src="https://i.ytimg.com/vi/nhAgMwbnf6w/sddefault.jpg" alt="" width="640" height="360" loading="lazy" />
+              <span class="video-play" aria-hidden="true"></span>
+              <span class="video-label" data-i18n="projects.watchVideo">Watch video</span>
+            </button>
           </div>
           <div class="project-body">
             <span class="tag" data-i18n="projects.storeTag">Mobile simulator</span>
@@ -198,13 +330,6 @@
           </div>
         </article>
         <article>
-          <h3 data-i18n="skills.gameplayTitle">Gameplay, UI & Content</h3>
-          <p data-i18n="skills.gameplayText">uGUI, UI Toolkit, IMGUI, responsive layouts, Addressables, Asset Bundles, Spine, Animancer, DOTween, Odin Inspector.</p>
-          <div class="skill-highlights" aria-label="Key skills">
-            <span>Gameplay</span><span>UI Toolkit</span><span>Addressables</span><span>DOTween</span>
-          </div>
-        </article>
-        <article>
           <h3 data-i18n="skills.performanceTitle">Performance & Rendering</h3>
           <p data-i18n="skills.performanceText">Unity Profiler, Memory Profiler, Frame Debugger, CPU/GPU/RAM profiling, draw call reduction, URP Renderer Features, highlight and outline effects.</p>
           <div class="skill-highlights" aria-label="Key skills">
@@ -223,13 +348,6 @@
           <p data-i18n="skills.cicdText">Git, GitHub, GitLab, TeamCity, n8n, Unity build automation, Cloudflare R2, build distribution, Discord/GitHub integrations.</p>
           <div class="skill-highlights" aria-label="Key skills">
             <span>TeamCity</span><span>R2</span><span>n8n</span><span>Builds</span>
-          </div>
-        </article>
-        <article>
-          <h3 data-i18n="skills.testingTitle">Testing & AI tooling</h3>
-          <p data-i18n="skills.testingText">NUnit, TDD, AltTester, Claude Code, Cursor, Codex CLI, Gemini CLI, prompt engineering and AI-assisted code review.</p>
-          <div class="skill-highlights" aria-label="Key skills">
-            <span>AltTester</span><span>NUnit</span><span>AI review</span><span>Prompting</span>
           </div>
         </article>
       </div>
@@ -309,7 +427,7 @@
         <a class="button primary" href="mailto:shoxssisa@gmail.com">shoxssisa@gmail.com</a>
         <a class="button ghost" href="https://t.me/kenanIbragimov" target="_blank" rel="noreferrer">Telegram</a>
         <a class="button ghost" href="https://www.linkedin.com/in/kenan-ibragimov-b1a934321/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="button ghost" href="Kenan_Ibragimov_Unity_Developer.pdf" download data-i18n="hero.pdfCta">Download PDF</a>
+        <a class="button ghost" href="Kenan_Ibragimov_Unity_Developer.pdf" download data-i18n="hero.pdfCta">Download CV - EN</a>
       </div>
     </section>
   </main>
@@ -319,6 +437,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=29"></script>
+  <script src="assets/script.js?v=30"></script>
 </body>
 </html>
