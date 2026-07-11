@@ -161,7 +161,7 @@ const translations = {
     'impact.sizeTitle': 'Сократил размер билда на 48%',
     'impact.sizeDelta': 'Готовый билд',
     'impact.sizeText': 'По результатам Addressables Build Report устранил дублирование ассетов, вынес bootstrap-контент в отдельную группу и исключил неиспользуемые шейдерные ресурсы.',
-    'impact.deliveryMetric': 'От готового билда до ссылки без ручных действий',
+    'impact.deliveryMetric': 'Доставка и получение билда без ручных действий',
     'impact.deliveryTitle': 'Автоматизировал доставку билдов',
     'impact.deliveryText': 'Объединил TeamCity, Cloudflare R2, n8n и Discord в единый процесс публикации билдов, создания страниц загрузки и уведомления команды.',
     'cases.title': 'ТЕХНИЧЕСКИЕ КЕЙСЫ',
