@@ -130,7 +130,7 @@ const translations = {
     'education.languagesTitle': 'Languages',
     'education.languagesText': 'English B2 · Russian Native · Azerbaijani Native / Fluent',
     'contact.eyebrow': 'Contact',
-    'contact.title': 'Contact and availability',
+    'contact.title': 'Contact me',
     'contact.text': 'Available for Senior Unity Developer roles involving gameplay architecture, performance engineering, tooling and CI/CD.',
     'footer.back': '↑ Back to top'
   },
@@ -265,7 +265,7 @@ const translations = {
     'education.languagesTitle': 'Языки',
     'education.languagesText': 'Английский B2 · русский родной · азербайджанский родной / свободный',
     'contact.eyebrow': 'Контакты',
-    'contact.title': 'Контакты и доступность',
+    'contact.title': 'Связаться со мной',
     'contact.text': 'Рассматриваю позиции Senior Unity Developer с задачами в области gameplay-архитектуры, производительности, tooling и CI/CD.',
     'footer.back': '↑ Наверх'
   }
