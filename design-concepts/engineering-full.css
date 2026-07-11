@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+html[data-concept="engineering"] {
+  --bg: #090d0e;
+  --surface: #101617;
+  --surface-strong: #151d1f;
+  --text: #f0f4ed;
+  --muted: #8d999a;
+  --accent: #d8ff58;
+  --accent-2: #70e9c0;
+  --line: rgba(216, 255, 88, 0.17);
+  --max: 1240px;
+  color-scheme: dark;
+  background: #090d0e;
+}
+
+html[data-concept="engineering"] body {
+  font-family: Manrope, Arial, sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(rgba(216,255,88,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,255,88,.035) 1px, transparent 1px),
+    radial-gradient(circle at 84% 8%, rgba(54,120,98,.2), transparent 29%),
+    #090d0e;
+  background-size: 64px 64px, 64px 64px, auto, auto;
+}
+
+html[data-concept="engineering"] .ambient-background,
+html[data-concept="engineering"] .noise { display: none; }
+
+html[data-concept="engineering"] .site-header {
+  top: 18px;
+  width: min(1240px, calc(100% - 32px));
+  min-height: 58px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: rgba(9,13,14,.84);
+  box-shadow: 0 20px 55px rgba(0,0,0,.28);
+  backdrop-filter: blur(20px);
+}
+
+html[data-concept="engineering"] .site-header::before {
+  content: "KI / SYSTEM PROFILE";
+  position: absolute;
+  left: 20px;
+  color: var(--text);
+  font: 700 .65rem Space Mono, monospace;
+  letter-spacing: .08em;
+}
+
+html[data-concept="engineering"] .header-actions { width: min(100%, 720px); }
+html[data-concept="engineering"] .nav { width: 520px; }
+html[data-concept="engineering"] .nav a {
+  border-radius: 8px;
+  color: #929c9e;
+  font-size: .72rem;
+  font-weight: 800;
+}
+html[data-concept="engineering"] .nav a.is-active {
+  color: #0b0f10;
+  background: var(--accent);
+  box-shadow: none;
+}
+html[data-concept="engineering"] .language-switch { border-radius: 8px; background: #111719; }
+html[data-concept="engineering"] .language-button { border-radius: 6px; }
+html[data-concept="engineering"] .language-button.is-active { color: #101415; background: var(--accent); }
+
+html[data-concept="engineering"] main { isolation: isolate; }
+html[data-concept="engineering"] .section { width: min(var(--max), calc(100% - 40px)); padding: 110px 0; }
+
+html[data-concept="engineering"] .hero {
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  padding-top: 140px;
+  text-align: left;
+}
+html[data-concept="engineering"] .hero::before {
+  content: "SYS.PROFILE / UNITY / 2026";
+  position: absolute;
+  top: 155px;
+  left: 0;
+  color: #677174;
+  font: 700 .68rem Space Mono, monospace;
+  letter-spacing: .12em;
+}
+html[data-concept="engineering"] .hero::after {
+  content: "ONLINE\A\A EXPERIENCE       5+ YEARS\A PRODUCTION       AA / MIDCORE\A PLATFORMS        PC / XBOX / MOBILE\A TEAM             UP TO 35";
+  white-space: pre;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 340px;
+  padding: 25px;
+  border: 1px solid #30393b;
+  border-radius: 14px;
+  color: #a6afb1;
+  background: rgba(17,23,25,.88);
+  box-shadow: 18px 18px 0 rgba(216,255,88,.035);
+  font: 700 .7rem/2.15 Space Mono, monospace;
+  transform: translateY(-50%);
+}
+html[data-concept="engineering"] .hero-copy { max-width: 760px; margin: 0; }
+html[data-concept="engineering"] .hero .eyebrow {
+  margin-bottom: 25px;
+  color: var(--accent);
+  font: 700 .78rem Space Mono, monospace;
+  letter-spacing: .14em;
+}
+html[data-concept="engineering"] .hero h1 {
+  max-width: 760px;
+  color: var(--text);
+  font-size: clamp(5rem, 8.5vw, 8.5rem);
+  line-height: .84;
+  letter-spacing: -.085em;
+  text-shadow: none;
+}
+html[data-concept="engineering"] .hero-text {
+  max-width: 720px;
+  margin: 38px 0 0;
+  color: #a5afb0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+html[data-concept="engineering"] .hero-actions { justify-content: flex-start; }
+html[data-concept="engineering"] .button { border-radius: 8px; }
+html[data-concept="engineering"] .button.primary { color: #101415; background: var(--accent); box-shadow: none; }
+html[data-concept="engineering"] .button.ghost { background: rgba(16,22,23,.8); }
+html[data-concept="engineering"] .hero-links { justify-content: flex-start; }
+
+html[data-concept="engineering"] .section-heading,
+html[data-concept="engineering"] .section-heading.centered,
+html[data-concept="engineering"] .section-label,
+html[data-concept="engineering"] .skills-section .section-label {
+  position: static;
+  max-width: none;
+  margin: 0 0 52px;
+  padding-top: 25px;
+  border-top: 1px solid #30383a;
+  text-align: left;
+}
+html[data-concept="engineering"] .section-heading h2,
+html[data-concept="engineering"] .section-heading.centered h2,
+html[data-concept="engineering"] .section-label h2,
+html[data-concept="engineering"] .skills-section .section-label h2,
+html[data-concept="engineering"] .education > div:first-child h2 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2.9rem, 5.3vw, 5.5rem);
+  line-height: .92;
+  letter-spacing: -.065em;
+  text-align: left;
+}
+html[data-concept="engineering"] .section-heading::before,
+html[data-concept="engineering"] .section-label::before {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--accent);
+  font: 700 .68rem Space Mono, monospace;
+  letter-spacing: .12em;
+}
+html[data-concept="engineering"] #projects .section-heading::before { content: "01 / SELECTED WORK"; }
+html[data-concept="engineering"] #cases .section-heading::before { content: "02 / PRODUCTION IMPACT"; }
+html[data-concept="engineering"] #case-studies .section-heading::before { content: "03 / TECHNICAL CASES"; }
+html[data-concept="engineering"] #skills .section-label::before { content: "04 / TECHNOLOGY"; }
+html[data-concept="engineering"] #work .section-label::before { content: "05 / EXPERIENCE"; }
+
+html[data-concept="engineering"] .cards { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+html[data-concept="engineering"] .project-card {
+  min-height: 680px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid #30383a;
+  border-radius: 14px;
+  background: rgba(15,20,22,.9);
+  box-shadow: none;
+}
+html[data-concept="engineering"] .project-card.featured { grid-column: 1 / -1; grid-template-columns: 1.2fr .8fr; grid-template-rows: 1fr; }
+html[data-concept="engineering"] .project-card.featured .project-media { min-height: 620px; height: 100%; }
+html[data-concept="engineering"] .project-media { border-radius: 0; min-height: 300px; }
+html[data-concept="engineering"] .project-media::after { background: linear-gradient(0deg, rgba(9,13,14,.35), transparent 50%); }
+html[data-concept="engineering"] .project-body { padding: 30px; gap: 16px; }
+html[data-concept="engineering"] .project-body h3 { font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -.06em; }
+html[data-concept="engineering"] .tag,
+html[data-concept="engineering"] .stack-list span,
+html[data-concept="engineering"] .skill-highlights span {
+  border-color: #3a4546;
+  border-radius: 6px;
+  color: #c6cece;
+  background: #151c1e;
+  box-shadow: none;
+  font-family: Space Mono, monospace;
+  font-size: .62rem;
+}
+html[data-concept="engineering"] .tag { color: var(--accent); }
+html[data-concept="engineering"] .project-contribution {
+  border-left: 2px solid var(--accent);
+  border-radius: 0;
+  background: rgba(216,255,88,.035);
+}
+
+html[data-concept="engineering"] .impact-list { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0; border: 1px solid #30383a; border-radius: 14px; overflow: hidden; }
+html[data-concept="engineering"] .impact-card,
+html[data-concept="engineering"] .impact-card:last-child {
+  grid-column: auto;
+  width: auto;
+  min-height: 410px;
+  padding: 25px;
+  border: 0;
+  border-right: 1px solid #30383a;
+  border-radius: 0;
+  background: rgba(15,20,22,.82);
+  box-shadow: none;
+}
+html[data-concept="engineering"] .impact-card:last-child { grid-column: span 2; border-top: 1px solid #30383a; }
+html[data-concept="engineering"] .impact-card:nth-child(4) { border-right: 0; }
+html[data-concept="engineering"] .impact-list h3 { min-height: 64px; font-size: 1rem; }
+html[data-concept="engineering"] .metric-breakdown,
+html[data-concept="engineering"] .metric-breakdown.three-column-metrics { grid-template-columns: 1fr; }
+html[data-concept="engineering"] .metric-breakdown > div,
+html[data-concept="engineering"] .result-metric { min-height: 0; padding: 13px 0; border: 0; border-top: 1px solid #2d3537; border-radius: 0; background: none; }
+html[data-concept="engineering"] .metric-breakdown strong,
+html[data-concept="engineering"] .result-metric strong { color: var(--accent); font-size: 1.35rem; }
+html[data-concept="engineering"] .metric-context { color: var(--accent-2); font-family: Space Mono, monospace; }
+html[data-concept="engineering"] .impact-list p { margin-top: auto; font-size: .78rem; line-height: 1.7; }
+
+html[data-concept="engineering"] .case-study-list { gap: 14px; }
+html[data-concept="engineering"] .case-study-card { border: 1px solid #30383a; border-radius: 14px; background: #101617; box-shadow: none; }
+html[data-concept="engineering"] .case-study-content { grid-template-columns: 290px 1fr; gap: 35px; padding: 30px; }
+html[data-concept="engineering"] .case-study-heading h3 { font-size: 1.6rem; }
+html[data-concept="engineering"] .case-study-details { grid-template-columns: repeat(3,1fr); gap: 0; }
+html[data-concept="engineering"] .case-study-details > div { padding: 0 20px; border-left: 1px solid #30383a; }
+html[data-concept="engineering"] .case-study-details dt { color: var(--accent); font-family: Space Mono, monospace; }
+
+html[data-concept="engineering"] .skills-layout { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; border: 1px solid #30383a; border-radius: 14px; overflow: hidden; }
+html[data-concept="engineering"] .skills-layout article {
+  min-height: 330px;
+  padding: 28px;
+  border: 0;
+  border-right: 1px solid #30383a;
+  border-bottom: 1px solid #30383a;
+  border-radius: 0;
+  background: rgba(15,20,22,.85);
+  box-shadow: none;
+}
+html[data-concept="engineering"] .skills-layout article:nth-child(3n) { border-right: 0; }
+html[data-concept="engineering"] .skills-layout h3 { font-size: 1.35rem; }
+
+html[data-concept="engineering"] .split { grid-template-columns: 1fr; gap: 0; }
+html[data-concept="engineering"] .timeline { gap: 14px; }
+html[data-concept="engineering"] .timeline-item { grid-template-columns: 240px 1fr; padding: 32px; border: 1px solid #30383a; border-radius: 14px; background: #101617; }
+html[data-concept="engineering"] .timeline-item::before { display: none; }
+html[data-concept="engineering"] .timeline-date { color: var(--accent); font-family: Space Mono, monospace; }
+html[data-concept="engineering"] .timeline-content h3 { font-size: 1.7rem; }
+html[data-concept="engineering"] .timeline-content li { color: #a0aaab; }
+
+html[data-concept="engineering"] .education { grid-template-columns: 1fr; gap: 45px; }
+html[data-concept="engineering"] .education > div:first-child { position: static; padding-top: 25px; border-top: 1px solid #30383a; }
+html[data-concept="engineering"] .education-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; border: 1px solid #30383a; border-radius: 14px; overflow: hidden; }
+html[data-concept="engineering"] .education-grid article { border: 0; border-right: 1px solid #30383a; border-radius: 0; background: #101617; box-shadow: none; }
+html[data-concept="engineering"] .education-grid article:last-child { border-right: 0; }
+
+html[data-concept="engineering"] .contact { align-items: end; padding: 50px; border: 1px solid rgba(216,255,88,.3); border-radius: 14px; background: linear-gradient(135deg, rgba(216,255,88,.08), #101617 60%); box-shadow: none; }
+html[data-concept="engineering"] .contact h2 { font-size: clamp(3rem, 6vw, 6rem); letter-spacing: -.07em; }
+html[data-concept="engineering"] .footer { border-top: 1px solid #30383a; color: #778183; }
+
+@media (max-width: 980px) {
+  html[data-concept="engineering"] .site-header::before { display: none; }
+  html[data-concept="engineering"] .hero::after { display: none; }
+  html[data-concept="engineering"] .hero-copy { max-width: 850px; }
+  html[data-concept="engineering"] .impact-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  html[data-concept="engineering"] .impact-card:last-child { grid-column: 1 / -1; }
+  html[data-concept="engineering"] .skills-layout { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  html[data-concept="engineering"] .skills-layout article:nth-child(3n) { border-right: 1px solid #30383a; }
+  html[data-concept="engineering"] .skills-layout article:nth-child(2n) { border-right: 0; }
+  html[data-concept="engineering"] .case-study-content { grid-template-columns: 1fr; }
+  html[data-concept="engineering"] .case-study-details > div:first-child { border-left: 0; padding-left: 0; }
+}
+
+@media (max-width: 720px) {
+  html[data-concept="engineering"] .section { width: min(100% - 24px, var(--max)); padding: 78px 0; }
+  html[data-concept="engineering"] .hero { min-height: 760px; padding-top: 150px; }
+  html[data-concept="engineering"] .hero::before { top: 125px; }
+  html[data-concept="engineering"] .hero h1 { font-size: clamp(3.4rem, 18vw, 5.2rem); }
+  html[data-concept="engineering"] .hero-text { font-size: .94rem; }
+  html[data-concept="engineering"] .section-heading h2,
+  html[data-concept="engineering"] .section-heading.centered h2,
+  html[data-concept="engineering"] .section-label h2,
+  html[data-concept="engineering"] .skills-section .section-label h2,
+  html[data-concept="engineering"] .education > div:first-child h2 { font-size: 2.65rem; }
+  html[data-concept="engineering"] .cards,
+  html[data-concept="engineering"] .impact-list,
+  html[data-concept="engineering"] .skills-layout,
+  html[data-concept="engineering"] .education-grid { grid-template-columns: 1fr; }
+  html[data-concept="engineering"] .project-card.featured { grid-column: auto; grid-template-columns: 1fr; }
+  html[data-concept="engineering"] .project-card,
+  html[data-concept="engineering"] .project-card.featured { min-height: 0; }
+  html[data-concept="engineering"] .project-card.featured .project-media { min-height: 240px; }
+  html[data-concept="engineering"] .impact-card,
+  html[data-concept="engineering"] .impact-card:last-child { grid-column: auto; min-height: 0; border-right: 0; border-bottom: 1px solid #30383a; }
+  html[data-concept="engineering"] .case-study-details { grid-template-columns: 1fr; }
+  html[data-concept="engineering"] .case-study-details > div { padding: 20px 0; border-left: 0; border-top: 1px solid #30383a; }
+  html[data-concept="engineering"] .skills-layout article,
+  html[data-concept="engineering"] .skills-layout article:nth-child(3n) { min-height: 0; border-right: 0; }
+  html[data-concept="engineering"] .timeline-item { grid-template-columns: 1fr; padding: 24px; }
+  html[data-concept="engineering"] .education-grid article { border-right: 0; border-bottom: 1px solid #30383a; }
+  html[data-concept="engineering"] .contact { padding: 30px 22px; align-items: start; }
+}

@@ -24,6 +24,17 @@
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/styles.css?v=56" />
+  <script>
+    (() => {
+      const concept = new URLSearchParams(window.location.search).get('concept');
+      if (concept !== 'engineering' && concept !== 'cinematic') return;
+      document.documentElement.dataset.concept = concept;
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = `design-concepts/${concept}-full.css?v=2`;
+      document.head.appendChild(stylesheet);
+    })();
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
