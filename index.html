@@ -23,7 +23,7 @@
   <title>Kenan Ibragimov - Unity Developer</title>
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/styles.css?v=39" />
+  <link rel="stylesheet" href="assets/styles.css?v=40" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -75,7 +75,7 @@
         <p class="eyebrow" data-i18n="hero.eyebrow">Senior Unity Developer</p>
         <h1 data-i18n="hero.title">Kenan Ibragimov</h1>
         <p class="hero-text" data-i18n="hero.text">
-          Senior Unity Developer with 5+ years of commercial experience across AA, midcore, casual and mobile RPG projects. I work across gameplay architecture, UI and meta systems, rendering, performance, SDK integrations, tooling and build automation.
+          Senior Unity Developer with 5+ years of commercial experience across AA, midcore, casual and mobile RPG projects. Areas of responsibility include gameplay architecture, UI and meta systems, rendering, performance engineering, SDK integrations, internal tools and build automation.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="Kenan_Ibragimov_Unity_Developer.pdf?v=3" download data-i18n="hero.pdfCta">Download CV - EN</a>
@@ -91,38 +91,33 @@
 
     <section id="cases" class="section impact" data-reveal>
       <div class="section-heading centered">
-        <h2 data-i18n="impact.title">Measured production impact</h2>
+        <h2 data-i18n="impact.title">Selected production results</h2>
       </div>
       <div class="impact-list">
         <article class="impact-card warm">
-          <span class="metric-value">30s &rarr; 18s</span>
-          <h3 data-i18n="impact.loadTitle">Hub loading time</h3>
-          <p data-i18n="impact.loadText">Deferred enemies, loot and interactable objects by distance from the player, so the hub no longer initialized the entire world up front.</p>
-        </article>
-        <article class="impact-card teal">
-          <span class="metric-value">47s &rarr; 23s</span>
-          <h3 data-i18n="impact.missionTitle">Mission loading time</h3>
-          <p data-i18n="impact.missionText">Audited Addressables dependency pulls and separated scene content from shared assets, preventing missions from loading oversized bundles and duplicated dependencies.</p>
+          <span class="metric-value is-combined">30s &rarr; 18s / 47s &rarr; 23s</span>
+          <h3 data-i18n="impact.loadTitle">Hub and mission loading</h3>
+          <p data-i18n="impact.loadText">Reduced hub load time from 30s to 18s and mission load time from 47s to 23s by restructuring Addressables dependencies and deferring non-critical world initialization.</p>
         </article>
         <article class="impact-card blue">
           <span class="metric-value">10-12 &rarr; 6-8 GB</span>
-          <h3 data-i18n="impact.memoryTitle">Memory pressure</h3>
-          <p data-i18n="impact.memoryText">Memory Profiler exposed unintended retention in legacy mission code: static events, closures, global services and the ECS context kept entire missions alive.</p>
+          <h3 data-i18n="impact.memoryTitle">Mission memory usage</h3>
+          <p data-i18n="impact.memoryText">Identified unintended object retention in legacy mission code and duplicated bundle content through Memory Profiler analysis; corrected lifecycle cleanup and ECS context disposal.</p>
         </article>
         <article class="impact-card lime">
-          <span class="metric-value" data-i18n="impact.fpsMetric">1-15 FPS stalls removed</span>
-          <h3 data-i18n="impact.fpsTitle">Ability and enemy-turn performance</h3>
-          <p data-i18n="impact.fpsText">Profiling exposed repeated ability evaluation, pathfinding work and allocation-heavy temporary data. Removed duplicate passes and switched temporary collections to custom thread-safe pools.</p>
+          <span class="metric-value" data-i18n="impact.fpsMetric">Combat performance stabilized</span>
+          <h3 data-i18n="impact.fpsTitle">Ability simulation and enemy turns</h3>
+          <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; custom thread-safe pools replaced allocation-heavy collections.</p>
         </article>
         <article class="impact-card violet">
           <span class="metric-value">23 GB &rarr; 12 GB</span>
-          <h3 data-i18n="impact.sizeTitle">Build size reduction</h3>
-          <p data-i18n="impact.sizeText">Addressables Build Report exposed duplicated bundle dependencies and a bootstrap scene referencing large parts of the project. Moved bootstrap into Addressables and removed redundant content.</p>
+          <h3 data-i18n="impact.sizeTitle">Build size</h3>
+          <p data-i18n="impact.sizeText">Removed duplicated Addressables dependencies, relocated bootstrap content and eliminated unnecessary shader resources following build-report analysis.</p>
         </article>
         <article class="impact-card neutral">
-          <span class="metric-value" data-i18n="impact.deliveryMetric">QA delivery automated</span>
-          <h3 data-i18n="impact.deliveryTitle">Build distribution</h3>
-          <p data-i18n="impact.deliveryText">Replaced manual archive sharing with TeamCity builds published to Cloudflare R2, n8n download pages and Discord notifications for QA.</p>
+          <span class="metric-value" data-i18n="impact.deliveryMetric">Automated build delivery</span>
+          <h3 data-i18n="impact.deliveryTitle">CI/CD and distribution</h3>
+          <p data-i18n="impact.deliveryText">Implemented a TeamCity-to-Cloudflare R2 delivery pipeline with n8n-generated download pages and Discord notifications, replacing manual archive publication and link management.</p>
         </article>
       </div>
     </section>
@@ -130,8 +125,8 @@
     <section id="case-studies" class="section case-studies" data-reveal>
       <div class="section-heading centered">
         <p class="eyebrow" data-i18n="cases.eyebrow">Selected case studies</p>
-        <h2 data-i18n="cases.title">How the production results were achieved</h2>
-        <p class="section-intro" data-i18n="cases.intro">Measured on production builds with Unity Profiler, Memory Profiler snapshots and Addressables Build Report.</p>
+        <h2 data-i18n="cases.title">Implementation details</h2>
+        <p class="section-intro" data-i18n="cases.intro">Results were measured on production builds using Unity Profiler, Memory Profiler snapshots and Addressables Build Report.</p>
       </div>
       <div class="case-study-list">
         <article class="case-study-card">
@@ -184,18 +179,18 @@
     <section id="about" class="section about-section" data-reveal>
       <div class="section-label">
         <p class="eyebrow" data-i18n="about.eyebrow">About</p>
-        <h2 data-i18n="about.title">Who I am</h2>
+        <h2 data-i18n="about.title">Professional profile</h2>
       </div>
       <div class="about-copy">
-        <p data-i18n="about.text1">I take ownership of complex production areas from diagnosis and architecture through implementation, profiling and delivery. My work spans gameplay, UI/meta, rendering, client-server features, SDK integrations, internal tools and CI/CD.</p>
-        <p data-i18n="about.text2">I am most effective where a project needs both engineering depth and a measurable outcome: stabilizing legacy systems, removing performance bottlenecks, designing maintainable feature architecture and reducing manual work around builds and QA.</p>
+        <p data-i18n="about.text1">Experience covers the complete delivery cycle for complex Unity systems: diagnosis, architecture, implementation, profiling and deployment. Technical scope includes gameplay, UI and meta systems, rendering, client-server features, SDK integrations, internal tools and CI/CD.</p>
+        <p data-i18n="about.text2">Primary competencies include stabilization of legacy systems, performance analysis, maintainable feature architecture and automation of build and distribution workflows.</p>
       </div>
     </section>
 
     <section id="projects" class="section project-grid" data-reveal>
       <div class="section-heading centered">
         <p class="eyebrow" data-i18n="projects.eyebrow">Projects</p>
-        <h2 data-i18n="projects.title">Production work and technology stacks</h2>
+        <h2 data-i18n="projects.title">Selected projects and technology stacks</h2>
       </div>
       <div class="cards">
         <article class="project-card featured">
@@ -209,10 +204,10 @@
           <div class="project-body">
             <span class="tag" data-i18n="projects.criticalTag">AA tactical RPG</span>
             <h3>Critical Shift</h3>
-            <p data-i18n="projects.criticalText">Hardcore turn-based RPG for Windows PC, Steam Deck and Xbox. Gameplay systems, UI/meta, URP rendering features, SDK integrations, build automation and QA delivery workflows.</p>
+            <p data-i18n="projects.criticalText">AA tactical RPG for Windows PC, Steam Deck and Xbox. Scope included gameplay, UI and meta systems, URP rendering features, SDK integrations, build automation and distribution.</p>
             <div class="project-contribution">
               <strong data-i18n="projects.contributionTitle">My contribution</strong>
-              <p data-i18n="projects.criticalContribution">Production-critical gameplay and UI/meta systems, performance and Addressables optimization, URP features and automated QA delivery.</p>
+              <p data-i18n="projects.criticalContribution">Implemented gameplay and UI/meta systems, optimized performance and Addressables usage, developed URP features and automated build delivery.</p>
             </div>
             <div class="stack-list" aria-label="Technology stack">
               <span>Unity</span><span>C#</span><span>ECS</span><span>Entitas</span><span>URP</span><span>uGUI</span><span>UI Toolkit</span><span>Addressables</span><span>Asset Bundles</span><span>Unity Profiler</span><span>Memory Profiler</span><span>TeamCity</span><span>Cloudflare R2</span><span>n8n</span><span>AltTester</span>
@@ -234,7 +229,7 @@
             <p data-i18n="projects.forgeText">Turn-based mobile RPG with server-connected gameplay modules, chat, social features, quests, leaderboards and cloud saves.</p>
             <div class="project-contribution">
               <strong data-i18n="projects.contributionTitle">My contribution</strong>
-              <p data-i18n="projects.forgeContribution">Gameplay architecture, MVP-based UI and real-time social features built through REST API and SignalR.</p>
+              <p data-i18n="projects.forgeContribution">Implemented gameplay architecture, MVP-based UI and real-time social features using REST API and SignalR.</p>
             </div>
             <div class="stack-list" aria-label="Technology stack">
               <span>Unity</span><span>C#</span><span>ECS</span><span>MVP</span><span>uGUI</span><span>REST API</span><span>SignalR</span><span>WebSockets</span><span>Firebase</span><span>IAP</span><span>Localization</span>
@@ -252,10 +247,10 @@
           <div class="project-body">
             <span class="tag" data-i18n="projects.mahjongTag">Mobile puzzle</span>
             <h3>Mahjong Solitaire Classic</h3>
-            <p data-i18n="projects.mahjongText">Mobile puzzle production work with UI flow, SDK integrations, localization and release-oriented polishing.</p>
+            <p data-i18n="projects.mahjongText">Mobile puzzle title. Scope included UI flows, SDK integrations, localization and release preparation.</p>
             <div class="project-contribution">
               <strong data-i18n="projects.contributionTitle">My contribution</strong>
-              <p data-i18n="projects.mahjongContribution">Implemented gameplay and UI flows, integrated localization, analytics and monetization SDKs, and supported release polish.</p>
+              <p data-i18n="projects.mahjongContribution">Implemented gameplay and UI flows, integrated localization, analytics and monetization SDKs, and prepared release builds.</p>
             </div>
             <div class="stack-list" aria-label="Technology stack">
               <span>Unity</span><span>C#</span><span>uGUI</span><span>Addressables</span><span>Firebase</span><span>Adjust</span><span>Unity Analytics</span><span>IAP</span><span>Localization</span>
@@ -273,10 +268,10 @@
           <div class="project-body">
             <span class="tag" data-i18n="projects.busyBrainTag">Mobile casual</span>
             <h3>BusyBrain</h3>
-            <p data-i18n="projects.busyBrainText">Casual mobile project with production gameplay, UI flows, integrations and release-focused polish.</p>
+            <p data-i18n="projects.busyBrainText">Casual mobile title with gameplay systems, UI flows and platform integrations.</p>
             <div class="project-contribution">
               <strong data-i18n="projects.contributionTitle">My contribution</strong>
-              <p data-i18n="projects.busyBrainContribution">Built gameplay and responsive UI flows, integrated production SDKs and supported release stabilization.</p>
+              <p data-i18n="projects.busyBrainContribution">Implemented gameplay and responsive UI flows, integrated platform SDKs and resolved release-stage defects.</p>
             </div>
             <div class="stack-list" aria-label="Technology stack">
               <span>Unity</span><span>C#</span><span>uGUI</span><span>Firebase</span><span>Adjust</span><span>Unity Analytics</span><span>Localization</span><span>DOTween</span>
@@ -294,10 +289,10 @@
           <div class="project-body">
             <span class="tag" data-i18n="projects.storeTag">Mobile simulator</span>
             <h3>Store Mania</h3>
-            <p data-i18n="projects.storeText">Mobile simulator project with gameplay loops, UI, platform integrations and production delivery work.</p>
+            <p data-i18n="projects.storeText">Mobile simulation title with gameplay loops, UI systems and platform integrations.</p>
             <div class="project-contribution">
               <strong data-i18n="projects.contributionTitle">My contribution</strong>
-              <p data-i18n="projects.storeContribution">Implemented gameplay loops and UI, integrated platform services and supported production delivery.</p>
+              <p data-i18n="projects.storeContribution">Implemented gameplay loops and UI systems, integrated platform services and prepared release builds.</p>
             </div>
             <div class="stack-list" aria-label="Technology stack">
               <span>Unity</span><span>C#</span><span>uGUI</span><span>Firebase</span><span>Unity Analytics</span><span>IAP</span><span>Localization</span><span>DOTween</span>
@@ -310,7 +305,7 @@
     <section id="skills" class="section skills-section" data-reveal>
       <div class="section-label">
         <p class="eyebrow" data-i18n="skills.eyebrow">Technical skills</p>
-        <h2 data-i18n="skills.title">Tools and technologies I use in production</h2>
+        <h2 data-i18n="skills.title">Technology stack and technical competencies</h2>
       </div>
       <div class="skills-layout">
         <article>
@@ -355,7 +350,7 @@
     <section id="work" class="section split" data-reveal>
       <div class="section-label">
         <p class="eyebrow" data-i18n="experience.eyebrow">Experience</p>
-        <h2 data-i18n="experience.title">Production responsibility</h2>
+        <h2 data-i18n="experience.title">Professional experience</h2>
       </div>
       <div class="timeline">
         <article class="timeline-item">
@@ -367,11 +362,11 @@
               <span>Gameplay</span><span>UI</span><span>Optimization</span><span>CI/CD</span><span>AI workflows</span>
             </div>
             <ul>
-              <li data-i18n="experience.currentItem1">Owned production-critical Unity areas across gameplay, UI/meta systems, performance, rendering features and build delivery.</li>
+              <li data-i18n="experience.currentItem1">Responsible for gameplay, UI and meta systems, performance, rendering features and build delivery.</li>
               <li data-i18n="experience.currentItem2">Stabilized legacy UI and feature architecture by reducing lifecycle risks, hidden dependencies and maintenance cost.</li>
               <li data-i18n="experience.currentItem3">Delivered URP Renderer Features for gameplay-facing visual systems, including object highlight and outline pipelines.</li>
-              <li data-i18n="experience.currentItem4">Built a TeamCity-to-Cloudflare R2 delivery pipeline with QA download pages and Discord notifications, replacing manual archive uploads and link sharing.</li>
-              <li data-i18n="experience.currentItem5">Introduced internal n8n and AI-assisted workflows for build distribution, code review support and project-documentation access.</li>
+              <li data-i18n="experience.currentItem4">Built a TeamCity-to-Cloudflare R2 delivery pipeline with n8n download pages and Discord notifications, replacing manual archive uploads and link sharing.</li>
+              <li data-i18n="experience.currentItem5">Introduced n8n and AI-assisted workflows for build distribution, code review and project documentation.</li>
             </ul>
           </div>
         </article>
@@ -419,8 +414,8 @@
     <section id="contact" class="section contact" data-reveal>
       <div>
         <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-        <h2 data-i18n="contact.title">Let's build production-ready Unity systems.</h2>
-        <p class="muted" data-i18n="contact.text">Open to Unity development roles focused on gameplay architecture, performance, tooling, CI/CD and production automation.</p>
+        <h2 data-i18n="contact.title">Contact and availability</h2>
+        <p class="muted" data-i18n="contact.text">Available for Senior Unity Developer roles involving gameplay architecture, performance engineering, tooling and CI/CD.</p>
       </div>
       <div class="contact-actions">
         <a class="button primary" href="mailto:kenanibragimov@ro.ru">kenanibragimov@ro.ru</a>
@@ -436,6 +431,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=36"></script>
+  <script src="assets/script.js?v=37"></script>
 </body>
 </html>
