@@ -582,6 +582,21 @@ li + li { margin-top: 9px; }
 .result-metric { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .result-metric strong { white-space: normal; }
 
+html[lang="ru"] .section-heading h2,
+html[lang="ru"] .section-label h2 {
+  font-size: clamp(1.85rem, 3.5vw, 3.2rem);
+  overflow-wrap: anywhere;
+}
+html[lang="ru"] .impact-card { height: 360px; }
+html[lang="ru"] .impact-list h3,
+html[lang="ru"] .case-study-heading h3,
+html[lang="ru"] .project-card h3,
+html[lang="ru"] .timeline-content {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+html[lang="ru"] .impact-list h3 { font-size: 1.25rem; }
+
 .case-study-list { display: grid; gap: 18px; }
 .case-study-card {
   min-width: 0;
@@ -797,6 +812,7 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
     height: auto;
     min-height: 0;
   }
+  html[lang="ru"] .impact-card { height: auto; }
   .skills-layout { grid-template-columns: repeat(2, 1fr); }
   .education-grid { grid-template-columns: repeat(2, 1fr); }
   .case-study-details { grid-template-columns: 1fr; }
