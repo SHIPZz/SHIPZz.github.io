@@ -909,16 +909,14 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
     transform: translateY(-8px);
     pointer-events: none;
   }
-  body.is-mobile-header-compact .header-actions { gap: 0; }
+  body.is-mobile-header-compact .header-actions { gap: 7px; }
   body.is-mobile-header-compact .language-switch {
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-6px) scale(0.96);
-    padding-top: 0;
-    padding-bottom: 0;
-    border-width: 0;
-    border-color: transparent;
-    pointer-events: none;
+    max-height: 32px;
+    opacity: 1;
+    transform: none;
+    padding: 2px;
+    border-width: 1px;
+    pointer-events: auto;
   }
   body.is-mobile-header-compact .nav { width: 100%; gap: 3px; }
   body.is-mobile-header-compact .nav a {
