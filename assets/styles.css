@@ -137,6 +137,16 @@ h1, h2, h3, p, li, dd, dt, a, span { overflow-wrap: break-word; }
 }
 
 main, .site-header, .footer { position: relative; z-index: 1; }
+main { display: flex; flex-direction: column; }
+.hero { order: 1; }
+#projects { order: 2; }
+#cases { order: 3; }
+#case-studies { order: 4; }
+#about { order: 5; }
+#skills { order: 6; }
+#work { order: 7; }
+.education { order: 8; }
+#contact { order: 9; }
 
 :focus-visible {
   outline: 3px solid var(--accent);
