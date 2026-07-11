@@ -16,7 +16,7 @@
 * { box-sizing: border-box; }
 html {
   min-height: 100%;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   overscroll-behavior-y: none;
   background: #111318;
 }

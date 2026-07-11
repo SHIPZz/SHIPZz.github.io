@@ -297,6 +297,8 @@ let headerFrame = null;
 let lastMobileScrollY = window.scrollY;
 let mobileScrollDirection = 0;
 let mobileScrollDistance = 0;
+let anchorScrollFrame = null;
+let isProgrammaticScroll = false;
 
 function getSavedLanguage() {
   try {
@@ -410,11 +412,89 @@ function updateActiveNav() {
   });
 }
 
+function resetMobileScrollTracking() {
+  lastMobileScrollY = window.scrollY;
+  mobileScrollDirection = 0;
+  mobileScrollDistance = 0;
+}
+
+function cancelAnchorScroll() {
+  if (anchorScrollFrame !== null) {
+    window.cancelAnimationFrame(anchorScrollFrame);
+    anchorScrollFrame = null;
+  }
+
+  if (!isProgrammaticScroll) {
+    return;
+  }
+
+  isProgrammaticScroll = false;
+  resetMobileScrollTracking();
+  scheduleHeaderStateUpdate();
+}
+
+function scrollToNavTarget(target, hash) {
+  cancelAnchorScroll();
+
+  const scrollMargin = Number.parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
+  const startY = window.scrollY;
+  const targetY = hash === '#top'
+    ? 0
+    : Math.max(0, target.getBoundingClientRect().top + startY - scrollMargin);
+  const distance = targetY - startY;
+
+  if (reducedMotionQuery.matches || Math.abs(distance) < 2) {
+    window.scrollTo(0, targetY);
+    window.history.replaceState(null, '', hash);
+    resetMobileScrollTracking();
+    scheduleHeaderStateUpdate();
+    return;
+  }
+
+  const duration = Math.min(460, Math.max(320, Math.abs(distance) * 0.16));
+  const startedAt = performance.now();
+  isProgrammaticScroll = true;
+  window.history.replaceState(null, '', hash);
+
+  const animate = (now) => {
+    const progress = Math.min(1, (now - startedAt) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    window.scrollTo(0, startY + distance * eased);
+
+    if (progress < 1 && isProgrammaticScroll) {
+      anchorScrollFrame = window.requestAnimationFrame(animate);
+      return;
+    }
+
+    anchorScrollFrame = null;
+    isProgrammaticScroll = false;
+    resetMobileScrollTracking();
+    updateActiveNav();
+    scheduleHeaderStateUpdate();
+  };
+
+  anchorScrollFrame = window.requestAnimationFrame(animate);
+}
+
 navLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    window.setTimeout(updateActiveNav, 260);
-    window.setTimeout(updateActiveNav, 720);
+  link.addEventListener('click', (event) => {
+    const target = document.querySelector(link.getAttribute('href'));
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    scrollToNavTarget(target, link.hash);
   });
+});
+
+window.addEventListener('wheel', cancelAnchorScroll, { passive: true });
+window.addEventListener('touchstart', cancelAnchorScroll, { passive: true });
+window.addEventListener('keydown', (event) => {
+  if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) {
+    cancelAnchorScroll();
+  }
 });
 
 function updateHeaderState() {
@@ -431,6 +511,13 @@ function updateHeaderState() {
   if (isMobile) {
     const isMobileCompact = document.body.classList.contains('is-mobile-header-compact');
     const currentScrollY = window.scrollY;
+
+    if (isProgrammaticScroll) {
+      document.body.classList.toggle('is-mobile-header-compact', currentScrollY > mobileCompactEnter);
+      resetMobileScrollTracking();
+      return;
+    }
+
     const scrollDelta = currentScrollY - lastMobileScrollY;
     const scrollDirection = Math.sign(scrollDelta);
 
