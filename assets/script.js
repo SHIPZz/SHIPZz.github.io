@@ -166,7 +166,7 @@ const translations = {
     'impact.deliveryText': 'Объединил TeamCity, Cloudflare R2, n8n и Discord в единый процесс публикации билдов, создания страниц загрузки и уведомления команды.',
     'cases.title': 'ТЕХНИЧЕСКИЕ КЕЙСЫ',
     'cases.problem': 'Проблема',
-    'cases.solution': 'Выполненные изменения',
+    'cases.solution': 'Решение',
     'cases.result': 'Результат',
     'cases.loadingTitle': 'Оптимизация загрузки сцен',
     'cases.loadingProblem': 'Хаб и миссии подтягивали избыточные зависимости, а враги, лут и интерактивные объекты создавались до того, как становились нужны игроку.',
