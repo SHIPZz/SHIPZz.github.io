@@ -23,7 +23,7 @@
   <title>Kenan Ibragimov - Unity Developer</title>
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/styles.css?v=53" />
+  <link rel="stylesheet" href="assets/styles.css?v=54" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -112,9 +112,19 @@
         </article>
         <article class="impact-card blue">
           <h3 data-i18n="impact.memoryTitle">RAM reduced by up to 40%</h3>
-          <div class="result-metric">
-            <strong>10-12 GB &rarr; 6-8 GB</strong>
-            <span data-i18n="impact.memoryDelta">Mission runtime memory</span>
+          <div class="metric-breakdown three-column-metrics">
+            <div>
+              <span class="metric-context" data-i18n="impact.menuLabel">Menu</span>
+              <strong class="metric-value-compact">2.8 &rarr; 1.3 GB</strong>
+            </div>
+            <div>
+              <span class="metric-context" data-i18n="impact.hubLabel">Hub</span>
+              <strong class="metric-value-compact">6 &rarr; 3 GB</strong>
+            </div>
+            <div>
+              <span class="metric-context" data-i18n="impact.missionsLabel">Missions</span>
+              <strong class="metric-value-compact">7-10 &rarr; 4.5-5.3 GB</strong>
+            </div>
           </div>
           <p data-i18n="impact.memoryText">Corrected mission lifecycle cleanup, removed retained object graphs and eliminated duplicated shaders and assets from bundles.</p>
         </article>
@@ -179,7 +189,7 @@
             <dl class="case-study-details">
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Data from completed missions was never released and accumulated on every subsequent mission entry. Static-event subscriptions, closures, references in global services and an undisposed ECS context retained the complete mission object graph.</dd></div>
               <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.memorySolution">Traced retention paths with Memory Profiler, corrected subscriptions and lifecycle cleanup, disposed the mission context and removed duplicated shaders and assets from bundles.</dd></div>
-              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Menu memory fell from 3-4 GB to about 1.8 GB, hub from 7-8 GB to 4-4.5 GB, missions from 10-12 GB to 6-8 GB.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Menu memory fell from 2.8 GB to 1.3 GB, hub from 6 GB to 3 GB, and missions from 7-10 GB to 4.5-5.3 GB.</dd></div>
             </dl>
           </div>
         </article>
@@ -443,6 +453,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=64"></script>
+  <script src="assets/script.js?v=65"></script>
 </body>
 </html>
