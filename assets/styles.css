@@ -598,7 +598,7 @@ html[lang="ru"] .impact-list h3 { font-size: 1.25rem; }
 .case-study-card {
   min-width: 0;
   display: grid;
-  grid-template-columns: 100px minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 28px;
   padding: 30px;
   border: 1px solid rgba(216, 242, 117, 0.22);

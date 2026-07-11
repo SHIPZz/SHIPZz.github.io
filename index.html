@@ -23,7 +23,7 @@
   <title>Kenan Ibragimov - Unity Developer</title>
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/styles.css?v=52" />
+  <link rel="stylesheet" href="assets/styles.css?v=53" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -155,46 +155,43 @@
 
     <section id="case-studies" class="section case-studies" data-reveal>
       <div class="section-heading centered">
-        <h2 data-i18n="cases.title">How the production improvements were achieved</h2>
+        <h2 data-i18n="cases.title">TECHNICAL CASE STUDIES</h2>
       </div>
       <div class="case-study-list">
         <article class="case-study-card">
-          <div class="case-study-number">01</div>
           <div class="case-study-content">
             <div class="case-study-heading">
-              <h3 data-i18n="cases.loadingTitle">Reduced scene dependencies and up-front world creation</h3>
+              <h3 data-i18n="cases.loadingTitle">Scene loading optimization</h3>
             </div>
             <dl class="case-study-details">
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.loadingProblem">Hub and mission loads pulled oversized dependency sets while enemies, loot and interactable objects were all created before the player needed them.</dd></div>
-              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.loadingSolution">Separated scene-owned content from shared resources, reorganized bundle dependencies and deferred object creation based on player distance.</dd></div>
+              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.loadingSolution">Separated scene content from shared resources, reorganized Addressables dependencies and configured independent asset packing. Deferred non-critical object creation until it was required near the player.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.loadingResult">Hub loading dropped from 30s to 18s; mission loading from 47s to 23s.</dd></div>
             </dl>
           </div>
         </article>
 
         <article class="case-study-card">
-          <div class="case-study-number">02</div>
           <div class="case-study-content">
             <div class="case-study-heading">
-              <h3 data-i18n="cases.memoryTitle">Eliminated unintended mission retention and duplicated content</h3>
+              <h3 data-i18n="cases.memoryTitle">Memory leak removal</h3>
             </div>
             <dl class="case-study-details">
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Legacy mission scripts remained reachable through static events, closures and singleton services; the undisposed ECS context retained the full mission graph. Bundles also duplicated shaders and assets.</dd></div>
-              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.memorySolution">Traced retention paths with Memory Profiler, corrected subscriptions and lifecycle cleanup, disposed the mission context and removed duplicated shaders and assets from bundles.</dd></div>
+              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.memorySolution">Traced retention paths with Memory Profiler, corrected subscriptions and lifecycle cleanup, disposed the mission context and removed duplicated shaders and assets from bundles.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Menu memory fell from 3-4 GB to about 1.8 GB, hub from 7-8 GB to 4-4.5 GB, missions from 10-12 GB to 6-8 GB.</dd></div>
             </dl>
           </div>
         </article>
 
         <article class="case-study-card">
-          <div class="case-study-number">03</div>
           <div class="case-study-content">
             <div class="case-study-heading">
-              <h3 data-i18n="cases.performanceTitle">Removed duplicate combat evaluation and pathfinding work</h3>
+              <h3 data-i18n="cases.performanceTitle">Combat system FPS stabilization</h3>
             </div>
             <dl class="case-study-details">
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Ability simulation repeated the same evaluation and allocations; enemy turns repeatedly recalculated abilities and pathfinding, producing severe frame stalls.</dd></div>
-              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.performanceSolution">Removed duplicate evaluation passes, optimized pathfinding by eliminating redundant searches, then replaced allocation-heavy temporary collections with custom thread-safe pools.</dd></div>
+              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.performanceSolution">Removed duplicate calculations, reduced pathfinding calls, optimized pathfinding and replaced temporary collections with the project's custom thread-safe pools.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.performanceResult">Ability simulation no longer collapsed from about 110 to 15 FPS; enemy turns no longer fell from 80-100 to 1-5 FPS.</dd></div>
             </dl>
           </div>
@@ -446,6 +443,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=59"></script>
+  <script src="assets/script.js?v=60"></script>
 </body>
 </html>
