@@ -252,7 +252,7 @@ const translations = {
     'education.languageRussian': 'Русский',
     'education.levelRussian': 'Родной',
     'education.languageAzerbaijani': 'Азербайджанский',
-    'education.levelAzerbaijani': 'Родной / свободное владение',
+    'education.levelAzerbaijani': 'Родной',
     'contact.title': 'Связаться со мной',
     'contact.text': 'Рассматриваю позиции Senior Unity Developer с задачами в области игровой архитектуры, оптимизации производительности, внутренних инструментов и CI/CD.',
     'footer.back': '↑ Наверх'
