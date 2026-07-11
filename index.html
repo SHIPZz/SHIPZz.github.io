@@ -91,11 +91,11 @@
 
     <section id="cases" class="section impact" data-reveal>
       <div class="section-heading centered">
-        <h2 data-i18n="impact.title">Selected production results</h2>
+        <h2 data-i18n="impact.title">Measured production improvements</h2>
       </div>
       <div class="impact-list">
         <article class="impact-card warm">
-          <h3 data-i18n="impact.loadTitle">Faster scene loading</h3>
+          <h3 data-i18n="impact.loadTitle">Scene loading reduced by up to 51%</h3>
           <div class="metric-breakdown">
             <div>
               <span class="metric-context" data-i18n="impact.hubLabel">Hub</span>
@@ -108,39 +108,39 @@
               <small data-i18n="impact.missionDelta">51% faster</small>
             </div>
           </div>
-          <p data-i18n="impact.loadText">Restructured Addressables dependencies and deferred non-critical world initialization.</p>
+          <p data-i18n="impact.loadText">Restructured Addressables dependencies, separated scene-owned content and deferred the creation of non-critical world objects.</p>
         </article>
         <article class="impact-card blue">
-          <h3 data-i18n="impact.memoryTitle">Optimized RAM usage and reduced severe memory leaks</h3>
+          <h3 data-i18n="impact.memoryTitle">RAM reduced by up to 40%</h3>
           <div class="result-metric">
             <strong>10-12 GB &rarr; 6-8 GB</strong>
-            <span data-i18n="impact.memoryDelta">Up to 40% lower</span>
+            <span data-i18n="impact.memoryDelta">Mission runtime memory</span>
           </div>
-          <p data-i18n="impact.memoryText">Identified unintended object retention in legacy mission code and duplicated bundle content through Memory Profiler analysis; corrected lifecycle cleanup and ECS context disposal.</p>
+          <p data-i18n="impact.memoryText">Corrected mission lifecycle cleanup, removed retained object graphs and eliminated duplicated shaders and assets from bundles.</p>
         </article>
         <article class="impact-card lime">
-          <h3 data-i18n="impact.fpsTitle">Improved FPS performance</h3>
+          <h3 data-i18n="impact.fpsTitle">Critical frame drops eliminated</h3>
           <div class="result-metric">
-            <strong data-i18n="impact.fpsMetric">Critical FPS drops eliminated</strong>
+            <strong data-i18n="impact.fpsMetric">Ability and AI execution stabilized</strong>
             <span data-i18n="impact.fpsScope">Ability simulation and enemy turns</span>
           </div>
-          <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; custom thread-safe pools replaced allocation-heavy collections.</p>
+          <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; replaced allocation-heavy collections with custom thread-safe pools.</p>
         </article>
         <article class="impact-card violet">
-          <h3 data-i18n="impact.sizeTitle">Reduced build size</h3>
+          <h3 data-i18n="impact.sizeTitle">Build size reduced by 48%</h3>
           <div class="result-metric">
             <strong>23 GB &rarr; 12 GB</strong>
-            <span data-i18n="impact.sizeDelta">48% smaller</span>
+            <span data-i18n="impact.sizeDelta">Production package</span>
           </div>
-          <p data-i18n="impact.sizeText">Removed duplicated Addressables dependencies, relocated bootstrap content and eliminated unnecessary shader resources following build-report analysis.</p>
+          <p data-i18n="impact.sizeText">Audited Addressables bundles, removed duplicated assets and shaders, and separated bootstrap dependencies from initial build content.</p>
         </article>
         <article class="impact-card neutral">
-          <h3 data-i18n="impact.deliveryTitle">Automated build delivery</h3>
+          <h3 data-i18n="impact.deliveryTitle">Build publishing and distribution automated</h3>
           <div class="result-metric">
-            <strong data-i18n="impact.deliveryMetric">Automated CI/CD pipeline</strong>
+            <strong data-i18n="impact.deliveryMetric">End-to-end delivery pipeline</strong>
             <span>TeamCity &rarr; R2 &rarr; n8n &rarr; Discord</span>
           </div>
-          <p data-i18n="impact.deliveryText">Implemented a TeamCity-to-Cloudflare R2 delivery pipeline with n8n-generated download pages and Discord notifications, replacing manual archive publication and link management.</p>
+          <p data-i18n="impact.deliveryText">Connected TeamCity, Cloudflare R2, n8n and Discord into one pipeline for build publication, download-page generation and team notifications.</p>
         </article>
       </div>
     </section>
@@ -455,6 +455,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=41"></script>
+  <script src="assets/script.js?v=42"></script>
 </body>
 </html>
