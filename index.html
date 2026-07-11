@@ -177,7 +177,7 @@
               <h3 data-i18n="cases.memoryTitle">Memory leak removal</h3>
             </div>
             <dl class="case-study-details">
-              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Legacy mission scripts remained reachable through static events, closures and singleton services; the undisposed ECS context retained the full mission graph. Bundles also duplicated shaders and assets.</dd></div>
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Data from completed missions was never released and accumulated on every subsequent mission entry. Static-event subscriptions, closures, references in global services and an undisposed ECS context retained the complete mission object graph.</dd></div>
               <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.memorySolution">Traced retention paths with Memory Profiler, corrected subscriptions and lifecycle cleanup, disposed the mission context and removed duplicated shaders and assets from bundles.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Menu memory fell from 3-4 GB to about 1.8 GB, hub from 7-8 GB to 4-4.5 GB, missions from 10-12 GB to 6-8 GB.</dd></div>
             </dl>
@@ -187,7 +187,7 @@
         <article class="case-study-card">
           <div class="case-study-content">
             <div class="case-study-heading">
-              <h3 data-i18n="cases.performanceTitle">Combat system FPS stabilization</h3>
+              <h3 data-i18n="cases.performanceTitle">FPS stabilization</h3>
             </div>
             <dl class="case-study-details">
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Ability simulation repeated the same evaluation and allocations; enemy turns repeatedly recalculated abilities and pathfinding, producing severe frame stalls.</dd></div>
@@ -443,6 +443,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=60"></script>
+  <script src="assets/script.js?v=61"></script>
 </body>
 </html>
