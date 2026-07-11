@@ -23,7 +23,7 @@
   <title>Kenan Ibragimov - Unity Developer</title>
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/styles.css?v=37" />
+  <link rel="stylesheet" href="assets/styles.css?v=38" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -75,7 +75,7 @@
         <p class="eyebrow" data-i18n="hero.eyebrow">Senior Unity Developer</p>
         <h1 data-i18n="hero.title">Kenan Ibragimov</h1>
         <p class="hero-text" data-i18n="hero.text">
-          I turn complex Unity systems into measurable improvements in loading, memory, frame time and build delivery across AA, midcore, casual and mobile RPG projects.
+          Senior Unity Developer with 5+ years of commercial experience across AA, midcore, casual and mobile RPG projects. I work across gameplay architecture, UI and meta systems, rendering, performance, SDK integrations, tooling and build automation.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="Kenan_Ibragimov_Unity_Developer.pdf?v=3" download data-i18n="hero.pdfCta">Download CV - EN</a>
@@ -97,32 +97,32 @@
         <article class="impact-card warm">
           <span class="metric-value">30s &rarr; 18s</span>
           <h3 data-i18n="impact.loadTitle">Hub loading time</h3>
-          <p data-i18n="impact.loadText">Reworked Addressables groups and loading order to reduce blocking asset initialization.</p>
+          <p data-i18n="impact.loadText">Deferred enemies, loot and interactable objects by distance from the player, so the hub no longer initialized the entire world up front.</p>
         </article>
         <article class="impact-card teal">
           <span class="metric-value">47s &rarr; 23s</span>
           <h3 data-i18n="impact.missionTitle">Mission loading time</h3>
-          <p data-i18n="impact.missionText">Split heavy content into cleaner loading stages and reduced redundant dependency pulls.</p>
+          <p data-i18n="impact.missionText">Audited Addressables dependency pulls and separated scene content from shared assets, preventing missions from loading oversized bundles and duplicated dependencies.</p>
         </article>
         <article class="impact-card blue">
           <span class="metric-value">10-12 &rarr; 6-8 GB</span>
           <h3 data-i18n="impact.memoryTitle">Memory pressure</h3>
-          <p data-i18n="impact.memoryText">Tracked shader/rendering and lifecycle leaks with Unity profiling tools and removed retained runtime objects.</p>
+          <p data-i18n="impact.memoryText">Memory Profiler exposed unintended retention in legacy mission code: static events, closures, global services and the ECS context kept entire missions alive.</p>
         </article>
         <article class="impact-card lime">
-          <span class="metric-value" data-i18n="impact.fpsMetric">Combat FPS stabilized</span>
-          <h3 data-i18n="impact.fpsTitle">Ability and AI performance</h3>
-          <p data-i18n="impact.fpsText">Removed redundant combat calculations and allocation-heavy processing behind severe frame drops during ability simulation and enemy turns.</p>
+          <span class="metric-value" data-i18n="impact.fpsMetric">1-15 FPS stalls removed</span>
+          <h3 data-i18n="impact.fpsTitle">Ability and enemy-turn performance</h3>
+          <p data-i18n="impact.fpsText">Profiling exposed repeated ability evaluation, pathfinding work and allocation-heavy temporary data. Removed duplicate passes and switched temporary collections to custom thread-safe pools.</p>
         </article>
         <article class="impact-card violet">
           <span class="metric-value">23 GB &rarr; 12 GB</span>
           <h3 data-i18n="impact.sizeTitle">Build size reduction</h3>
-          <p data-i18n="impact.sizeText">Cut the package by about 48% through Addressables cleanup, asset audit and build pipeline discipline.</p>
+          <p data-i18n="impact.sizeText">Addressables Build Report exposed duplicated bundle dependencies and a bootstrap scene referencing large parts of the project. Moved bootstrap into Addressables and removed redundant content.</p>
         </article>
         <article class="impact-card neutral">
-          <span class="metric-value">CI/CD</span>
-          <h3 data-i18n="impact.deliveryTitle">Delivery automation</h3>
-          <p data-i18n="impact.deliveryText">Moved build handoffs into TeamCity, Cloudflare R2, n8n delivery pages and Discord notifications.</p>
+          <span class="metric-value" data-i18n="impact.deliveryMetric">QA delivery automated</span>
+          <h3 data-i18n="impact.deliveryTitle">Build distribution</h3>
+          <p data-i18n="impact.deliveryText">Replaced manual archive sharing with TeamCity builds published to Cloudflare R2, n8n download pages and Discord notifications for QA.</p>
         </article>
       </div>
     </section>
@@ -139,14 +139,13 @@
           <div class="case-study-content">
             <div class="case-study-heading">
               <p class="eyebrow" data-i18n="cases.loadingLabel">Loading and Addressables</p>
-              <h3 data-i18n="cases.loadingTitle">Smaller dependency pulls and deferred world spawning</h3>
+              <h3 data-i18n="cases.loadingTitle">Reduced scene dependencies and up-front world creation</h3>
             </div>
             <dl class="case-study-details">
-              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.loadingProblem">Scene loading pulled oversized bundles and created enemies, loot and interactive objects up front.</dd></div>
-              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.loadingSolution">Isolated scenes and their dependencies in Addressables groups with Pack Separately, then introduced distance-based deferred spawning.</dd></div>
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.loadingProblem">Hub and mission loads pulled oversized dependency sets while enemies, loot and interactable objects were all created before the player needed them.</dd></div>
+              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.loadingSolution">Separated scene-owned content from shared assets, audited bundle dependencies and deferred world-object creation according to distance from the player.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.loadingResult">Hub loading dropped from 30s to 18s; mission loading from 47s to 23s.</dd></div>
             </dl>
-            <div class="case-study-tags"><span>Addressables</span><span>Pack Separately</span><span>Windows PC</span><span>Steam Deck</span><span>Xbox</span></div>
           </div>
         </article>
 
@@ -155,14 +154,13 @@
           <div class="case-study-content">
             <div class="case-study-heading">
               <p class="eyebrow" data-i18n="cases.memoryLabel">Memory lifecycle</p>
-              <h3 data-i18n="cases.memoryTitle">Removed retained mission graphs and duplicated content</h3>
+              <h3 data-i18n="cases.memoryTitle">Eliminated unintended mission retention and duplicated content</h3>
             </div>
             <dl class="case-study-details">
-              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Duplicated shaders and assets, insufficient shader stripping and mission objects retained by static events, closures and global services.</dd></div>
-              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.memorySolution">Used Memory Profiler snapshots to trace retention chains, fixed subscriptions and references, and disposed the mission ECS context that retained the entire object graph.</dd></div>
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Legacy mission scripts remained reachable through static events, closures and singleton services; the undisposed ECS context retained the full mission graph. Bundles also duplicated shaders and assets.</dd></div>
+              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.memorySolution">Used Memory Profiler snapshots to trace retention paths, refactored lifecycle cleanup and subscriptions, disposed the mission context and removed duplicated bundle content.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Menu memory fell from 3-4 GB to about 1.8 GB, hub from 7-8 GB to 4-4.5 GB, missions from 10-12 GB to 6-8 GB.</dd></div>
             </dl>
-            <div class="case-study-tags"><span>Memory Profiler</span><span>Snapshots</span><span>ECS lifecycle</span><span>Shader stripping</span></div>
           </div>
         </article>
 
@@ -171,14 +169,13 @@
           <div class="case-study-content">
             <div class="case-study-heading">
               <p class="eyebrow" data-i18n="cases.performanceLabel">Combat performance</p>
-              <h3 data-i18n="cases.performanceTitle">Stabilized ability simulation and enemy turns</h3>
+              <h3 data-i18n="cases.performanceTitle">Removed duplicate combat evaluation and pathfinding work</h3>
             </div>
             <dl class="case-study-details">
-              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Repeated ability and pathfinding evaluation, together with allocation-heavy temporary data, caused severe frame degradation during combat simulation.</dd></div>
-              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.performanceSolution">Removed redundant evaluation passes, reduced repeated pathfinding work and replaced temporary allocations with custom thread-safe pooled collections.</dd></div>
-              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.performanceResult">Removed the severe combat frame degradation and stabilized the ability-processing pipeline.</dd></div>
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Ability simulation repeated the same evaluation and allocations; enemy turns repeatedly recalculated abilities and pathfinding, producing severe frame stalls.</dd></div>
+              <div><dt data-i18n="cases.solution">Solution</dt><dd data-i18n="cases.performanceSolution">Removed duplicate evaluation passes and redundant path searches, then replaced allocation-heavy temporary collections with custom thread-safe pools.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.performanceResult">Ability simulation no longer collapsed from about 110 to 15 FPS; enemy turns no longer fell from 80-100 to 1-5 FPS.</dd></div>
             </dl>
-            <div class="case-study-tags"><span>Unity Profiler</span><span>Pathfinding</span><span>Thread-safe pools</span><span>Frame time</span></div>
           </div>
         </article>
       </div>
@@ -190,26 +187,8 @@
         <h2 data-i18n="about.title">Who I am</h2>
       </div>
       <div class="about-copy">
-        <p data-i18n="about.text1">Senior Unity Developer with 5+ years of commercial production experience across AA, midcore, casual and mobile RPG projects. I focus on systems that directly affect delivery quality: gameplay architecture, UI frameworks, optimization, SDK integrations, build pipelines and AI-assisted internal tools.</p>
-        <p data-i18n="about.text2">My strongest area is turning complex Unity projects into predictable production systems: faster loading, stable FPS, lower memory pressure, cleaner feature architecture and automated delivery for QA and releases.</p>
-        <div class="focus-grid">
-          <article>
-            <strong data-i18n="focus.productionTitle">Production range</strong>
-            <span data-i18n="focus.productionText">PC, consoles, Steam Deck, mobile RPG, midcore and casual games.</span>
-          </article>
-          <article>
-            <strong data-i18n="focus.optimizationTitle">Optimization</strong>
-            <span data-i18n="focus.optimizationText">Build size, loading time, FPS drops, memory leaks and rendering bottlenecks.</span>
-          </article>
-          <article>
-            <strong data-i18n="focus.aiTitle">AI and tooling</strong>
-            <span data-i18n="focus.aiText">AI systems integration, internal tools, code review workflows and rapid prototyping.</span>
-          </article>
-          <article>
-            <strong data-i18n="focus.deliveryTitle">Delivery</strong>
-            <span data-i18n="focus.deliveryText">TeamCity, Cloudflare R2, n8n, Discord notifications and QA build distribution.</span>
-          </article>
-        </div>
+        <p data-i18n="about.text1">I take ownership of complex production areas from diagnosis and architecture through implementation, profiling and delivery. My work spans gameplay, UI/meta, rendering, client-server features, SDK integrations, internal tools and CI/CD.</p>
+        <p data-i18n="about.text2">I am most effective where a project needs both engineering depth and a measurable outcome: stabilizing legacy systems, removing performance bottlenecks, designing maintainable feature architecture and reducing manual work around builds and QA.</p>
       </div>
     </section>
 
@@ -230,13 +209,13 @@
           <div class="project-body">
             <span class="tag" data-i18n="projects.criticalTag">AA tactical RPG</span>
             <h3>Critical Shift</h3>
-            <p data-i18n="projects.criticalText">Hardcore turn-based RPG for PC, PlayStation and Xbox. Gameplay systems, UI/meta, URP rendering features, SDK integrations, build automation and QA delivery workflows.</p>
+            <p data-i18n="projects.criticalText">Hardcore turn-based RPG for Windows PC, Steam Deck and Xbox. Gameplay systems, UI/meta, URP rendering features, SDK integrations, build automation and QA delivery workflows.</p>
             <div class="project-contribution">
               <strong data-i18n="projects.contributionTitle">My contribution</strong>
               <p data-i18n="projects.criticalContribution">Production-critical gameplay and UI/meta systems, performance and Addressables optimization, URP features and automated QA delivery.</p>
             </div>
             <div class="stack-list" aria-label="Technology stack">
-              <span>Unity</span><span>C#</span><span>URP</span><span>Addressables</span><span>TeamCity</span><span>R2</span>
+              <span>Unity</span><span>C#</span><span>ECS</span><span>Entitas</span><span>URP</span><span>uGUI</span><span>UI Toolkit</span><span>Addressables</span><span>Asset Bundles</span><span>Unity Profiler</span><span>Memory Profiler</span><span>TeamCity</span><span>Cloudflare R2</span><span>n8n</span><span>AltTester</span>
             </div>
             <a href="https://critical-shift.com" target="_blank" rel="noreferrer">critical-shift.com</a>
           </div>
@@ -258,7 +237,7 @@
               <p data-i18n="projects.forgeContribution">Gameplay architecture, MVP-based UI and real-time social features built through REST API and SignalR.</p>
             </div>
             <div class="stack-list" aria-label="Technology stack">
-              <span>Unity</span><span>ECS</span><span>SignalR</span><span>REST API</span><span>Firebase</span>
+              <span>Unity</span><span>C#</span><span>ECS</span><span>MVP</span><span>uGUI</span><span>REST API</span><span>SignalR</span><span>WebSockets</span><span>Firebase</span><span>IAP</span><span>Localization</span>
             </div>
           </div>
         </article>
@@ -275,7 +254,7 @@
             <h3>Mahjong Solitaire Classic</h3>
             <p data-i18n="projects.mahjongText">Mobile puzzle production work with UI flow, SDK integrations, localization and release-oriented polishing.</p>
             <div class="stack-list" aria-label="Technology stack">
-              <span>Unity</span><span>uGUI</span><span>IAP</span><span>Localization</span><span>Analytics</span>
+              <span>Unity</span><span>C#</span><span>uGUI</span><span>Addressables</span><span>Firebase</span><span>Adjust</span><span>Unity Analytics</span><span>IAP</span><span>Localization</span>
             </div>
           </div>
         </article>
@@ -292,7 +271,7 @@
             <h3>BusyBrain</h3>
             <p data-i18n="projects.busyBrainText">Casual mobile project with production gameplay, UI flows, integrations and release-focused polish.</p>
             <div class="stack-list" aria-label="Technology stack">
-              <span>Unity</span><span>C#</span><span>uGUI</span><span>SDKs</span>
+              <span>Unity</span><span>C#</span><span>uGUI</span><span>Firebase</span><span>Adjust</span><span>Unity Analytics</span><span>Localization</span><span>DOTween</span>
             </div>
           </div>
         </article>
@@ -309,7 +288,7 @@
             <h3>Store Mania</h3>
             <p data-i18n="projects.storeText">Mobile simulator project with gameplay loops, UI, platform integrations and production delivery work.</p>
             <div class="stack-list" aria-label="Technology stack">
-              <span>Unity</span><span>C#</span><span>UI</span><span>Analytics</span>
+              <span>Unity</span><span>C#</span><span>uGUI</span><span>Firebase</span><span>Unity Analytics</span><span>IAP</span><span>Localization</span><span>DOTween</span>
             </div>
           </div>
         </article>
@@ -318,36 +297,44 @@
 
     <section id="skills" class="section skills-section" data-reveal>
       <div class="section-label">
-        <p class="eyebrow" data-i18n="skills.eyebrow">Core skills</p>
-        <h2 data-i18n="skills.title">Most important technical areas</h2>
+        <p class="eyebrow" data-i18n="skills.eyebrow">Technical skills</p>
+        <h2 data-i18n="skills.title">Tools and technologies I use in production</h2>
       </div>
       <div class="skills-layout">
         <article>
-          <h3 data-i18n="skills.archTitle">Unity & Architecture</h3>
-          <p data-i18n="skills.archText">C#, .NET, Unity Engine, ECS, Entitas, LeoECS, OOP, SOLID, Clean Code, MVP, MVVM, GoF patterns, Zenject, VContainer.</p>
+          <h3 data-i18n="skills.foundationTitle">Unity & C#</h3>
           <div class="skill-highlights" aria-label="Key skills">
-            <span>ECS</span><span>SOLID</span><span>MVP/MVVM</span><span>DI</span>
+            <span>Unity Engine</span><span>C#</span><span>.NET</span><span>OOP</span><span>SOLID</span><span>Async/Await</span><span>Editor Tools</span>
           </div>
         </article>
         <article>
-          <h3 data-i18n="skills.performanceTitle">Performance & Rendering</h3>
-          <p data-i18n="skills.performanceText">Unity Profiler, Memory Profiler, Frame Debugger, CPU/GPU/RAM profiling, draw call reduction, URP Renderer Features, highlight and outline effects.</p>
+          <h3 data-i18n="skills.archTitle">Architecture & Gameplay</h3>
           <div class="skill-highlights" aria-label="Key skills">
-            <span>Profiler</span><span>Memory</span><span>URP</span><span>FPS</span>
+            <span>ECS</span><span>Entitas</span><span>LeoECS</span><span>MVP</span><span>MVVM</span><span>State Machines</span><span>Zenject</span><span>VContainer</span><span>GoF Patterns</span>
           </div>
         </article>
         <article>
-          <h3 data-i18n="skills.networkTitle">Networking & Services</h3>
-          <p data-i18n="skills.networkText">REST API, SignalR, WebSockets, Photon Fusion, Firebase, Adjust, Facebook SDK, Unity Analytics, Remote Config, Crashlytics, IAP, Localization.</p>
+          <h3 data-i18n="skills.contentTitle">UI, Content & Rendering</h3>
           <div class="skill-highlights" aria-label="Key skills">
-            <span>REST API</span><span>SignalR</span><span>Firebase</span><span>IAP</span>
+            <span>uGUI</span><span>UI Toolkit</span><span>IMGUI</span><span>Addressables</span><span>Asset Bundles</span><span>URP</span><span>Renderer Features</span><span>Spine</span><span>Animancer</span><span>DOTween</span><span>Odin Inspector</span>
           </div>
         </article>
         <article>
-          <h3 data-i18n="skills.cicdTitle">CI/CD & Automation</h3>
-          <p data-i18n="skills.cicdText">Git, GitHub, GitLab, TeamCity, n8n, Unity build automation, Cloudflare R2, build distribution, Discord/GitHub integrations.</p>
+          <h3 data-i18n="skills.performanceTitle">Performance & Profiling</h3>
           <div class="skill-highlights" aria-label="Key skills">
-            <span>TeamCity</span><span>R2</span><span>n8n</span><span>Builds</span>
+            <span>Unity Profiler</span><span>Memory Profiler</span><span>Frame Debugger</span><span>CPU Profiling</span><span>GPU Profiling</span><span>RAM Analysis</span><span>Shader Stripping</span><span>Draw Calls</span>
+          </div>
+        </article>
+        <article>
+          <h3 data-i18n="skills.networkTitle">Networking & SDKs</h3>
+          <div class="skill-highlights" aria-label="Key skills">
+            <span>REST API</span><span>SignalR</span><span>WebSockets</span><span>Photon Fusion</span><span>Firebase</span><span>Adjust</span><span>Facebook SDK</span><span>Unity Analytics</span><span>Remote Config</span><span>Crashlytics</span><span>IAP</span><span>Localization</span>
+          </div>
+        </article>
+        <article>
+          <h3 data-i18n="skills.deliveryTitle">Delivery, Testing & Tooling</h3>
+          <div class="skill-highlights" aria-label="Key skills">
+            <span>Git</span><span>GitHub</span><span>GitLab</span><span>TeamCity</span><span>Cloudflare R2</span><span>n8n</span><span>CI/CD</span><span>NUnit</span><span>AltTester</span><span>Discord Integrations</span><span>AI-assisted Review</span>
           </div>
         </article>
       </div>
@@ -363,7 +350,7 @@
           <div class="timeline-date" data-i18n="experience.currentDate">Feb 2025 - Present</div>
           <div class="timeline-content">
             <h3 data-i18n="experience.currentRole">Senior Unity Developer / Build Automation</h3>
-            <p class="muted" data-i18n="experience.currentCompany">Rhinotales · Critical Shift - AA tactical RPG for PC, PlayStation and Xbox</p>
+            <p class="muted" data-i18n="experience.currentCompany">Rhinotales · Critical Shift - AA tactical RPG for Windows PC, Steam Deck and Xbox</p>
             <div class="skill-highlights responsibility-highlights" aria-label="Key responsibility areas">
               <span>Production ownership</span><span>Performance</span><span>URP</span><span>CI/CD</span><span>AI workflows</span>
             </div>
@@ -371,7 +358,7 @@
               <li data-i18n="experience.currentItem1">Owned production-critical Unity areas across gameplay, UI/meta systems, performance, rendering features and build delivery.</li>
               <li data-i18n="experience.currentItem2">Stabilized legacy UI and feature architecture by reducing lifecycle risks, hidden dependencies and maintenance cost.</li>
               <li data-i18n="experience.currentItem3">Delivered URP Renderer Features for gameplay-facing visual systems, including object highlight and outline pipelines.</li>
-              <li data-i18n="experience.currentItem4">Built CI/CD delivery around TeamCity, Cloudflare R2, QA distribution and Discord notifications to remove manual release handoffs.</li>
+              <li data-i18n="experience.currentItem4">Built a TeamCity-to-Cloudflare R2 delivery pipeline with QA download pages and Discord notifications, replacing manual archive uploads and link sharing.</li>
               <li data-i18n="experience.currentItem5">Introduced internal n8n and AI-assisted workflows for build distribution, code review support and project-documentation access.</li>
             </ul>
           </div>
@@ -437,6 +424,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=34"></script>
+  <script src="assets/script.js?v=35"></script>
 </body>
 </html>
