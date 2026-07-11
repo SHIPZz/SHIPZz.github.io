@@ -39,7 +39,6 @@ const translations = {
     'impact.deliveryTitle': 'Build publishing and distribution automated',
     'impact.deliveryText': 'Connected TeamCity, Cloudflare R2, n8n and Discord into one pipeline for build publication, download-page generation and team notifications.',
     'cases.title': 'How the production improvements were achieved',
-    'cases.intro': 'Three production bottlenecks, the engineering changes applied and the measured results.',
     'cases.problem': 'Problem',
     'cases.solution': 'Solution',
     'cases.result': 'Result',
@@ -119,7 +118,12 @@ const translations = {
     'education.ksTitle': 'KSyndicate - Unity Development',
     'education.ksText': 'Specialization Courses: ECS & Architecture · 2024 - 2025',
     'education.languagesTitle': 'Languages',
-    'education.languagesText': 'English B2 · Russian Native · Azerbaijani Native / Fluent',
+    'education.languageEnglish': 'English',
+    'education.levelEnglish': 'B2 — Upper-Intermediate',
+    'education.languageRussian': 'Russian',
+    'education.levelRussian': 'Native',
+    'education.languageAzerbaijani': 'Azerbaijani',
+    'education.levelAzerbaijani': 'Native / Fluent',
     'contact.title': 'Contact me',
     'contact.text': 'Available for Senior Unity Developer roles involving gameplay architecture, performance engineering, tooling and CI/CD.',
     'footer.back': '↑ Back to top'
@@ -164,7 +168,6 @@ const translations = {
     'impact.deliveryTitle': 'Автоматизировал доставку билдов',
     'impact.deliveryText': 'Объединил TeamCity, Cloudflare R2, n8n и Discord в единый процесс публикации сборок, создания страниц загрузки и уведомления команды.',
     'cases.title': 'Как были достигнуты эти результаты',
-    'cases.intro': 'Три технические проблемы, принятые инженерные решения и полученные результаты.',
     'cases.problem': 'Проблема',
     'cases.solution': 'Решение',
     'cases.result': 'Результат',
@@ -244,7 +247,12 @@ const translations = {
     'education.ksTitle': 'KSyndicate - Unity Development',
     'education.ksText': 'Профильные курсы: ECS и архитектура · 2024 - 2025',
     'education.languagesTitle': 'Языки',
-    'education.languagesText': 'Английский B2 · русский родной · азербайджанский родной / свободный',
+    'education.languageEnglish': 'Английский',
+    'education.levelEnglish': 'B2 — Upper-Intermediate',
+    'education.languageRussian': 'Русский',
+    'education.levelRussian': 'Родной',
+    'education.languageAzerbaijani': 'Азербайджанский',
+    'education.levelAzerbaijani': 'Родной / свободное владение',
     'contact.title': 'Связаться со мной',
     'contact.text': 'Рассматриваю позиции Senior Unity Developer с задачами в области игровой архитектуры, оптимизации производительности, внутренних инструментов и CI/CD.',
     'footer.back': '↑ Наверх'
@@ -564,11 +572,11 @@ function updateHeaderState() {
   setPx('--brand-max-width', 260 + (0 - 260) * collapseEased);
   setPx('--brand-max-height', 42 + (0 - 42) * collapseEased);
   setPx('--brand-translate-y', 0 + (-8 - 0) * fadeEased);
-  setPx('--language-max-width', 100 + (0 - 100) * collapseEased);
-  setPx('--language-max-height', 40 + (0 - 40) * collapseEased);
-  setPx('--language-translate-y', 0 + (-8 - 0) * fadeEased);
-  setPx('--language-padding-y', 3 + (0 - 3) * collapseEased);
-  setPx('--language-border-width', 1 + (0 - 1) * collapseEased);
+  setPx('--language-max-width', 100);
+  setPx('--language-max-height', 40);
+  setPx('--language-translate-y', 0);
+  setPx('--language-padding-y', 3);
+  setPx('--language-border-width', 1);
   setPx('--actions-gap', lerp(startActionGap, 0));
   setPx('--actions-width', lerp(620, viewportWidth));
   setPx('--nav-gap', lerp(6, 3));
@@ -577,7 +585,7 @@ function updateHeaderState() {
   setPx('--nav-padding-x-mobile', lerp(8, 4));
   setPx('--nav-width', lerp(480, Math.min(viewportWidth, 720)));
   document.documentElement.style.setProperty('--brand-opacity', (1 - fadeEased).toFixed(3));
-  document.documentElement.style.setProperty('--language-opacity', (1 - fadeEased).toFixed(3));
+  document.documentElement.style.setProperty('--language-opacity', '1');
   document.documentElement.style.setProperty('--header-background-alpha', lerp(0.74, 0.48).toFixed(3));
   document.documentElement.style.setProperty('--nav-font-size', `${lerp(1, 0.82).toFixed(3)}rem`);
   document.documentElement.style.setProperty('--nav-font-size-mobile', `${lerp(0.88, 0.78).toFixed(3)}rem`);
