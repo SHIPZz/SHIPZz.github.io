@@ -23,7 +23,7 @@
   <title>Kenan Ibragimov - Unity Developer</title>
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/styles.css?v=41" />
+  <link rel="stylesheet" href="assets/styles.css?v=43" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -95,28 +95,51 @@
       </div>
       <div class="impact-list">
         <article class="impact-card warm">
-          <span class="metric-value is-combined">30s &rarr; 18s / 47s &rarr; 23s</span>
-          <h3 data-i18n="impact.loadTitle">Hub and mission loading</h3>
-          <p data-i18n="impact.loadText">Reduced hub load time from 30s to 18s and mission load time from 47s to 23s by restructuring Addressables dependencies and deferring non-critical world initialization.</p>
+          <h3 data-i18n="impact.loadTitle">Loading time</h3>
+          <div class="metric-breakdown">
+            <div>
+              <span class="metric-context" data-i18n="impact.hubLabel">Hub</span>
+              <strong>30s &rarr; 18s</strong>
+              <small data-i18n="impact.hubDelta">40% faster</small>
+            </div>
+            <div>
+              <span class="metric-context" data-i18n="impact.missionLabel">Mission</span>
+              <strong>47s &rarr; 23s</strong>
+              <small data-i18n="impact.missionDelta">51% faster</small>
+            </div>
+          </div>
+          <p data-i18n="impact.loadText">Restructured Addressables dependencies and deferred non-critical world initialization.</p>
         </article>
         <article class="impact-card blue">
-          <span class="metric-value">10-12 &rarr; 6-8 GB</span>
-          <h3 data-i18n="impact.memoryTitle">Mission memory usage</h3>
+          <h3 data-i18n="impact.memoryTitle">Mission memory</h3>
+          <div class="result-metric">
+            <strong>10-12 GB &rarr; 6-8 GB</strong>
+            <span data-i18n="impact.memoryDelta">Up to 40% lower</span>
+          </div>
           <p data-i18n="impact.memoryText">Identified unintended object retention in legacy mission code and duplicated bundle content through Memory Profiler analysis; corrected lifecycle cleanup and ECS context disposal.</p>
         </article>
         <article class="impact-card lime">
-          <span class="metric-value" data-i18n="impact.fpsMetric">Combat performance stabilized</span>
-          <h3 data-i18n="impact.fpsTitle">Ability simulation and enemy turns</h3>
+          <h3 data-i18n="impact.fpsTitle">Combat performance</h3>
+          <div class="result-metric">
+            <strong data-i18n="impact.fpsMetric">Critical FPS drops eliminated</strong>
+            <span data-i18n="impact.fpsScope">Ability simulation and enemy turns</span>
+          </div>
           <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; custom thread-safe pools replaced allocation-heavy collections.</p>
         </article>
         <article class="impact-card violet">
-          <span class="metric-value">23 GB &rarr; 12 GB</span>
           <h3 data-i18n="impact.sizeTitle">Build size</h3>
+          <div class="result-metric">
+            <strong>23 GB &rarr; 12 GB</strong>
+            <span data-i18n="impact.sizeDelta">48% smaller</span>
+          </div>
           <p data-i18n="impact.sizeText">Removed duplicated Addressables dependencies, relocated bootstrap content and eliminated unnecessary shader resources following build-report analysis.</p>
         </article>
         <article class="impact-card neutral">
-          <span class="metric-value" data-i18n="impact.deliveryMetric">Automated build delivery</span>
-          <h3 data-i18n="impact.deliveryTitle">CI/CD and distribution</h3>
+          <h3 data-i18n="impact.deliveryTitle">Build delivery</h3>
+          <div class="result-metric">
+            <strong data-i18n="impact.deliveryMetric">Automated CI/CD pipeline</strong>
+            <span>TeamCity &rarr; R2 &rarr; n8n &rarr; Discord</span>
+          </div>
           <p data-i18n="impact.deliveryText">Implemented a TeamCity-to-Cloudflare R2 delivery pipeline with n8n-generated download pages and Discord notifications, replacing manual archive publication and link management.</p>
         </article>
       </div>
@@ -431,6 +454,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=37"></script>
+  <script src="assets/script.js?v=38"></script>
 </body>
 </html>
