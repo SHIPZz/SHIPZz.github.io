@@ -493,13 +493,16 @@ li + li { margin-top: 9px; }
 .project-contribution p { font-size: 0.93rem; }
 .stack-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .stack-list span {
-  padding: 6px 9px;
-  border: 1px solid rgba(255,255,255,0.12);
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(216, 242, 117, 0.56);
   border-radius: 999px;
-  color: var(--text);
-  background: rgba(255,255,255,0.07);
-  font-size: 0.78rem;
-  font-weight: 800;
+  color: var(--accent);
+  background: rgba(216, 242, 117, 0.08);
+  font-size: 0.8rem;
+  font-weight: 900;
 }
 .tag { color: var(--accent-2); font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; }
 
