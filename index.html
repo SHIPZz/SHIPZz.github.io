@@ -95,7 +95,7 @@
       </div>
       <div class="impact-list">
         <article class="impact-card warm">
-          <h3 data-i18n="impact.loadTitle">Loading time</h3>
+          <h3 data-i18n="impact.loadTitle">Faster scene loading</h3>
           <div class="metric-breakdown">
             <div>
               <span class="metric-context" data-i18n="impact.hubLabel">Hub</span>
@@ -111,7 +111,7 @@
           <p data-i18n="impact.loadText">Restructured Addressables dependencies and deferred non-critical world initialization.</p>
         </article>
         <article class="impact-card blue">
-          <h3 data-i18n="impact.memoryTitle">Mission memory</h3>
+          <h3 data-i18n="impact.memoryTitle">Optimized RAM usage and reduced severe memory leaks</h3>
           <div class="result-metric">
             <strong>10-12 GB &rarr; 6-8 GB</strong>
             <span data-i18n="impact.memoryDelta">Up to 40% lower</span>
@@ -119,7 +119,7 @@
           <p data-i18n="impact.memoryText">Identified unintended object retention in legacy mission code and duplicated bundle content through Memory Profiler analysis; corrected lifecycle cleanup and ECS context disposal.</p>
         </article>
         <article class="impact-card lime">
-          <h3 data-i18n="impact.fpsTitle">Combat performance</h3>
+          <h3 data-i18n="impact.fpsTitle">Improved FPS performance</h3>
           <div class="result-metric">
             <strong data-i18n="impact.fpsMetric">Critical FPS drops eliminated</strong>
             <span data-i18n="impact.fpsScope">Ability simulation and enemy turns</span>
@@ -127,7 +127,7 @@
           <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; custom thread-safe pools replaced allocation-heavy collections.</p>
         </article>
         <article class="impact-card violet">
-          <h3 data-i18n="impact.sizeTitle">Build size</h3>
+          <h3 data-i18n="impact.sizeTitle">Reduced build size</h3>
           <div class="result-metric">
             <strong>23 GB &rarr; 12 GB</strong>
             <span data-i18n="impact.sizeDelta">48% smaller</span>
@@ -135,7 +135,7 @@
           <p data-i18n="impact.sizeText">Removed duplicated Addressables dependencies, relocated bootstrap content and eliminated unnecessary shader resources following build-report analysis.</p>
         </article>
         <article class="impact-card neutral">
-          <h3 data-i18n="impact.deliveryTitle">Build delivery</h3>
+          <h3 data-i18n="impact.deliveryTitle">Automated build delivery</h3>
           <div class="result-metric">
             <strong data-i18n="impact.deliveryMetric">Automated CI/CD pipeline</strong>
             <span>TeamCity &rarr; R2 &rarr; n8n &rarr; Discord</span>
@@ -454,6 +454,6 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="assets/script.js?v=38"></script>
+  <script src="assets/script.js?v=39"></script>
 </body>
 </html>
