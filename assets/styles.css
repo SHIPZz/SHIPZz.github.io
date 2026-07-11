@@ -540,8 +540,10 @@ li + li { margin-top: 9px; }
 .impact-card.violet { background: linear-gradient(135deg, rgba(175,140,255,0.2), rgba(255,255,255,0.045)); }
 .impact-card.neutral { background: linear-gradient(135deg, rgba(255,255,255,0.105), rgba(255,255,255,0.035)); }
 .impact-list h3 { margin: 0; font-size: 1.35rem; }
-.impact-list p { color: var(--muted); margin-bottom: 0; }
+.impact-list p { margin: 0; color: var(--muted); }
 .metric-breakdown { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.impact-card:not(:last-child) > .metric-breakdown,
+.impact-card:not(:last-child) > .result-metric { min-height: 112px; }
 .metric-breakdown > div, .result-metric {
   padding: 14px;
   border: 1px solid rgba(216, 242, 117, 0.26);
