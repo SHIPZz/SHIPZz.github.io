@@ -277,9 +277,9 @@ const observer = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => observer.observe(item));
 
-const entranceItems = document.querySelectorAll('.entrance-slide, .entrance-flip');
+const entranceItems = document.querySelectorAll('.entrance-slide, .entrance-flip, .entrance-impact');
 const entranceSequenceStartedAt = performance.now();
-const projectEntranceReadyAfter = 3300;
+const projectEntranceReadyAfter = 2500;
 const entranceObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
@@ -297,7 +297,7 @@ const entranceObserver = new IntersectionObserver((entries) => {
 
       if (isProjectCard) {
         const delay = Number.parseInt(target.style.getPropertyValue('--entrance-delay'), 10) || 0;
-        window.setTimeout(() => target.classList.add('entrance-settled'), 1750 + delay);
+        window.setTimeout(() => target.classList.add('entrance-settled'), 1650 + delay);
       }
     }, sequenceDelay);
   });
@@ -305,7 +305,11 @@ const entranceObserver = new IntersectionObserver((entries) => {
 
 entranceItems.forEach((item, index) => {
   if (item.classList.contains('entrance-flip')) {
-    item.style.setProperty('--entrance-delay', `${(index % 2) * 180}ms`);
+    item.style.setProperty('--entrance-delay', `${(index % 2) * 120}ms`);
+  }
+  if (item.classList.contains('entrance-impact')) {
+    const impactIndex = Array.from(document.querySelectorAll('.entrance-impact')).indexOf(item);
+    item.style.setProperty('--impact-entrance-delay', `${impactIndex * 110}ms`);
   }
   entranceObserver.observe(item);
 });
