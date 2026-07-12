@@ -318,6 +318,26 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-deta
   color: #151412;
 }
 
+html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details dt,
+.theme-beige-prototype .case-study-details .case-study-label {
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 5px 9px;
+  color: #151412;
+  border: 1px solid rgba(21, 20, 18, 0.38);
+  border-radius: 6px;
+  background: rgba(185, 103, 54, 0.24);
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details dd,
+.theme-beige-prototype .case-study-details p {
+  color: #151412;
+  font-weight: 680;
+  opacity: 1;
+}
+
 .theme-beige-prototype .skills-layout article,
 .theme-beige-prototype .skills-layout article:nth-child(even) {
   color: #151412;
