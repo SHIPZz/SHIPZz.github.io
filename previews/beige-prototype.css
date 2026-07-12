@@ -166,7 +166,7 @@
 .theme-beige-prototype .skills-layout article,
 .theme-beige-prototype .timeline-item,
 .theme-beige-prototype .education-grid article {
-  border-color: rgba(22, 21, 18, 0.25);
+  border-color: rgba(92, 82, 68, 0.22);
   border-radius: 18px;
   background: rgba(247, 240, 229, 0.9);
   box-shadow: 0 12px 34px rgba(68, 57, 43, 0.09);
@@ -220,11 +220,11 @@
 }
 
 .theme-beige-prototype .impact-card > h3 {
-  margin: -24px -24px 0;
-  padding: 20px 24px;
-  color: #f5eee2;
-  border-radius: 17px 17px 0 0;
-  background: #171715;
+  margin: 0;
+  padding: 0;
+  color: #151412;
+  border-radius: 0;
+  background: transparent;
 }
 
 .theme-beige-prototype .metric-breakdown > div,
@@ -249,37 +249,38 @@
 }
 
 .theme-beige-prototype .case-study-details > div:last-child {
-  color: #f5eee2;
-  border: 0;
+  color: #151412;
+  border: 1px solid rgba(106, 99, 57, 0.28);
   border-radius: 12px;
-  background: #171715;
+  background: rgba(205, 198, 157, 0.46);
 }
 
 .theme-beige-prototype .case-study-details > div:last-child .case-study-label,
 .theme-beige-prototype .case-study-details > div:last-child p {
-  color: #f5eee2;
+  color: #151412;
 }
 
 .theme-beige-prototype .skills-layout article:nth-child(even) {
-  color: #f5eee2;
-  border-color: #171715;
-  background: #171715;
+  color: #151412;
+  border-color: rgba(106, 99, 57, 0.3);
+  background: rgba(225, 218, 188, 0.62);
 }
 
 .theme-beige-prototype .skills-layout article:nth-child(even) h3 {
-  color: #f5eee2;
+  color: #151412;
 }
 
 .theme-beige-prototype .skills-layout article:nth-child(even) .skill-highlights span {
-  color: #f5eee2;
-  border-color: rgba(245, 238, 226, 0.42);
-  background: rgba(245, 238, 226, 0.08);
+  color: #151412;
+  border-color: rgba(21, 20, 18, 0.34);
+  background: rgba(247, 240, 229, 0.58);
 }
 
 .theme-beige-prototype .timeline-date {
-  color: #f5eee2;
-  border-radius: 8px;
-  background: #171715;
+  color: #151412;
+  border-left: 3px solid #171715;
+  border-radius: 0;
+  background: transparent;
 }
 
 .theme-beige-prototype .timeline-item::before {
