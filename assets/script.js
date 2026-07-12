@@ -380,7 +380,7 @@ function renderCursorParticles(time) {
   const width = window.innerWidth;
   const height = window.innerHeight;
   const pointerActive = finePointerQuery.matches;
-  const followBoost = isBeigeParticleTheme ? 1.85 : 1;
+  const followBoost = isBeigeParticleTheme ? 2.6 : 1;
 
   if (cursorAura) {
     cursorAuraX += (particlePointerX - cursorAuraX) * 0.075;
@@ -427,6 +427,37 @@ window.addEventListener('pointermove', (event) => {
 window.addEventListener('resize', updateParticleAnimation);
 reducedMotionQuery.addEventListener('change', updateParticleAnimation);
 updateParticleAnimation();
+
+const cursorEye = document.querySelector('.cursor-eye');
+const cursorEyeGaze = cursorEye?.querySelector('.cursor-eye-gaze');
+let cursorEyeFrame = null;
+let cursorEyeX = 0;
+let cursorEyeY = 0;
+
+if (cursorEye && cursorEyeGaze && isBeigeParticleTheme) {
+  cursorEye.hidden = false;
+
+  const updateCursorEye = () => {
+    const rect = cursorEye.getBoundingClientRect();
+    const centerX = rect.left + rect.width * 0.5;
+    const centerY = rect.top + rect.height * 0.5;
+    const canTrackPointer = finePointerQuery.matches && !reducedMotionQuery.matches;
+    const targetX = canTrackPointer ? Math.max(-12, Math.min(12, (particlePointerX - centerX) / 24)) : 0;
+    const targetY = canTrackPointer ? Math.max(-7, Math.min(7, (particlePointerY - centerY) / 32)) : 0;
+
+    cursorEyeX += (targetX - cursorEyeX) * 0.12;
+    cursorEyeY += (targetY - cursorEyeY) * 0.12;
+    cursorEyeGaze.style.transform = `translate(${cursorEyeX.toFixed(2)}px, ${cursorEyeY.toFixed(2)}px)`;
+    cursorEyeFrame = window.requestAnimationFrame(updateCursorEye);
+  };
+
+  cursorEyeFrame = window.requestAnimationFrame(updateCursorEye);
+
+  window.addEventListener('pointerleave', () => {
+    particlePointerX = cursorEye.getBoundingClientRect().left + cursorEye.offsetWidth * 0.5;
+    particlePointerY = cursorEye.getBoundingClientRect().top + cursorEye.offsetHeight * 0.5;
+  });
+}
 let headerFrame = null;
 let lastMobileScrollY = window.scrollY;
 let mobileScrollDirection = 0;
