@@ -331,8 +331,8 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-deta
 
 .theme-beige-prototype .skills-layout article:nth-child(even) .skill-highlights span {
   color: #151412;
-  border-color: rgba(21, 20, 18, 0.34);
-  background: rgba(247, 240, 229, 0.58);
+  border-color: rgba(21, 20, 18, 0.42);
+  background: rgba(205, 198, 157, 0.3);
 }
 
 .theme-beige-prototype .timeline-date {
@@ -348,7 +348,7 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-deta
 
 .theme-beige-prototype .timeline-item {
   border: 1px solid rgba(21, 20, 18, 0.38);
-  background: rgba(54, 49, 42, 0.1);
+  background: rgba(247, 240, 229, 0.92);
 }
 
 .theme-beige-prototype .education-grid article {
