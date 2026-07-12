@@ -366,7 +366,7 @@ const cursorParticles = particleDefinitions.map(([left, top, size, depth, color,
   element.style.setProperty('--particle-color', color);
   element.style.setProperty('--particle-opacity', opacity);
   particleField.appendChild(element);
-  return { element, left, top, depth, phase: index * 0.83, x: 0, y: 0 };
+  return { element, left, top, depth, phase: index * 0.83, x: 0, y: 0, impulseX: 0, impulseY: 0 };
 });
 ambientBackground?.appendChild(particleField);
 
@@ -401,7 +401,9 @@ function renderCursorParticles(time) {
 
     particle.x += (targetX - particle.x) * (0.018 + particle.depth * 0.018);
     particle.y += (targetY - particle.y) * (0.018 + particle.depth * 0.018);
-    particle.element.style.transform = `translate3d(${(baseX + particle.x).toFixed(1)}px, ${(baseY + particle.y).toFixed(1)}px, 0)`;
+    particle.impulseX *= 0.9;
+    particle.impulseY *= 0.9;
+    particle.element.style.transform = `translate3d(${(baseX + particle.x + particle.impulseX).toFixed(1)}px, ${(baseY + particle.y + particle.impulseY).toFixed(1)}px, 0)`;
   });
 
   particleFrame = window.requestAnimationFrame(renderCursorParticles);
@@ -457,6 +459,63 @@ if (cursorEye && cursorEyeGaze && isBeigeParticleTheme) {
     particlePointerX = cursorEye.getBoundingClientRect().left + cursorEye.offsetWidth * 0.5;
     particlePointerY = cursorEye.getBoundingClientRect().top + cursorEye.offsetHeight * 0.5;
   });
+}
+
+const clickEffects = isBeigeParticleTheme ? document.createElement('div') : null;
+if (clickEffects) {
+  clickEffects.className = 'cursor-click-effects';
+  clickEffects.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(clickEffects);
+}
+
+function createCursorClickRipple(x, y, button) {
+  if (!clickEffects || reducedMotionQuery.matches || (button !== 0 && button !== 2)) {
+    return;
+  }
+
+  const isRightClick = button === 2;
+  const ripple = document.createElement('span');
+  ripple.className = `cursor-click-ripple ${isRightClick ? 'is-right-click' : 'is-left-click'}`;
+  ripple.style.left = `${x}px`;
+  ripple.style.top = `${y}px`;
+  clickEffects.appendChild(ripple);
+  window.setTimeout(() => ripple.remove(), 760);
+
+  if (cursorAura) {
+    const pulseClass = isRightClick ? 'is-right-pulse' : 'is-left-pulse';
+    cursorAura.classList.remove('is-left-pulse', 'is-right-pulse');
+    void cursorAura.offsetWidth;
+    cursorAura.classList.add(pulseClass);
+    window.setTimeout(() => cursorAura.classList.remove(pulseClass), 620);
+  }
+
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  cursorParticles.forEach((particle) => {
+    const particleX = width * particle.left / 100 + particle.x;
+    const particleY = height * particle.top / 100 + particle.y;
+    const dx = particleX - x;
+    const dy = particleY - y;
+    const distance = Math.max(1, Math.hypot(dx, dy));
+    const proximity = Math.max(0, 1 - distance / 560);
+    const direction = isRightClick ? -1 : 1;
+    const force = proximity * (isRightClick ? 52 : 72) * direction * (0.55 + particle.depth * 0.45);
+    particle.impulseX += dx / distance * force;
+    particle.impulseY += dy / distance * force;
+  });
+
+  if (!isRightClick && cursorEye) {
+    cursorEye.classList.remove('is-click-blinking');
+    void cursorEye.offsetWidth;
+    cursorEye.classList.add('is-click-blinking');
+    window.setTimeout(() => cursorEye.classList.remove('is-click-blinking'), 380);
+  }
+}
+
+if (isBeigeParticleTheme) {
+  window.addEventListener('pointerdown', (event) => {
+    createCursorClickRipple(event.clientX, event.clientY, event.button);
+  }, { passive: true });
 }
 let headerFrame = null;
 let lastMobileScrollY = window.scrollY;

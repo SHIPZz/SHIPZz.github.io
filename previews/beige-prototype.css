@@ -82,6 +82,48 @@
   will-change: transform;
 }
 
+.theme-beige-prototype .cursor-aura.is-left-pulse { animation: cursor-aura-left-pulse 620ms ease-out; }
+.theme-beige-prototype .cursor-aura.is-right-pulse { animation: cursor-aura-right-pulse 620ms ease-out; }
+
+.theme-beige-prototype .cursor-click-effects {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.theme-beige-prototype .cursor-click-ripple {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(21, 20, 18, 0.48);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+.theme-beige-prototype .cursor-click-ripple::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+}
+
+.theme-beige-prototype .cursor-click-ripple.is-left-click {
+  color: rgba(185, 103, 54, 0.72);
+  border-color: rgba(185, 103, 54, 0.72);
+  animation: cursor-left-ripple 720ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.theme-beige-prototype .cursor-click-ripple.is-right-click {
+  color: rgba(112, 111, 66, 0.72);
+  border-color: rgba(112, 111, 66, 0.72);
+  animation: cursor-right-ripple 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 .theme-beige-prototype .cursor-eye {
   width: 118px;
   height: 68px;
@@ -123,8 +165,39 @@
   47% { transform: scaleY(0.08); }
 }
 
+@keyframes cursor-eye-click-blink {
+  0%, 100% { transform: scaleY(1); }
+  45%, 58% { transform: scaleY(0.06); }
+}
+
+.theme-beige-prototype .cursor-eye.is-click-blinking svg {
+  animation: cursor-eye-click-blink 360ms ease-in-out;
+}
+
+@keyframes cursor-left-ripple {
+  0% { opacity: 0.9; transform: translate(-50%, -50%) scale(0.35); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(5.4); }
+}
+
+@keyframes cursor-right-ripple {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(5); }
+  20% { opacity: 0.82; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+}
+
+@keyframes cursor-aura-left-pulse {
+  0%, 100% { opacity: 0.68; filter: blur(12px) saturate(1); }
+  45% { opacity: 0.9; filter: blur(9px) saturate(1.22); }
+}
+
+@keyframes cursor-aura-right-pulse {
+  0%, 100% { opacity: 0.68; filter: blur(12px) saturate(1); }
+  45% { opacity: 0.48; filter: blur(18px) saturate(0.82); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-beige-prototype .cursor-eye svg { animation: none; }
+  .theme-beige-prototype .cursor-click-effects { display: none; }
 }
 
 .theme-beige-prototype .noise {
