@@ -108,7 +108,7 @@ html[data-preview="achievements"] .achievement-inline-details > div:last-child d
 
 html[data-preview="achievements"] .achievement-secondary-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
@@ -116,15 +116,16 @@ html[data-preview="achievements"] .achievement-secondary-card,
 html[data-preview="achievements"] .impact-card:last-child.achievement-secondary-card {
   grid-column: auto;
   width: 100%;
-  height: 330px;
+  height: auto;
+  min-height: 320px;
   justify-self: stretch;
-  padding: 28px;
+  padding: 30px;
   border-radius: 26px;
 }
 
 html[data-preview="achievements"] .achievement-secondary-card > h3 {
   text-align: center;
-  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
 }
 
 html[data-preview="achievements"] .achievement-secondary-card > .result-metric {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-preview="achievements">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,15 +24,7 @@
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/styles.css?v=58" />
-  <script>
-    if (new URLSearchParams(window.location.search).get('preview') === 'achievements') {
-      document.documentElement.dataset.preview = 'achievements';
-      const previewStyles = document.createElement('link');
-      previewStyles.rel = 'stylesheet';
-      previewStyles.href = 'previews/achievement-concept.css?v=1';
-      document.head.appendChild(previewStyles);
-    }
-  </script>
+  <link rel="stylesheet" href="previews/achievement-concept.css?v=3" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -459,11 +451,7 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script>
-    if (document.documentElement.dataset.preview === 'achievements') {
-      document.write('<script src="previews/achievement-concept.js?v=1"><\/script>');
-    }
-  </script>
-  <script src="assets/script.js?v=71"></script>
+  <script src="previews/achievement-concept.js?v=3"></script>
+  <script src="assets/script.js?v=72"></script>
 </body>
 </html>
