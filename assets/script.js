@@ -278,23 +278,34 @@ const observer = new IntersectionObserver((entries) => {
 revealItems.forEach((item) => observer.observe(item));
 
 const entranceItems = document.querySelectorAll('.entrance-slide, .entrance-flip');
+const entranceSequenceStartedAt = performance.now();
+const projectEntranceReadyAfter = 3300;
 const entranceObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
 
-    entry.target.classList.add('is-entered');
+    const target = entry.target;
+    const isProjectCard = target.classList.contains('entrance-flip');
+    const elapsed = performance.now() - entranceSequenceStartedAt;
+    const sequenceDelay = isProjectCard ? Math.max(0, projectEntranceReadyAfter - elapsed) : 0;
+
+    target.classList.add('is-entrance-scheduled');
     entranceObserver.unobserve(entry.target);
 
-    if (entry.target.classList.contains('entrance-flip')) {
-      const delay = Number.parseInt(entry.target.style.getPropertyValue('--entrance-delay'), 10) || 0;
-      window.setTimeout(() => entry.target.classList.add('entrance-settled'), 1050 + delay);
-    }
+    window.setTimeout(() => {
+      target.classList.add('is-entered');
+
+      if (isProjectCard) {
+        const delay = Number.parseInt(target.style.getPropertyValue('--entrance-delay'), 10) || 0;
+        window.setTimeout(() => target.classList.add('entrance-settled'), 1750 + delay);
+      }
+    }, sequenceDelay);
   });
 }, { threshold: 0.16, rootMargin: '0px 0px -6% 0px' });
 
 entranceItems.forEach((item, index) => {
   if (item.classList.contains('entrance-flip')) {
-    item.style.setProperty('--entrance-delay', `${(index % 2) * 110}ms`);
+    item.style.setProperty('--entrance-delay', `${(index % 2) * 180}ms`);
   }
   entranceObserver.observe(item);
 });

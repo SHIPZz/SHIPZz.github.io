@@ -786,29 +786,42 @@ html[lang="ru"] .impact-list h3 { font-size: 1.25rem; }
 [data-i18n] { transition: opacity 170ms ease, transform 170ms ease; }
 body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); }
 
+.motion-ready .hero-intro-pulse {
+  transform-origin: center;
+  animation: hero-intro-pulse 1500ms cubic-bezier(0.22, 1, 0.36, 1) 700ms backwards;
+  will-change: transform, filter;
+}
+.motion-ready .hero-intro-name { animation-delay: 820ms; }
+
+@keyframes hero-intro-pulse {
+  0%, 100% { filter: brightness(1); transform: scale(1); }
+  46% { filter: brightness(1.12); transform: scale(1.115); }
+}
+
 .motion-ready [data-i18n].entrance-slide {
   opacity: 0;
   filter: blur(6px);
-  transform: translate3d(-64px, 0, 0);
+  transform: translate3d(-140px, 0, 0) scaleX(0.76);
+  transform-origin: left center;
   transition:
-    opacity 720ms ease,
-    filter 820ms ease,
-    transform 880ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 900ms ease,
+    filter 1050ms ease,
+    transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, filter, transform;
 }
 .motion-ready [data-i18n].entrance-slide.is-entered {
   opacity: 1;
   filter: blur(0);
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scaleX(1);
 }
 .motion-ready .project-card.entrance-flip {
   opacity: 0;
   backface-visibility: hidden;
-  transform: perspective(1200px) rotateY(-74deg) translateX(-26px);
+  transform: perspective(1400px) rotateY(-82deg) translateX(-34px);
   transform-origin: left center;
   transition:
-    opacity 620ms ease var(--entrance-delay, 0ms),
-    transform 920ms cubic-bezier(0.22, 1, 0.36, 1) var(--entrance-delay, 0ms),
+    opacity 900ms ease var(--entrance-delay, 0ms),
+    transform 1500ms cubic-bezier(0.16, 1, 0.3, 1) var(--entrance-delay, 0ms),
     border-color 240ms ease,
     background-color 240ms ease,
     box-shadow 240ms ease;
@@ -816,7 +829,7 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
 }
 .motion-ready .project-card.entrance-flip.is-entered {
   opacity: 1;
-  transform: perspective(1200px) rotateY(0deg) translateX(0);
+  transform: perspective(1400px) rotateY(0deg) translateX(0);
 }
 .motion-ready .project-card.entrance-flip.entrance-settled {
   transition:
@@ -854,6 +867,7 @@ body.is-language-changing [data-i18n] { opacity: 0; transform: translateY(5px); 
   .contact:hover { transform: none; }
   [data-i18n] { transition: none; }
   body.is-language-changing [data-i18n] { opacity: 1; transform: none; }
+  .motion-ready .hero-intro-pulse { animation: none; filter: none; transform: none; }
   .motion-ready [data-i18n].entrance-slide,
   .motion-ready [data-i18n].entrance-slide.is-entered,
   .motion-ready .project-card.entrance-flip,
