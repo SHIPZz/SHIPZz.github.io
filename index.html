@@ -24,7 +24,7 @@
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <script>document.documentElement.classList.add('motion-ready');</script>
-  <link rel="stylesheet" href="assets/styles.css?v=61" />
+  <link rel="stylesheet" href="assets/styles.css?v=62" />
   <link rel="stylesheet" href="previews/achievement-concept.css?v=3" />
   <script type="application/ld+json">
     {
@@ -96,7 +96,7 @@
         <h2 class="entrance-slide" data-i18n="impact.title">RECENT ACHIEVEMENTS</h2>
       </div>
       <div class="impact-list">
-        <article class="impact-card warm entrance-impact">
+        <article class="impact-card warm entrance-flow">
           <h3 data-i18n="impact.loadTitle">Scene loading reduced by up to 51%</h3>
           <div class="metric-breakdown">
             <div>
@@ -112,7 +112,7 @@
           </div>
           <p data-i18n="impact.loadText">Restructured Addressables dependencies, separated scene-owned content and deferred the creation of non-critical world objects.</p>
         </article>
-        <article class="impact-card blue entrance-impact">
+        <article class="impact-card blue entrance-flow">
           <h3 data-i18n="impact.memoryTitle">RAM reduced by up to 40%</h3>
           <div class="metric-breakdown three-column-metrics">
             <div>
@@ -130,7 +130,7 @@
           </div>
           <p data-i18n="impact.memoryText">Corrected mission lifecycle cleanup, removed retained object graphs and eliminated duplicated shaders and assets from bundles.</p>
         </article>
-        <article class="impact-card lime entrance-impact">
+        <article class="impact-card lime entrance-flow">
           <h3 data-i18n="impact.fpsTitle">Critical frame drops eliminated</h3>
           <div class="metric-breakdown">
             <div>
@@ -146,7 +146,7 @@
           </div>
           <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; replaced allocation-heavy collections with custom thread-safe pools.</p>
         </article>
-        <article class="impact-card violet entrance-impact">
+        <article class="impact-card violet entrance-flow">
           <h3 data-i18n="impact.sizeTitle">Build size reduced by 48%</h3>
           <div class="result-metric">
             <strong>23 GB &rarr; 12 GB</strong>
@@ -154,7 +154,7 @@
           </div>
           <p data-i18n="impact.sizeText">Audited Addressables bundles, removed duplicated assets and shaders, and separated bootstrap dependencies from initial build content.</p>
         </article>
-        <article class="impact-card neutral entrance-impact">
+        <article class="impact-card neutral entrance-flow">
           <h3 data-i18n="impact.deliveryTitle">Build publishing and distribution automated</h3>
           <div class="result-metric">
             <strong data-i18n="impact.deliveryMetric">Automatic upload, download pages and notifications</strong>
@@ -166,7 +166,7 @@
 
       <div id="case-studies" class="case-studies-inline">
         <div class="case-study-list">
-        <article class="case-study-card">
+        <article class="case-study-card entrance-flow">
           <div class="case-study-content">
             <div class="case-study-heading">
               <h3 data-i18n="cases.loadingTitle">Scene loading optimization</h3>
@@ -179,7 +179,7 @@
           </div>
         </article>
 
-        <article class="case-study-card">
+        <article class="case-study-card entrance-flow">
           <div class="case-study-content">
             <div class="case-study-heading">
               <h3 data-i18n="cases.memoryTitle">Memory leak removal</h3>
@@ -192,7 +192,7 @@
           </div>
         </article>
 
-        <article class="case-study-card">
+        <article class="case-study-card entrance-flow">
           <div class="case-study-content">
             <div class="case-study-heading">
               <h3 data-i18n="cases.performanceTitle">FPS stabilization</h3>
@@ -210,7 +210,7 @@
 
     <section id="projects" class="section project-grid" data-reveal>
       <div class="section-heading centered">
-        <h2 data-i18n="projects.title">PROJECTS</h2>
+        <h2 class="entrance-slide projects-title-entrance" data-i18n="projects.title">PROJECTS</h2>
       </div>
       <div class="cards">
         <article class="project-card featured entrance-flip">
@@ -327,37 +327,37 @@
         <h2 class="entrance-slide" data-i18n="skills.title">TECHNICAL SKILLS</h2>
       </div>
       <div class="skills-layout">
-        <article>
+        <article class="entrance-spin">
           <h3 data-i18n="skills.foundationTitle">Unity & C#</h3>
           <div class="skill-highlights" aria-label="Key skills">
             <span>Unity Engine</span><span>C#</span><span>.NET</span><span>OOP</span><span>SOLID</span><span>Async/Await</span><span>Editor Tools</span>
           </div>
         </article>
-        <article>
+        <article class="entrance-spin">
           <h3 data-i18n="skills.archTitle">Architecture & Gameplay</h3>
           <div class="skill-highlights" aria-label="Key skills">
             <span>ECS</span><span>Entitas</span><span>LeoECS</span><span>MVP</span><span>MVVM</span><span>State Machines</span><span>Zenject</span><span>VContainer</span><span>GoF Patterns</span>
           </div>
         </article>
-        <article>
+        <article class="entrance-spin">
           <h3 data-i18n="skills.contentTitle">UI, Content & Rendering</h3>
           <div class="skill-highlights" aria-label="Key skills">
             <span>uGUI</span><span>UI Toolkit</span><span>IMGUI</span><span>Addressables</span><span>Asset Bundles</span><span>URP</span><span>Renderer Features</span><span>Spine</span><span>Animancer</span><span>DOTween</span><span>Odin Inspector</span>
           </div>
         </article>
-        <article>
+        <article class="entrance-spin">
           <h3 data-i18n="skills.performanceTitle">Performance & Profiling</h3>
           <div class="skill-highlights" aria-label="Key skills">
             <span>Unity Profiler</span><span>Memory Profiler</span><span>Frame Debugger</span><span>CPU Profiling</span><span>GPU Profiling</span><span>RAM Analysis</span><span>Shader Stripping</span><span>Draw Calls</span>
           </div>
         </article>
-        <article>
+        <article class="entrance-spin">
           <h3 data-i18n="skills.networkTitle">Networking & SDKs</h3>
           <div class="skill-highlights" aria-label="Key skills">
             <span>Multiplayer</span><span>REST API</span><span>SignalR</span><span>Photon Fusion</span><span>Firebase</span><span>Adjust</span><span>Facebook SDK</span><span>Unity Analytics</span><span>Remote Config</span><span>Crashlytics</span><span>IAP</span><span>Localization</span>
           </div>
         </article>
-        <article>
+        <article class="entrance-spin">
           <h3 data-i18n="skills.deliveryTitle">Delivery, Testing & Tooling</h3>
           <div class="skill-highlights" aria-label="Key skills">
             <span>Git</span><span>GitHub</span><span>GitLab</span><span>TeamCity</span><span>Cloudflare R2</span><span>n8n</span><span>CI/CD</span><span>NUnit</span><span>AltTester</span><span>Discord Integrations</span><span>AI-assisted Review</span>
@@ -371,7 +371,7 @@
         <h2 class="entrance-slide" data-i18n="experience.title">Professional experience</h2>
       </div>
       <div class="timeline">
-        <article class="timeline-item">
+        <article class="timeline-item entrance-flow">
           <div class="timeline-date" data-i18n="experience.currentDate">Feb 2025 - Present</div>
           <div class="timeline-content">
             <h3 data-i18n="experience.currentRole">Senior Unity Developer / Build Automation</h3>
@@ -389,7 +389,7 @@
           </div>
         </article>
 
-        <article class="timeline-item">
+        <article class="timeline-item entrance-flow">
           <div class="timeline-date" data-i18n="experience.previousDate">Jan 2021 - Feb 2025</div>
           <div class="timeline-content">
             <h3 data-i18n="experience.previousRole">Unity Developer</h3>
@@ -414,15 +414,15 @@
         <h2 class="entrance-slide" data-i18n="education.title">EDUCATION</h2>
       </div>
       <div class="education-grid">
-        <article>
+        <article class="entrance-flow">
           <h3 data-i18n="education.collegeTitle">Volzhsky Polytechnic Technical College</h3>
           <p data-i18n="education.collegeText">Mathematical Support and Administration of Information Systems · 2020 - 2024</p>
         </article>
-        <article>
+        <article class="entrance-flow">
           <h3 data-i18n="education.ksTitle">KSyndicate - Unity Development</h3>
           <p data-i18n="education.ksText">Specialization Courses: ECS & Architecture · 2024 - 2025</p>
         </article>
-        <article>
+        <article class="entrance-flow">
           <h3 data-i18n="education.languagesTitle">Languages</h3>
           <div class="language-list">
             <p><strong data-i18n="education.languageEnglish">English</strong><span data-i18n="education.levelEnglish">B2 — Upper-Intermediate</span></p>
@@ -433,7 +433,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact" data-reveal>
+    <section id="contact" class="section contact entrance-flow" data-reveal>
       <div>
         <h2 data-i18n="contact.title">Contact me</h2>
         <p class="muted" data-i18n="contact.text">Open to Senior Unity Developer opportunities.</p>
@@ -453,6 +453,6 @@
   </footer>
 
   <script src="previews/achievement-concept.js?v=3"></script>
-  <script src="assets/script.js?v=75"></script>
+  <script src="assets/script.js?v=77"></script>
 </body>
 </html>

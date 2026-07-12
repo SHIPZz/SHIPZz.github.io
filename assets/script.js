@@ -277,7 +277,7 @@ const observer = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => observer.observe(item));
 
-const entranceItems = document.querySelectorAll('.entrance-slide, .entrance-flip, .entrance-impact');
+const entranceItems = document.querySelectorAll('.entrance-slide, .entrance-flip, .entrance-spin, .entrance-flow');
 const entranceSequenceStartedAt = performance.now();
 const projectEntranceReadyAfter = 2500;
 const entranceObserver = new IntersectionObserver((entries) => {
@@ -286,8 +286,10 @@ const entranceObserver = new IntersectionObserver((entries) => {
 
     const target = entry.target;
     const isProjectCard = target.classList.contains('entrance-flip');
+    const isProjectHeading = target.classList.contains('projects-title-entrance');
+    const isSpinningCard = isProjectCard || target.classList.contains('entrance-spin');
     const elapsed = performance.now() - entranceSequenceStartedAt;
-    const sequenceDelay = isProjectCard ? Math.max(0, projectEntranceReadyAfter - elapsed) : 0;
+    const sequenceDelay = isProjectCard || isProjectHeading ? Math.max(0, projectEntranceReadyAfter - elapsed) : 0;
 
     target.classList.add('is-entrance-scheduled');
     entranceObserver.unobserve(entry.target);
@@ -295,7 +297,7 @@ const entranceObserver = new IntersectionObserver((entries) => {
     window.setTimeout(() => {
       target.classList.add('is-entered');
 
-      if (isProjectCard) {
+      if (isSpinningCard) {
         const delay = Number.parseInt(target.style.getPropertyValue('--entrance-delay'), 10) || 0;
         window.setTimeout(() => target.classList.add('entrance-settled'), 1650 + delay);
       }
@@ -304,12 +306,13 @@ const entranceObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.16, rootMargin: '0px 0px -6% 0px' });
 
 entranceItems.forEach((item, index) => {
-  if (item.classList.contains('entrance-flip')) {
-    item.style.setProperty('--entrance-delay', `${(index % 2) * 120}ms`);
+  if (item.classList.contains('entrance-flip') || item.classList.contains('entrance-spin')) {
+    const spinItems = Array.from(item.parentElement.querySelectorAll(':scope > .entrance-flip, :scope > .entrance-spin'));
+    item.style.setProperty('--entrance-delay', `${(spinItems.indexOf(item) % 2) * 120}ms`);
   }
-  if (item.classList.contains('entrance-impact')) {
-    const impactIndex = Array.from(document.querySelectorAll('.entrance-impact')).indexOf(item);
-    item.style.setProperty('--impact-entrance-delay', `${impactIndex * 110}ms`);
+  if (item.classList.contains('entrance-flow')) {
+    const flowItems = Array.from(item.parentElement.querySelectorAll(':scope > .entrance-flow'));
+    item.style.setProperty('--flow-entrance-delay', `${Math.max(0, flowItems.indexOf(item)) * 110}ms`);
   }
   entranceObserver.observe(item);
 });
