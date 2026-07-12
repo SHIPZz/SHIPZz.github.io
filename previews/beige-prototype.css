@@ -124,7 +124,9 @@
 }
 
 .theme-beige-prototype .hero-text {
-  color: #514c44;
+  color: #151412;
+  font-weight: 680;
+  opacity: 1;
 }
 
 .theme-beige-prototype .button.primary {
@@ -158,6 +160,58 @@
 .theme-beige-prototype .hero-links a:hover {
   color: #151412;
   border-bottom-color: #151412;
+}
+
+.theme-beige-prototype .hero-actions {
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.theme-beige-prototype .hero-links {
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.theme-beige-prototype .hero-actions .button[data-circle-label],
+.theme-beige-prototype .hero-links a[data-circle-label] {
+  width: 68px;
+  min-width: 68px;
+  height: 68px;
+  min-height: 68px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  color: transparent;
+  border: 1px solid rgba(21, 20, 18, 0.58);
+  border-radius: 50%;
+  box-shadow: 0 10px 22px rgba(68, 51, 35, 0.12);
+  overflow: hidden;
+}
+
+.theme-beige-prototype .hero-actions .button[data-circle-label]::after,
+.theme-beige-prototype .hero-links a[data-circle-label]::after {
+  content: attr(data-circle-label);
+  color: #151412;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.035em;
+  line-height: 1;
+}
+
+.theme-beige-prototype .hero-actions .button[data-circle-label]:nth-child(1) { background: #e7a86f; }
+.theme-beige-prototype .hero-actions .button[data-circle-label]:nth-child(2) { background: #c8c194; }
+.theme-beige-prototype .hero-links a[data-circle-label]:nth-child(1) { background: #e2c3a2; }
+.theme-beige-prototype .hero-links a[data-circle-label]:nth-child(2) { background: #bfc6a3; }
+.theme-beige-prototype .hero-links a[data-circle-label]:nth-child(3) { background: #d9b2a4; }
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-beige-prototype .hero-actions .button[data-circle-label]:hover,
+  .theme-beige-prototype .hero-links a[data-circle-label]:hover {
+    color: transparent;
+    border-color: #151412;
+    box-shadow: 0 16px 28px rgba(68, 51, 35, 0.18);
+    transform: translateY(-5px) rotate(-3deg);
+  }
 }
 
 .theme-beige-prototype .project-card,
@@ -209,6 +263,30 @@
 .theme-beige-prototype .project-contribution {
   border-color: rgba(21, 20, 18, 0.24);
   background: rgba(205, 198, 157, 0.28);
+}
+
+.theme-beige-prototype .project-card,
+.theme-beige-prototype .project-card.featured {
+  background: rgba(247, 240, 229, 0.92);
+}
+
+.theme-beige-prototype .project-body {
+  flex: 1;
+  align-content: start;
+}
+
+.theme-beige-prototype .project-body > p {
+  min-height: 4.8em;
+}
+
+.theme-beige-prototype .project-contribution {
+  min-height: 112px;
+}
+
+.theme-beige-prototype .project-contribution p {
+  color: #151412;
+  font-weight: 680;
+  opacity: 1;
 }
 
 .theme-beige-prototype .impact-card.warm,
@@ -456,6 +534,19 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-deta
   .theme-beige-prototype .impact-card > h3 {
     margin: 0;
     padding: 0;
+  }
+
+  .theme-beige-prototype .project-body > p,
+  .theme-beige-prototype .project-contribution {
+    min-height: 0;
+  }
+
+  .theme-beige-prototype .hero-actions .button[data-circle-label],
+  .theme-beige-prototype .hero-links a[data-circle-label] {
+    width: 58px;
+    min-width: 58px;
+    height: 58px;
+    min-height: 58px;
   }
 
   .theme-beige-prototype .achievement-inline-details > div,
