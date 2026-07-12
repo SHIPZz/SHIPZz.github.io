@@ -353,6 +353,12 @@ const particleDefinitions = [
 const particleField = document.createElement('div');
 particleField.className = 'cursor-particle-field';
 particleField.setAttribute('aria-hidden', 'true');
+const isBeigeParticleTheme = document.documentElement.classList.contains('theme-beige-prototype');
+const cursorAura = isBeigeParticleTheme ? document.createElement('span') : null;
+if (cursorAura) {
+  cursorAura.className = 'cursor-aura';
+  particleField.appendChild(cursorAura);
+}
 const cursorParticles = particleDefinitions.map(([left, top, size, depth, color, opacity], index) => {
   const element = document.createElement('span');
   element.className = 'cursor-particle';
@@ -367,11 +373,20 @@ ambientBackground?.appendChild(particleField);
 let particleFrame = null;
 let particlePointerX = window.innerWidth * 0.5;
 let particlePointerY = window.innerHeight * 0.5;
+let cursorAuraX = particlePointerX;
+let cursorAuraY = particlePointerY;
 
 function renderCursorParticles(time) {
   const width = window.innerWidth;
   const height = window.innerHeight;
   const pointerActive = finePointerQuery.matches;
+  const followBoost = isBeigeParticleTheme ? 1.85 : 1;
+
+  if (cursorAura) {
+    cursorAuraX += (particlePointerX - cursorAuraX) * 0.075;
+    cursorAuraY += (particlePointerY - cursorAuraY) * 0.075;
+    cursorAura.style.transform = `translate3d(${cursorAuraX.toFixed(1)}px, ${cursorAuraY.toFixed(1)}px, 0) translate(-50%, -50%)`;
+  }
 
   cursorParticles.forEach((particle) => {
     const baseX = width * particle.left / 100;
@@ -380,7 +395,7 @@ function renderCursorParticles(time) {
     const driftY = Math.cos(time * 0.00019 + particle.phase * 1.4) * (10 + particle.depth * 14);
     const distance = Math.hypot(particlePointerX - baseX, particlePointerY - baseY);
     const proximity = Math.max(0.18, 1 - distance / Math.max(width, height));
-    const follow = pointerActive ? (0.025 + particle.depth * 0.055) * proximity : 0;
+    const follow = pointerActive ? (0.025 + particle.depth * 0.055) * proximity * followBoost : 0;
     const targetX = driftX + (particlePointerX - baseX) * follow;
     const targetY = driftY + (particlePointerY - baseY) * follow + Math.sin(window.scrollY * 0.0012 + particle.phase) * 14 * particle.depth;
 
