@@ -1,8 +1,8 @@
 const translations = {
   en: {
-    metaTitle: 'Kenan Ibragimov - Senior Unity Developer',
-    metaDescription: 'Senior Unity Developer with 5+ years in gameplay architecture, performance optimization, Addressables, tooling and CI/CD for PC, console and mobile games.',
-    metaShareDescription: 'Production Unity engineering: gameplay architecture, performance, tooling and delivery automation.',
+    metaTitle: 'Kenan Ibragimov - Senior Unity Developer / Build Automation',
+    metaDescription: 'Kenan Ibragimov - Senior Unity Developer / Build Automation portfolio.',
+    metaShareDescription: 'Kenan Ibragimov - Senior Unity Developer / Build Automation portfolio.',
     'aria.mainNav': 'Main navigation',
     'aria.languageSelector': 'Language selector',
     'aria.contactLinks': 'Contact links',
@@ -127,9 +127,9 @@ const translations = {
     'footer.back': '↑ Back to top'
   },
   ru: {
-    metaTitle: 'Кенан Ибрагимов - Senior Unity Developer',
-    metaDescription: 'Портфолио Кенана Ибрагимова: Unity-разработка, игровая архитектура, оптимизация и автоматизация билдов.',
-    metaShareDescription: 'Production Unity-разработка: gameplay-архитектура, оптимизация, инструменты и автоматизация доставки.',
+    metaTitle: 'Kenan Ibragimov - Senior Unity Developer / Build Automation',
+    metaDescription: 'Kenan Ibragimov - Senior Unity Developer / Build Automation portfolio.',
+    metaShareDescription: 'Kenan Ibragimov - Senior Unity Developer / Build Automation portfolio.',
     'aria.mainNav': 'Основная навигация',
     'aria.languageSelector': 'Выбор языка',
     'aria.contactLinks': 'Ссылки для связи',
