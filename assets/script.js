@@ -276,6 +276,29 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 revealItems.forEach((item) => observer.observe(item));
+
+const entranceItems = document.querySelectorAll('.entrance-slide, .entrance-flip');
+const entranceObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+
+    entry.target.classList.add('is-entered');
+    entranceObserver.unobserve(entry.target);
+
+    if (entry.target.classList.contains('entrance-flip')) {
+      const delay = Number.parseInt(entry.target.style.getPropertyValue('--entrance-delay'), 10) || 0;
+      window.setTimeout(() => entry.target.classList.add('entrance-settled'), 1050 + delay);
+    }
+  });
+}, { threshold: 0.16, rootMargin: '0px 0px -6% 0px' });
+
+entranceItems.forEach((item, index) => {
+  if (item.classList.contains('entrance-flip')) {
+    item.style.setProperty('--entrance-delay', `${(index % 2) * 110}ms`);
+  }
+  entranceObserver.observe(item);
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const languageButtons = document.querySelectorAll('[data-lang]');
