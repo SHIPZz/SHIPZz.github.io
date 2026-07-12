@@ -12,6 +12,9 @@
   </style>
 </head>
 <body>
-  <iframe src="./?theme=beige" title="Beige portfolio design prototype"></iframe>
+  <iframe id="prototype-frame" title="Beige portfolio design prototype"></iframe>
+  <script>
+    document.getElementById('prototype-frame').src = `./?theme=beige&prototype=${Date.now()}`;
+  </script>
 </body>
 </html>
