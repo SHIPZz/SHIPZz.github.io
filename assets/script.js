@@ -336,6 +336,82 @@ const mobileCompactEnter = 96;
 const mobileCompactExit = 48;
 const mobileExpandDistance = 14;
 const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const ambientBackground = document.querySelector('.ambient-background');
+const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+const particleDefinitions = [
+  [10, 18, 54, 0.32, '216, 242, 117', 0.12],
+  [28, 66, 88, 0.56, '142, 230, 209', 0.09],
+  [44, 30, 42, 0.78, '87, 183, 255', 0.13],
+  [62, 76, 70, 0.42, '175, 140, 255', 0.08],
+  [78, 20, 110, 0.64, '142, 230, 209', 0.07],
+  [88, 58, 48, 0.9, '216, 242, 117', 0.11],
+  [18, 84, 76, 0.48, '175, 140, 255', 0.08],
+  [52, 52, 34, 1, '142, 230, 209', 0.14],
+  [70, 42, 58, 0.7, '87, 183, 255', 0.09],
+  [36, 10, 96, 0.38, '216, 242, 117', 0.07]
+];
+const particleField = document.createElement('div');
+particleField.className = 'cursor-particle-field';
+particleField.setAttribute('aria-hidden', 'true');
+const cursorParticles = particleDefinitions.map(([left, top, size, depth, color, opacity], index) => {
+  const element = document.createElement('span');
+  element.className = 'cursor-particle';
+  element.style.setProperty('--particle-size', `${size}px`);
+  element.style.setProperty('--particle-color', color);
+  element.style.setProperty('--particle-opacity', opacity);
+  particleField.appendChild(element);
+  return { element, left, top, depth, phase: index * 0.83, x: 0, y: 0 };
+});
+ambientBackground?.appendChild(particleField);
+
+let particleFrame = null;
+let particlePointerX = window.innerWidth * 0.5;
+let particlePointerY = window.innerHeight * 0.5;
+
+function renderCursorParticles(time) {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const pointerActive = finePointerQuery.matches;
+
+  cursorParticles.forEach((particle) => {
+    const baseX = width * particle.left / 100;
+    const baseY = height * particle.top / 100;
+    const driftX = Math.sin(time * 0.00024 + particle.phase) * (12 + particle.depth * 18);
+    const driftY = Math.cos(time * 0.00019 + particle.phase * 1.4) * (10 + particle.depth * 14);
+    const distance = Math.hypot(particlePointerX - baseX, particlePointerY - baseY);
+    const proximity = Math.max(0.18, 1 - distance / Math.max(width, height));
+    const follow = pointerActive ? (0.025 + particle.depth * 0.055) * proximity : 0;
+    const targetX = driftX + (particlePointerX - baseX) * follow;
+    const targetY = driftY + (particlePointerY - baseY) * follow + Math.sin(window.scrollY * 0.0012 + particle.phase) * 14 * particle.depth;
+
+    particle.x += (targetX - particle.x) * (0.018 + particle.depth * 0.018);
+    particle.y += (targetY - particle.y) * (0.018 + particle.depth * 0.018);
+    particle.element.style.transform = `translate3d(${(baseX + particle.x).toFixed(1)}px, ${(baseY + particle.y).toFixed(1)}px, 0)`;
+  });
+
+  particleFrame = window.requestAnimationFrame(renderCursorParticles);
+}
+
+function updateParticleAnimation() {
+  const shouldAnimate = !reducedMotionQuery.matches && window.innerWidth > 700;
+  particleField.hidden = !shouldAnimate;
+
+  if (shouldAnimate && particleFrame === null) {
+    particleFrame = window.requestAnimationFrame(renderCursorParticles);
+  } else if (!shouldAnimate && particleFrame !== null) {
+    window.cancelAnimationFrame(particleFrame);
+    particleFrame = null;
+  }
+}
+
+window.addEventListener('pointermove', (event) => {
+  particlePointerX = event.clientX;
+  particlePointerY = event.clientY;
+}, { passive: true });
+
+window.addEventListener('resize', updateParticleAnimation);
+reducedMotionQuery.addEventListener('change', updateParticleAnimation);
+updateParticleAnimation();
 let headerFrame = null;
 let lastMobileScrollY = window.scrollY;
 let mobileScrollDirection = 0;
