@@ -25,6 +25,12 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <script>document.documentElement.classList.add('motion-ready');</script>
   <link rel="stylesheet" href="assets/styles.css?v=63" />
+  <script>
+    if (new URLSearchParams(window.location.search).get('theme') === 'beige') {
+      document.documentElement.classList.add('theme-beige-prototype');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=1">');
+    }
+  </script>
   <link rel="stylesheet" href="previews/achievement-concept.css?v=3" />
   <script type="application/ld+json">
     {
