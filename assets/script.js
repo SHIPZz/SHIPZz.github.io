@@ -300,6 +300,9 @@ const entranceObserver = new IntersectionObserver((entries) => {
       if (isSpinningCard) {
         const delay = Number.parseInt(target.style.getPropertyValue('--entrance-delay'), 10) || 0;
         window.setTimeout(() => target.classList.add('entrance-settled'), 1650 + delay);
+      } else if (target.classList.contains('entrance-flow')) {
+        const delay = Number.parseInt(target.style.getPropertyValue('--flow-entrance-delay'), 10) || 0;
+        window.setTimeout(() => target.classList.add('entrance-settled'), 1200 + delay);
       }
     }, sequenceDelay);
   });
@@ -462,10 +465,35 @@ if (cursorEye && cursorEyeGaze && isBeigeParticleTheme) {
 }
 
 const clickEffects = isBeigeParticleTheme ? document.createElement('div') : null;
+let queuedEyeBlinks = 0;
+let eyeBlinkInProgress = false;
 if (clickEffects) {
   clickEffects.className = 'cursor-click-effects';
   clickEffects.setAttribute('aria-hidden', 'true');
   document.body.appendChild(clickEffects);
+}
+
+function playQueuedEyeBlink() {
+  if (!cursorEye || eyeBlinkInProgress || queuedEyeBlinks <= 0) {
+    return;
+  }
+
+  queuedEyeBlinks -= 1;
+  eyeBlinkInProgress = true;
+  cursorEye.classList.remove('is-click-blinking');
+  void cursorEye.offsetWidth;
+  cursorEye.classList.add('is-click-blinking');
+
+  window.setTimeout(() => {
+    cursorEye.classList.remove('is-click-blinking');
+    eyeBlinkInProgress = false;
+    window.setTimeout(playQueuedEyeBlink, 45);
+  }, 420);
+}
+
+function queueEyeBlink() {
+  queuedEyeBlinks = Math.min(queuedEyeBlinks + 1, 8);
+  playQueuedEyeBlink();
 }
 
 function createCursorClickRipple(x, y, button) {
@@ -505,18 +533,147 @@ function createCursorClickRipple(x, y, button) {
   });
 
   if (!isRightClick && cursorEye) {
-    cursorEye.classList.remove('is-click-blinking');
-    void cursorEye.offsetWidth;
-    cursorEye.classList.add('is-click-blinking');
-    window.setTimeout(() => cursorEye.classList.remove('is-click-blinking'), 380);
+    queueEyeBlink();
   }
+}
+
+let heldPointerButton = null;
+let lastDragWaveAt = 0;
+let dragWaveIndex = 0;
+
+function createCursorDragWave(x, y) {
+  if (!clickEffects || reducedMotionQuery.matches || !finePointerQuery.matches) {
+    return;
+  }
+
+  const wave = document.createElement('span');
+  wave.className = `cursor-drag-wave is-drag-wave-${dragWaveIndex % 3}`;
+  wave.style.left = `${x}px`;
+  wave.style.top = `${y}px`;
+  clickEffects.appendChild(wave);
+  dragWaveIndex += 1;
+  window.setTimeout(() => wave.remove(), 560);
 }
 
 if (isBeigeParticleTheme) {
   window.addEventListener('pointerdown', (event) => {
     createCursorClickRipple(event.clientX, event.clientY, event.button);
+    if (event.button === 0 || event.button === 2) {
+      heldPointerButton = event.button;
+      lastDragWaveAt = performance.now();
+    }
+  }, { passive: true });
+
+  window.addEventListener('pointermove', (event) => {
+    if (heldPointerButton === null || performance.now() - lastDragWaveAt < 65) {
+      return;
+    }
+
+    lastDragWaveAt = performance.now();
+    createCursorDragWave(event.clientX, event.clientY);
   }, { passive: true });
 }
+
+const pressableCards = isBeigeParticleTheme
+  ? Array.from(document.querySelectorAll([
+    '.project-card',
+    '.achievement-combined-card',
+    '.achievement-secondary-card',
+    '.skills-layout article',
+    '.timeline-item',
+    '.education-grid article',
+    '.contact'
+  ].join(',')))
+  : [];
+let activePressedCard = null;
+const cardHoverAura = isBeigeParticleTheme ? document.createElement('div') : null;
+if (cardHoverAura) {
+  cardHoverAura.className = 'card-hover-aura';
+  cardHoverAura.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(cardHoverAura);
+}
+
+function isCardEntranceReady(card) {
+  const hasEntranceAnimation = card.matches('.entrance-flip, .entrance-spin, .entrance-flow');
+  return !hasEntranceAnimation || card.classList.contains('entrance-settled');
+}
+
+function showCardHoverAura(card) {
+  if (!cardHoverAura || !isCardEntranceReady(card) || reducedMotionQuery.matches) {
+    return;
+  }
+
+  const rect = card.getBoundingClientRect();
+  cardHoverAura.style.setProperty('--hover-aura-left', `${rect.left}px`);
+  cardHoverAura.style.setProperty('--hover-aura-top', `${rect.top}px`);
+  cardHoverAura.style.setProperty('--hover-aura-width', `${rect.width}px`);
+  cardHoverAura.style.setProperty('--hover-aura-height', `${rect.height}px`);
+  cardHoverAura.classList.toggle('is-olive', card.closest('#skills, .education') !== null);
+  cardHoverAura.classList.toggle('is-rose', card.closest('#cases') !== null);
+  cardHoverAura.classList.add('is-visible');
+}
+
+function hideCardHoverAura() {
+  cardHoverAura?.classList.remove('is-visible');
+}
+
+function releasePressedCard() {
+  if (!activePressedCard) {
+    return;
+  }
+
+  activePressedCard.classList.remove('is-card-pressed');
+  activePressedCard = null;
+}
+
+pressableCards.forEach((card) => {
+  card.classList.add('interactive-press-card');
+  card.addEventListener('pointerenter', () => showCardHoverAura(card), { passive: true });
+  card.addEventListener('pointerleave', hideCardHoverAura, { passive: true });
+  card.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0 || !isCardEntranceReady(card)) {
+      return;
+    }
+
+    releasePressedCard();
+    const rect = card.getBoundingClientRect();
+    const localX = event.clientX - rect.left;
+    const localY = event.clientY - rect.top;
+    const normalizedX = Math.max(-1, Math.min(1, localX / rect.width * 2 - 1));
+    const normalizedY = Math.max(-1, Math.min(1, localY / rect.height * 2 - 1));
+    const allowTilt = finePointerQuery.matches && !reducedMotionQuery.matches;
+
+    card.style.setProperty('--card-press-rotate-x', `${allowTilt ? (-normalizedY * 2.1).toFixed(2) : 0}deg`);
+    card.style.setProperty('--card-press-rotate-y', `${allowTilt ? (normalizedX * 2.1).toFixed(2) : 0}deg`);
+    card.classList.add('is-card-pressed');
+    activePressedCard = card;
+
+    if (!reducedMotionQuery.matches) {
+      const ripple = document.createElement('span');
+      const diameter = Math.hypot(rect.width, rect.height) * 2;
+      ripple.className = 'card-press-ripple';
+      ripple.style.left = `${localX}px`;
+      ripple.style.top = `${localY}px`;
+      ripple.style.width = `${diameter}px`;
+      ripple.style.height = `${diameter}px`;
+      card.appendChild(ripple);
+      window.setTimeout(() => ripple.remove(), 720);
+    }
+  }, { passive: true });
+});
+
+function releasePointerEffects() {
+  heldPointerButton = null;
+  releasePressedCard();
+}
+
+window.addEventListener('pointerup', releasePointerEffects, { passive: true });
+window.addEventListener('pointercancel', releasePointerEffects, { passive: true });
+window.addEventListener('blur', releasePointerEffects);
+window.addEventListener('scroll', () => {
+  releasePointerEffects();
+  hideCardHoverAura();
+}, { passive: true });
 let headerFrame = null;
 let lastMobileScrollY = window.scrollY;
 let mobileScrollDirection = 0;
