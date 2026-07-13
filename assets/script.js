@@ -277,60 +277,34 @@ const observer = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => observer.observe(item));
 
-const entranceItems = Array.from(document.querySelectorAll('.entrance-slide, .entrance-flip, .entrance-spin, .entrance-flow'))
-  .filter((item) => !item.classList.contains('projects-title-entrance'));
-const entranceSequenceStartedAt = performance.now();
-const projectEntranceReadyAfter = 2500;
-const projectsTitleEntrance = document.querySelector('.projects-title-entrance');
-
-function scheduleProjectsTitleEntrance(delay) {
-  if (!projectsTitleEntrance || projectsTitleEntrance.classList.contains('is-entrance-scheduled')) {
-    return;
-  }
-
-  projectsTitleEntrance.classList.add('is-entrance-scheduled');
-  window.setTimeout(() => projectsTitleEntrance.classList.add('is-entered'), delay);
-}
+const entranceItems = Array.from(document.querySelectorAll('.entrance-slide, .entrance-flip, .entrance-spin, .entrance-flow'));
 
 const entranceObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
 
     const target = entry.target;
-    const isProjectCard = target.classList.contains('entrance-flip');
-    const isSpinningCard = isProjectCard || target.classList.contains('entrance-spin');
-    const elapsed = performance.now() - entranceSequenceStartedAt;
-    const sequenceDelay = isProjectCard ? Math.max(0, projectEntranceReadyAfter - elapsed) : 0;
-
-    if (isProjectCard) {
-      scheduleProjectsTitleEntrance(sequenceDelay);
-    }
+    const isCard = target.classList.contains('entrance-flip') || target.classList.contains('entrance-spin');
 
     target.classList.add('is-entrance-scheduled');
     entranceObserver.unobserve(entry.target);
 
-    window.setTimeout(() => {
-      target.classList.add('is-entered');
+    target.classList.add('is-entered');
 
-      if (isSpinningCard) {
-        const delay = Number.parseInt(target.style.getPropertyValue('--entrance-delay'), 10) || 0;
-        window.setTimeout(() => target.classList.add('entrance-settled'), 1650 + delay);
-      } else if (target.classList.contains('entrance-flow')) {
-        const delay = Number.parseInt(target.style.getPropertyValue('--flow-entrance-delay'), 10) || 0;
-        window.setTimeout(() => target.classList.add('entrance-settled'), 1200 + delay);
-      }
-    }, sequenceDelay);
+    if (isCard || target.classList.contains('entrance-flow')) {
+      window.setTimeout(() => target.classList.add('entrance-settled'), 380);
+    }
   });
 }, { threshold: 0.16, rootMargin: '0px 0px -6% 0px' });
 
-entranceItems.forEach((item, index) => {
+entranceItems.forEach((item) => {
   if (item.classList.contains('entrance-flip') || item.classList.contains('entrance-spin')) {
     const spinItems = Array.from(item.parentElement.querySelectorAll(':scope > .entrance-flip, :scope > .entrance-spin'));
-    item.style.setProperty('--entrance-delay', `${(spinItems.indexOf(item) % 2) * 120}ms`);
+    item.style.setProperty('--entrance-delay', `${(spinItems.indexOf(item) % 2) * 45}ms`);
   }
   if (item.classList.contains('entrance-flow')) {
     const flowItems = Array.from(item.parentElement.querySelectorAll(':scope > .entrance-flow'));
-    item.style.setProperty('--flow-entrance-delay', `${Math.max(0, flowItems.indexOf(item)) * 110}ms`);
+    item.style.setProperty('--flow-entrance-delay', `${Math.max(0, flowItems.indexOf(item)) * 45}ms`);
   }
   entranceObserver.observe(item);
 });
@@ -467,66 +441,11 @@ window.addEventListener('resize', updateParticleAnimation);
 reducedMotionQuery.addEventListener('change', updateParticleAnimation);
 updateParticleAnimation();
 
-const cursorEye = document.querySelector('.cursor-eye');
-const cursorEyeGaze = cursorEye?.querySelector('.cursor-eye-gaze');
-let cursorEyeFrame = null;
-let cursorEyeX = 0;
-let cursorEyeY = 0;
-
-if (cursorEye && cursorEyeGaze && isBeigeParticleTheme) {
-  cursorEye.hidden = false;
-
-  const updateCursorEye = () => {
-    const rect = cursorEye.getBoundingClientRect();
-    const centerX = rect.left + rect.width * 0.5;
-    const centerY = rect.top + rect.height * 0.5;
-    const canTrackPointer = finePointerQuery.matches && !reducedMotionQuery.matches;
-    const targetX = canTrackPointer ? Math.max(-12, Math.min(12, (particlePointerX - centerX) / 24)) : 0;
-    const targetY = canTrackPointer ? Math.max(-7, Math.min(7, (particlePointerY - centerY) / 32)) : 0;
-
-    cursorEyeX += (targetX - cursorEyeX) * 0.12;
-    cursorEyeY += (targetY - cursorEyeY) * 0.12;
-    cursorEyeGaze.style.transform = `translate(${cursorEyeX.toFixed(2)}px, ${cursorEyeY.toFixed(2)}px)`;
-    cursorEyeFrame = window.requestAnimationFrame(updateCursorEye);
-  };
-
-  cursorEyeFrame = window.requestAnimationFrame(updateCursorEye);
-
-  window.addEventListener('pointerleave', () => {
-    particlePointerX = cursorEye.getBoundingClientRect().left + cursorEye.offsetWidth * 0.5;
-    particlePointerY = cursorEye.getBoundingClientRect().top + cursorEye.offsetHeight * 0.5;
-  });
-}
-
 const clickEffects = isBeigeParticleTheme ? document.createElement('div') : null;
-let eyePressedAt = 0;
-let eyeReleaseTimer = null;
 if (clickEffects) {
   clickEffects.className = 'cursor-click-effects';
   clickEffects.setAttribute('aria-hidden', 'true');
   document.body.appendChild(clickEffects);
-}
-
-function pressCursorEye() {
-  if (!cursorEye || reducedMotionQuery.matches) {
-    return;
-  }
-
-  window.clearTimeout(eyeReleaseTimer);
-  eyePressedAt = performance.now();
-  cursorEye.classList.add('is-eye-pressed');
-}
-
-function releaseCursorEye() {
-  if (!cursorEye || !cursorEye.classList.contains('is-eye-pressed')) {
-    return;
-  }
-
-  const remainingClosedTime = Math.max(0, 90 - (performance.now() - eyePressedAt));
-  window.clearTimeout(eyeReleaseTimer);
-  eyeReleaseTimer = window.setTimeout(() => {
-    cursorEye.classList.remove('is-eye-pressed');
-  }, remainingClosedTime);
 }
 
 function createCursorClickRipple(x, y, button) {
@@ -591,9 +510,6 @@ if (isBeigeParticleTheme) {
     if (event.button === 0 || event.button === 2) {
       heldPointerButton = event.button;
       lastDragWaveAt = performance.now();
-    }
-    if (event.button === 0) {
-      pressCursorEye();
     }
   }, { passive: true });
 
@@ -698,7 +614,6 @@ pressableCards.forEach((card) => {
 function releasePointerEffects() {
   heldPointerButton = null;
   releasePressedCard();
-  releaseCursorEye();
 }
 
 window.addEventListener('pointerup', releasePointerEffects, { passive: true });
