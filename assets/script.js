@@ -126,7 +126,7 @@ const translations = {
     'education.languageRussian': 'Russian',
     'education.levelRussian': 'Native',
     'education.languageAzerbaijani': 'Azerbaijani',
-    'education.levelAzerbaijani': 'Native / Fluent',
+    'education.levelAzerbaijani': 'Native',
     'contact.title': 'Contact me',
     'contact.text': 'Open to Senior Unity Developer opportunities.',
     'footer.back': '↑ Back to top'
@@ -384,13 +384,27 @@ const cursorParticles = particleDefinitions.map(([left, top, size, depth, color,
   element.style.setProperty('--particle-color', color);
   element.style.setProperty('--particle-opacity', opacity);
   particleField.appendChild(element);
-  return { element, left, top, depth, phase: index * 0.83, x: 0, y: 0, impulseX: 0, impulseY: 0 };
+  return {
+    element,
+    left,
+    top,
+    depth,
+    phase: index * 0.83,
+    x: 0,
+    y: 0,
+    impulseX: 0,
+    impulseY: 0,
+    impulseTargetX: 0,
+    impulseTargetY: 0
+  };
 });
 ambientBackground?.appendChild(particleField);
 
 let particleFrame = null;
 let particlePointerX = window.innerWidth * 0.5;
 let particlePointerY = window.innerHeight * 0.5;
+let particleFollowX = particlePointerX;
+let particleFollowY = particlePointerY;
 let cursorAuraX = particlePointerX;
 let cursorAuraY = particlePointerY;
 
@@ -398,7 +412,10 @@ function renderCursorParticles(time) {
   const width = window.innerWidth;
   const height = window.innerHeight;
   const pointerActive = finePointerQuery.matches;
-  const followBoost = isBeigeParticleTheme ? 2.6 : 1;
+  const followBoost = isBeigeParticleTheme ? 2.15 : 1;
+
+  particleFollowX += (particlePointerX - particleFollowX) * 0.055;
+  particleFollowY += (particlePointerY - particleFollowY) * 0.055;
 
   if (cursorAura) {
     cursorAuraX += (particlePointerX - cursorAuraX) * 0.075;
@@ -411,16 +428,18 @@ function renderCursorParticles(time) {
     const baseY = height * particle.top / 100;
     const driftX = Math.sin(time * 0.00024 + particle.phase) * (12 + particle.depth * 18);
     const driftY = Math.cos(time * 0.00019 + particle.phase * 1.4) * (10 + particle.depth * 14);
-    const distance = Math.hypot(particlePointerX - baseX, particlePointerY - baseY);
+    const distance = Math.hypot(particleFollowX - baseX, particleFollowY - baseY);
     const proximity = Math.max(0.18, 1 - distance / Math.max(width, height));
     const follow = pointerActive ? (0.025 + particle.depth * 0.055) * proximity * followBoost : 0;
-    const targetX = driftX + (particlePointerX - baseX) * follow;
-    const targetY = driftY + (particlePointerY - baseY) * follow + Math.sin(window.scrollY * 0.0012 + particle.phase) * 14 * particle.depth;
+    const targetX = driftX + (particleFollowX - baseX) * follow;
+    const targetY = driftY + (particleFollowY - baseY) * follow + Math.sin(window.scrollY * 0.0012 + particle.phase) * 14 * particle.depth;
 
-    particle.x += (targetX - particle.x) * (0.018 + particle.depth * 0.018);
-    particle.y += (targetY - particle.y) * (0.018 + particle.depth * 0.018);
-    particle.impulseX *= 0.9;
-    particle.impulseY *= 0.9;
+    particle.x += (targetX - particle.x) * (0.012 + particle.depth * 0.01);
+    particle.y += (targetY - particle.y) * (0.012 + particle.depth * 0.01);
+    particle.impulseTargetX *= 0.94;
+    particle.impulseTargetY *= 0.94;
+    particle.impulseX += (particle.impulseTargetX - particle.impulseX) * 0.11;
+    particle.impulseY += (particle.impulseTargetY - particle.impulseY) * 0.11;
     particle.element.style.transform = `translate3d(${(baseX + particle.x + particle.impulseX).toFixed(1)}px, ${(baseY + particle.y + particle.impulseY).toFixed(1)}px, 0)`;
   });
 
@@ -542,8 +561,8 @@ function createCursorClickRipple(x, y, button) {
     const proximity = Math.max(0, 1 - distance / 560);
     const direction = isRightClick ? -1 : 1;
     const force = proximity * (isRightClick ? 52 : 72) * direction * (0.55 + particle.depth * 0.45);
-    particle.impulseX += dx / distance * force;
-    particle.impulseY += dy / distance * force;
+    particle.impulseTargetX += dx / distance * force;
+    particle.impulseTargetY += dy / distance * force;
   });
 
 }
