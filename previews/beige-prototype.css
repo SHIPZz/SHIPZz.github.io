@@ -438,12 +438,41 @@
 
 .theme-beige-prototype .project-card,
 .theme-beige-prototype .project-card.featured {
-  background: rgba(255, 232, 214, 0.92);
+  border-color: rgba(184, 92, 56, 0.48);
+  background: linear-gradient(145deg, #FFF4EA 0%, #FFE8D6 56%, #F3D2BC 100%);
+  box-shadow: 0 14px 36px rgba(112, 72, 48, 0.13);
 }
 
 .theme-beige-prototype .project-body {
   flex: 1;
   align-content: start;
+}
+
+.theme-beige-prototype .project-body > .tag {
+  width: 100%;
+  min-height: 38px;
+  padding: 9px 13px;
+  display: flex;
+  align-items: center;
+  color: #FFF4EA;
+  border: 1px solid rgba(117, 50, 27, 0.72);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #C96B47 0%, #B85C38 100%);
+  box-shadow: 0 7px 16px rgba(151, 69, 39, 0.18);
+  font-size: 0.79rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.2;
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.theme-beige-prototype .project-body > h3 {
+  color: #6F311F;
+}
+
+.theme-beige-prototype .project-card .stack-list span {
+  border-color: rgba(184, 92, 56, 0.48);
+  background: rgba(221, 190, 169, 0.56);
 }
 
 .theme-beige-prototype .project-body > p {
@@ -452,6 +481,8 @@
 
 .theme-beige-prototype .project-contribution {
   min-height: 112px;
+  border-color: rgba(184, 92, 56, 0.34);
+  background: rgba(232, 200, 178, 0.72);
 }
 
 .theme-beige-prototype .project-contribution p {
@@ -459,6 +490,21 @@
   font-weight: 500;
   line-height: 1.6;
   opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-beige-prototype .project-card:hover {
+    border-color: #B85C38;
+    background: linear-gradient(145deg, #FFF7EF 0%, #FFE4D0 54%, #EFC7AC 100%);
+    box-shadow: 0 24px 54px rgba(126, 65, 38, 0.23), 0 0 0 4px rgba(184, 92, 56, 0.08);
+  }
+
+  .theme-beige-prototype .project-card:hover .project-body > .tag {
+    border-color: #853A22;
+    background: linear-gradient(135deg, #D77B54 0%, #B45131 100%);
+    box-shadow: 0 10px 22px rgba(151, 69, 39, 0.28);
+    transform: translateY(-1px);
+  }
 }
 
 .theme-beige-prototype .impact-card.warm,
