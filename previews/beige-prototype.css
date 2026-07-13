@@ -477,7 +477,7 @@
 }
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric .build-size-value {
-  font-size: clamp(1rem, 2.05vw, 1.65rem);
+  font-size: clamp(0.9rem, 1.45vw, 1.3rem);
   line-height: 1.05;
 }
 
@@ -518,24 +518,47 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-c
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > .metric-breakdown > div,
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric {
-  height: 80px;
-  min-height: 80px;
-  padding: 10px 14px;
+  height: 56px;
+  min-height: 56px;
+  padding: 4px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   box-sizing: border-box;
   border: 2px solid rgba(203, 153, 126, 0.82);
-  border-radius: 14px;
+  border-radius: 11px;
   background: #FFE8D6;
-  box-shadow: 0 6px 14px rgba(179, 76, 38, 0.08);
+  box-shadow: 0 4px 10px rgba(179, 76, 38, 0.07);
   text-align: center;
 }
 
+html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > .metric-breakdown {
+  width: min(550px, 100%);
+}
+
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric {
-  width: min(405px, 100%);
+  width: min(270px, 100%);
+}
+
+html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card .metric-context {
+  min-height: 14px;
+  line-height: 1;
+}
+
+html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card .metric-breakdown strong {
+  min-height: 22px;
+  font-size: clamp(0.9rem, 1.45vw, 1.3rem);
+}
+
+html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric strong[data-i18n="impact.deliveryMetric"] {
+  max-width: 100%;
+  font-size: clamp(0.72rem, 0.85vw, 0.8rem);
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-summary {
