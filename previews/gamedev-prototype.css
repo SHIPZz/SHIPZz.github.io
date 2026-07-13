@@ -1,0 +1,323 @@
+.theme-gamedev-prototype {
+  --karo-canvas: #FAF6F0;
+  --karo-surface: #F1ECDF;
+  --karo-surface-soft: #FAF7F2;
+  --karo-ink: #2C2416;
+  --karo-ink-soft: #4A3F2F;
+  --karo-muted: #756A58;
+  --karo-green: #718D59;
+  --karo-green-deep: #587344;
+  --safi-terracotta: #D97A4F;
+  --metric-before-color: #B94E3D;
+  --metric-after-color: #587A46;
+  --bg: var(--karo-canvas);
+  --panel: rgba(250, 247, 242, 0.94);
+  --panel-strong: var(--karo-surface-soft);
+  --line: rgba(100, 80, 50, 0.2);
+  --text: var(--karo-ink);
+  --muted: var(--karo-muted);
+  --accent: var(--safi-terracotta);
+  --accent-2: var(--karo-green);
+  --metric-highlight: var(--karo-green-deep);
+  --shadow: 0 18px 46px rgba(86, 67, 42, 0.12);
+  background: var(--karo-canvas);
+}
+
+.theme-gamedev-prototype body {
+  color: var(--karo-ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(217, 122, 79, 0.2), transparent 29rem),
+    radial-gradient(circle at 88% 20%, rgba(113, 141, 89, 0.22), transparent 31rem),
+    radial-gradient(circle at 48% 86%, rgba(241, 236, 223, 0.88), transparent 34rem),
+    linear-gradient(135deg, #FAF6F0 0%, #F1ECDF 56%, #E7DDCA 100%);
+}
+
+.theme-gamedev-prototype .ambient-background {
+  background:
+    radial-gradient(circle at 16% 20%, rgba(217, 122, 79, 0.14), transparent 32%),
+    radial-gradient(circle at 82% 34%, rgba(113, 141, 89, 0.16), transparent 31%),
+    linear-gradient(135deg, rgba(250, 246, 240, 0.48), rgba(241, 236, 223, 0.45), rgba(231, 221, 202, 0.42));
+}
+
+.theme-gamedev-prototype .ambient-background::before {
+  opacity: 0.7;
+  background:
+    radial-gradient(circle at 20% 32%, rgba(250, 246, 240, 0.82), transparent 29%),
+    radial-gradient(circle at 76% 45%, rgba(113, 141, 89, 0.2), transparent 31%),
+    radial-gradient(circle at 52% 82%, rgba(217, 122, 79, 0.18), transparent 28%);
+}
+
+.theme-gamedev-prototype .ambient-background::after {
+  opacity: 0.12;
+  background: conic-gradient(from 80deg at 50% 50%, #FAF6F0, #718D59, #D97A4F, #F1ECDF, #FAF6F0);
+}
+
+.theme-gamedev-prototype .ambient-orb-primary {
+  background: radial-gradient(circle, rgba(113, 141, 89, 0.42) 0%, rgba(113, 141, 89, 0.1) 44%, transparent 72%);
+}
+
+.theme-gamedev-prototype .ambient-orb-secondary {
+  background: radial-gradient(circle, rgba(217, 122, 79, 0.4) 0%, rgba(217, 122, 79, 0.1) 46%, transparent 72%);
+}
+
+.theme-gamedev-prototype .ambient-orb-tertiary {
+  background: radial-gradient(circle, rgba(241, 236, 223, 0.72) 0%, rgba(113, 141, 89, 0.1) 46%, transparent 72%);
+}
+
+.theme-gamedev-prototype .cursor-aura {
+  border-color: rgba(217, 122, 79, 0.2);
+  background: radial-gradient(circle, rgba(217, 122, 79, 0.26) 0%, rgba(113, 141, 89, 0.16) 40%, transparent 73%);
+}
+
+.theme-gamedev-prototype .card-hover-aura {
+  --card-aura-color: 217, 122, 79;
+}
+
+.theme-gamedev-prototype .card-hover-aura.is-olive { --card-aura-color: 113, 141, 89; }
+.theme-gamedev-prototype .card-hover-aura.is-rose { --card-aura-color: 217, 122, 79; }
+
+.theme-gamedev-prototype .noise {
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(44, 36, 22, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 36, 22, 0.04) 1px, transparent 1px);
+}
+
+.theme-gamedev-prototype .site-header {
+  border-color: rgba(100, 80, 50, 0.2);
+  background: rgba(250, 246, 240, var(--header-background-alpha, 0.91));
+  box-shadow: 0 12px 34px rgba(86, 67, 42, 0.1);
+}
+
+.theme-gamedev-prototype .nav a:hover {
+  color: var(--karo-ink);
+  background: rgba(113, 141, 89, 0.12);
+}
+
+.theme-gamedev-prototype .nav a.is-active,
+.theme-gamedev-prototype .language-button.is-active {
+  color: #FFFFFF;
+  background: var(--karo-green);
+  border-color: var(--karo-green-deep);
+}
+
+.theme-gamedev-prototype .language-switch {
+  border-color: rgba(100, 80, 50, 0.2);
+  background: rgba(250, 247, 242, 0.72);
+}
+
+.theme-gamedev-prototype .hero .eyebrow,
+.theme-gamedev-prototype .hero h1,
+.theme-gamedev-prototype h2,
+.theme-gamedev-prototype h3,
+.theme-gamedev-prototype strong,
+.theme-gamedev-prototype .hero-text {
+  color: var(--karo-ink);
+}
+
+.theme-gamedev-prototype .hero .eyebrow {
+  color: var(--safi-terracotta);
+}
+
+.theme-gamedev-prototype .hero-actions .button.primary,
+.theme-gamedev-prototype .button.primary {
+  color: #FFFFFF;
+  border-color: #B85F3D;
+  background: linear-gradient(135deg, #DF875E 0%, #D06D43 100%);
+  box-shadow: 0 12px 26px rgba(151, 69, 39, 0.2);
+}
+
+.theme-gamedev-prototype .button.primary:hover {
+  color: #FFFFFF;
+  border-color: var(--karo-green-deep);
+  background: var(--karo-green);
+}
+
+.theme-gamedev-prototype .button.ghost {
+  color: var(--karo-ink);
+  border-color: rgba(44, 36, 22, 0.45);
+  background: rgba(250, 247, 242, 0.72);
+}
+
+.theme-gamedev-prototype .button.ghost:hover {
+  color: #FFFFFF;
+  background: var(--karo-green);
+  border-color: var(--karo-green-deep);
+}
+
+.theme-gamedev-prototype .hero-links a:hover {
+  color: var(--safi-terracotta);
+  border-bottom-color: var(--safi-terracotta);
+}
+
+.theme-gamedev-prototype .profile-panel,
+.theme-gamedev-prototype .project-card,
+.theme-gamedev-prototype .project-card.featured,
+.theme-gamedev-prototype .impact-card,
+.theme-gamedev-prototype .case-study-card,
+.theme-gamedev-prototype .skills-layout article,
+.theme-gamedev-prototype .skills-layout article:nth-child(even),
+.theme-gamedev-prototype .timeline-item,
+.theme-gamedev-prototype .education-grid article {
+  color: var(--karo-ink);
+  border-color: rgba(100, 80, 50, 0.3);
+  background: rgba(250, 247, 242, 0.94);
+  box-shadow: 0 12px 34px rgba(86, 67, 42, 0.09);
+}
+
+.theme-gamedev-prototype .project-card,
+.theme-gamedev-prototype .project-card.featured {
+  background: linear-gradient(145deg, #FAF7F2 0%, #F6F0E6 58%, #EFE4D3 100%);
+}
+
+.theme-gamedev-prototype .project-card:hover,
+.theme-gamedev-prototype .impact-card:hover,
+.theme-gamedev-prototype .case-study-card:hover,
+.theme-gamedev-prototype .skills-layout article:hover,
+.theme-gamedev-prototype .timeline-item:hover,
+.theme-gamedev-prototype .education-grid article:hover {
+  border-color: var(--karo-green-deep);
+  box-shadow: 0 22px 48px rgba(86, 67, 42, 0.15);
+}
+
+.theme-gamedev-prototype .project-body > .tag {
+  color: #FFFFFF;
+  border-color: #B85F3D;
+  background: linear-gradient(135deg, #DF875E 0%, #D06D43 100%);
+  box-shadow: 0 8px 18px rgba(151, 69, 39, 0.18);
+}
+
+.theme-gamedev-prototype .stack-list span,
+.theme-gamedev-prototype .skill-highlights span,
+.theme-gamedev-prototype .project-card .stack-list span,
+.theme-gamedev-prototype .skills-layout article:nth-child(even) .skill-highlights span {
+  color: var(--karo-ink);
+  border-color: rgba(90, 110, 74, 0.46);
+  background: rgba(113, 141, 89, 0.14);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-gamedev-prototype .project-card:hover {
+    border-color: var(--karo-green-deep);
+    background: linear-gradient(145deg, #FFFDFC 0%, #F6F0E6 54%, #E9DFC9 100%);
+    box-shadow: 0 24px 54px rgba(86, 67, 42, 0.18), 0 0 0 4px rgba(113, 141, 89, 0.08);
+  }
+
+  .theme-gamedev-prototype .project-card:hover .project-body > .tag {
+    border-color: var(--karo-green-deep);
+    background: linear-gradient(135deg, #7F9B68 0%, #617B4D 100%);
+    box-shadow: 0 10px 22px rgba(90, 110, 74, 0.22);
+  }
+}
+
+.theme-gamedev-prototype .achievement-project-context {
+  color: var(--karo-green-deep);
+  border-color: rgba(90, 110, 74, 0.44);
+  background: rgba(113, 141, 89, 0.12);
+}
+
+.theme-gamedev-prototype .impact-card > h3 {
+  color: var(--karo-ink);
+}
+
+.theme-gamedev-prototype .metric-breakdown > div,
+.theme-gamedev-prototype .result-metric,
+html.theme-gamedev-prototype[data-preview="achievements"] .achievement-combined-card .metric-breakdown > div,
+html.theme-gamedev-prototype[data-preview="achievements"] .achievement-secondary-card .result-metric {
+  border-color: rgba(217, 122, 79, 0.58);
+  background: linear-gradient(135deg, #F8E7D8 0%, #F1ECDF 100%);
+  box-shadow: 0 10px 24px rgba(151, 69, 39, 0.1);
+}
+
+.theme-gamedev-prototype .metric-context,
+.theme-gamedev-prototype .result-metric small,
+.theme-gamedev-prototype .achievement-combined-card .metric-breakdown small {
+  color: var(--karo-ink-soft);
+}
+
+.theme-gamedev-prototype .metric-breakdown strong,
+.theme-gamedev-prototype .result-metric strong {
+  color: var(--karo-ink);
+}
+
+.theme-gamedev-prototype .metric-before {
+  color: var(--metric-before-color);
+}
+
+.theme-gamedev-prototype .metric-arrow {
+  color: var(--karo-muted);
+  margin-inline: 0.16em;
+}
+
+.theme-gamedev-prototype .metric-after {
+  color: var(--metric-after-color);
+}
+
+.theme-gamedev-prototype .achievement-inline-details > div,
+.theme-gamedev-prototype .case-study-details > div,
+.theme-gamedev-prototype .case-study-details > div:last-child,
+html.theme-gamedev-prototype[data-preview="achievements"] .achievement-inline-details div,
+html.theme-gamedev-prototype[data-preview="achievements"] .achievement-inline-details div:first-child,
+html.theme-gamedev-prototype[data-preview="achievements"] .achievement-inline-details div:last-child {
+  color: var(--karo-ink);
+  border-color: rgba(100, 80, 50, 0.25);
+  background: var(--karo-surface);
+}
+
+html.theme-gamedev-prototype[data-preview="achievements"] .achievement-inline-details dt,
+.theme-gamedev-prototype .case-study-details .case-study-label {
+  color: var(--karo-green-deep);
+  border-color: rgba(90, 110, 74, 0.4);
+  background: rgba(113, 141, 89, 0.14);
+}
+
+.theme-gamedev-prototype .achievement-inline-details dt,
+.theme-gamedev-prototype .achievement-inline-details dd,
+.theme-gamedev-prototype .case-study-details p,
+.theme-gamedev-prototype .case-study-details > div:last-child p {
+  color: var(--karo-ink);
+}
+
+.theme-gamedev-prototype .inline-tech-highlight {
+  color: var(--karo-green-deep);
+}
+
+.theme-gamedev-prototype .inline-metric-highlight {
+  color: var(--safi-terracotta);
+}
+
+.theme-gamedev-prototype .contact {
+  color: var(--karo-ink);
+  border-color: rgba(90, 110, 74, 0.48);
+  background: linear-gradient(135deg, #DDE5D3 0%, #BFCDAF 52%, #E5D7C4 100%);
+  box-shadow: 0 18px 44px rgba(86, 67, 42, 0.14);
+}
+
+.theme-gamedev-prototype .contact h2,
+.theme-gamedev-prototype .contact .muted {
+  color: var(--karo-ink);
+}
+
+.theme-gamedev-prototype .contact .button.primary {
+  color: #FFFFFF;
+  border-color: var(--karo-green-deep);
+  background: var(--karo-green);
+}
+
+.theme-gamedev-prototype .contact .button.ghost {
+  color: var(--karo-ink);
+  border-color: rgba(44, 36, 22, 0.48);
+  background: rgba(250, 247, 242, 0.58);
+}
+
+.theme-gamedev-prototype .footer .footer-back,
+.theme-gamedev-prototype .footer a {
+  color: var(--karo-ink-soft);
+}
+
+.theme-gamedev-prototype .footer .footer-back:hover,
+.theme-gamedev-prototype .footer a:hover {
+  color: var(--karo-green-deep);
+  border-color: var(--karo-green-deep);
+  background: rgba(113, 141, 89, 0.12);
+}
