@@ -553,7 +553,7 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-ca
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric strong[data-i18n="impact.deliveryMetric"] {
   max-width: 100%;
-  font-size: clamp(0.72rem, 0.85vw, 0.8rem);
+  font-size: clamp(1rem, 1.45vw, 1.15rem);
   line-height: 1.15;
   white-space: normal;
   overflow-wrap: break-word;
