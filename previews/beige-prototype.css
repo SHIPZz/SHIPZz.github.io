@@ -551,13 +551,18 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-ca
   font-size: clamp(0.9rem, 1.45vw, 1.3rem);
 }
 
-html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric strong[data-i18n="impact.deliveryMetric"] {
+html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric .delivery-flow-metric {
   max-width: 100%;
   font-size: clamp(1rem, 1.45vw, 1.15rem);
   line-height: 1.15;
   white-space: normal;
   overflow-wrap: break-word;
   text-wrap: balance;
+}
+
+html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric .delivery-flow-metric > span {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-summary {

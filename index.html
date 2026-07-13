@@ -30,10 +30,10 @@
     const previewTheme = new URLSearchParams(window.location.search).get('theme');
     if (previewTheme === 'beige') {
       document.documentElement.classList.add('theme-beige-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=36">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=37">');
     } else if (previewTheme === 'gamedev') {
       document.documentElement.classList.add('theme-beige-prototype', 'theme-gamedev-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=36">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=37">');
       document.write('<link rel="stylesheet" href="previews/gamedev-prototype.css?v=3">');
     }
   </script>
@@ -160,7 +160,7 @@
         <article class="impact-card neutral entrance-flow">
           <h3 data-i18n="impact.deliveryTitle">Build publishing and distribution automated</h3>
           <div class="result-metric">
-            <strong data-i18n="impact.deliveryMetric">Automatic upload, download pages and notifications</strong>
+            <strong class="delivery-flow-metric"><span class="metric-before" data-i18n="impact.deliveryBefore">Manual build delivery</span><span class="metric-arrow"> &rarr; </span><span class="metric-after" data-i18n="impact.deliveryAfter">No manual steps</span></strong>
           </div>
           <p data-i18n="impact.deliveryText">Connected TeamCity, Cloudflare R2, n8n and Discord into one pipeline for build publication, download-page generation and team notifications.</p>
         </article>
@@ -455,6 +455,6 @@
   </footer>
 
   <script src="previews/achievement-concept.js?v=5"></script>
-  <script src="assets/script.js?v=92"></script>
+  <script src="assets/script.js?v=93"></script>
 </body>
 </html>
