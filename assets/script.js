@@ -441,89 +441,7 @@ window.addEventListener('resize', updateParticleAnimation);
 reducedMotionQuery.addEventListener('change', updateParticleAnimation);
 updateParticleAnimation();
 
-const clickEffects = isBeigeParticleTheme ? document.createElement('div') : null;
-if (clickEffects) {
-  clickEffects.className = 'cursor-click-effects';
-  clickEffects.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(clickEffects);
-}
-
-function createCursorClickRipple(x, y, button) {
-  if (!clickEffects || reducedMotionQuery.matches || (button !== 0 && button !== 2)) {
-    return;
-  }
-
-  const isRightClick = button === 2;
-  const ripple = document.createElement('span');
-  ripple.className = `cursor-click-ripple ${isRightClick ? 'is-right-click' : 'is-left-click'}`;
-  ripple.style.left = `${x}px`;
-  ripple.style.top = `${y}px`;
-  clickEffects.appendChild(ripple);
-  window.setTimeout(() => ripple.remove(), 760);
-
-  if (cursorAura) {
-    const pulseClass = isRightClick ? 'is-right-pulse' : 'is-left-pulse';
-    cursorAura.classList.remove('is-left-pulse', 'is-right-pulse');
-    void cursorAura.offsetWidth;
-    cursorAura.classList.add(pulseClass);
-    window.setTimeout(() => cursorAura.classList.remove(pulseClass), 620);
-  }
-
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  cursorParticles.forEach((particle) => {
-    const particleX = width * particle.left / 100 + particle.x;
-    const particleY = height * particle.top / 100 + particle.y;
-    const dx = particleX - x;
-    const dy = particleY - y;
-    const distance = Math.max(1, Math.hypot(dx, dy));
-    const proximity = Math.max(0, 1 - distance / 560);
-    const direction = isRightClick ? -1 : 1;
-    const force = proximity * (isRightClick ? 52 : 72) * direction * (0.55 + particle.depth * 0.45);
-    particle.impulseTargetX += dx / distance * force;
-    particle.impulseTargetY += dy / distance * force;
-  });
-
-}
-
-let heldPointerButton = null;
-let lastDragWaveAt = 0;
-let dragWaveIndex = 0;
-
-function createCursorDragWave(x, y) {
-  if (!clickEffects || reducedMotionQuery.matches || !finePointerQuery.matches) {
-    return;
-  }
-
-  const wave = document.createElement('span');
-  wave.className = `cursor-drag-wave is-drag-wave-${dragWaveIndex % 3}`;
-  wave.style.left = `${x}px`;
-  wave.style.top = `${y}px`;
-  clickEffects.appendChild(wave);
-  dragWaveIndex += 1;
-  window.setTimeout(() => wave.remove(), 560);
-}
-
-if (isBeigeParticleTheme) {
-  window.addEventListener('pointerdown', (event) => {
-    createCursorClickRipple(event.clientX, event.clientY, event.button);
-    if (event.button === 0 || event.button === 2) {
-      heldPointerButton = event.button;
-      lastDragWaveAt = performance.now();
-    }
-  }, { passive: true });
-
-  window.addEventListener('pointermove', (event) => {
-    if (heldPointerButton === null || performance.now() - lastDragWaveAt < 65) {
-      return;
-    }
-
-    lastDragWaveAt = performance.now();
-    createCursorDragWave(event.clientX, event.clientY);
-  }, { passive: true });
-}
-
-const pressableCards = isBeigeParticleTheme
+const hoverCards = isBeigeParticleTheme
   ? Array.from(document.querySelectorAll([
     '.project-card',
     '.achievement-combined-card',
@@ -534,7 +452,6 @@ const pressableCards = isBeigeParticleTheme
     '.contact'
   ].join(',')))
   : [];
-let activePressedCard = null;
 const cardHoverAura = isBeigeParticleTheme ? document.createElement('div') : null;
 if (cardHoverAura) {
   cardHoverAura.className = 'card-hover-aura';
@@ -566,61 +483,11 @@ function hideCardHoverAura() {
   cardHoverAura?.classList.remove('is-visible');
 }
 
-function releasePressedCard() {
-  if (!activePressedCard) {
-    return;
-  }
-
-  activePressedCard.classList.remove('is-card-pressed');
-  activePressedCard = null;
-}
-
-pressableCards.forEach((card) => {
-  card.classList.add('interactive-press-card');
+hoverCards.forEach((card) => {
   card.addEventListener('pointerenter', () => showCardHoverAura(card), { passive: true });
   card.addEventListener('pointerleave', hideCardHoverAura, { passive: true });
-  card.addEventListener('pointerdown', (event) => {
-    if (event.button !== 0 || !isCardEntranceReady(card)) {
-      return;
-    }
-
-    releasePressedCard();
-    const rect = card.getBoundingClientRect();
-    const localX = event.clientX - rect.left;
-    const localY = event.clientY - rect.top;
-    const normalizedX = Math.max(-1, Math.min(1, localX / rect.width * 2 - 1));
-    const normalizedY = Math.max(-1, Math.min(1, localY / rect.height * 2 - 1));
-    const allowTilt = finePointerQuery.matches && !reducedMotionQuery.matches;
-
-    card.style.setProperty('--card-press-rotate-x', `${allowTilt ? (-normalizedY * 2.1).toFixed(2) : 0}deg`);
-    card.style.setProperty('--card-press-rotate-y', `${allowTilt ? (normalizedX * 2.1).toFixed(2) : 0}deg`);
-    card.classList.add('is-card-pressed');
-    activePressedCard = card;
-
-    if (!reducedMotionQuery.matches) {
-      const ripple = document.createElement('span');
-      const diameter = Math.hypot(rect.width, rect.height) * 2;
-      ripple.className = 'card-press-ripple';
-      ripple.style.left = `${localX}px`;
-      ripple.style.top = `${localY}px`;
-      ripple.style.width = `${diameter}px`;
-      ripple.style.height = `${diameter}px`;
-      card.appendChild(ripple);
-      window.setTimeout(() => ripple.remove(), 720);
-    }
-  }, { passive: true });
 });
-
-function releasePointerEffects() {
-  heldPointerButton = null;
-  releasePressedCard();
-}
-
-window.addEventListener('pointerup', releasePointerEffects, { passive: true });
-window.addEventListener('pointercancel', releasePointerEffects, { passive: true });
-window.addEventListener('blur', releasePointerEffects);
 window.addEventListener('scroll', () => {
-  releasePointerEffects();
   hideCardHoverAura();
 }, { passive: true });
 let headerFrame = null;
