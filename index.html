@@ -30,10 +30,10 @@
     const previewTheme = new URLSearchParams(window.location.search).get('theme');
     if (previewTheme === 'beige') {
       document.documentElement.classList.add('theme-beige-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=23">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=24">');
     } else if (previewTheme === 'gamedev') {
       document.documentElement.classList.add('theme-beige-prototype', 'theme-gamedev-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=23">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=24">');
       document.write('<link rel="stylesheet" href="previews/gamedev-prototype.css?v=3">');
     }
   </script>
@@ -152,7 +152,7 @@
         <article class="impact-card violet entrance-flow">
           <h3 data-i18n="impact.sizeTitle">Build size reduced by 48%</h3>
           <div class="result-metric">
-            <strong><span class="metric-before">23 GB</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">12 GB</span></strong>
+            <strong class="build-size-value"><span class="metric-before">23 GB</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">12 GB</span></strong>
           </div>
           <p data-i18n="impact.sizeText">Audited Addressables bundles, removed duplicated assets and shaders, and separated bootstrap dependencies from initial build content.</p>
         </article>

@@ -474,6 +474,11 @@
   color: #4F6F3C;
 }
 
+html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric .build-size-value {
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  line-height: 1.05;
+}
+
 .theme-beige-prototype .achievement-combined-card .metric-breakdown > div {
   display: flex;
   flex-direction: column;
