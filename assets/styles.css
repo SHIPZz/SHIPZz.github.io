@@ -30,6 +30,14 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url("fonts/IBMPlexSerif-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
 :root {
   --bg: #111318;
   --panel: rgba(255, 255, 255, 0.065);

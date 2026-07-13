@@ -28,7 +28,7 @@ html[data-preview="achievements"] .achievement-combined-card > h3 {
   max-width: 860px;
   margin: 0 auto;
   text-align: center;
-  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
   line-height: 1.15;
 }
 
@@ -39,7 +39,7 @@ html[data-preview="achievements"] .achievement-combined-card > .metric-breakdown
 }
 
 html[data-preview="achievements"] .achievement-combined-card > .metric-breakdown > div {
-  min-height: 112px;
+  min-height: 132px;
   align-content: center;
   justify-items: center;
   padding: 18px;
@@ -52,7 +52,10 @@ html[data-preview="achievements"] .achievement-combined-card .metric-context {
 }
 
 html[data-preview="achievements"] .achievement-combined-card .metric-breakdown strong {
-  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  max-width: 100%;
+  font-size: clamp(1rem, 2.05vw, 1.65rem);
+  letter-spacing: -0.025em;
+  white-space: nowrap;
 }
 
 html[data-preview="achievements"] .achievement-summary {
@@ -125,16 +128,27 @@ html[data-preview="achievements"] .impact-card:last-child.achievement-secondary-
 
 html[data-preview="achievements"] .achievement-secondary-card > h3 {
   text-align: center;
-  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
 }
 
 html[data-preview="achievements"] .achievement-secondary-card > .result-metric {
-  width: min(480px, 100%);
-  min-height: 112px;
+  width: min(820px, 100%);
+  min-height: 132px;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+html[data-preview="achievements"] .achievement-secondary-card > .result-metric strong {
+  max-width: 100%;
+  font-size: clamp(1.1rem, 2.15vw, 1.75rem);
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+html[data-preview="achievements"] .achievement-secondary-card > .result-metric strong[data-i18n="impact.deliveryMetric"] {
+  font-size: clamp(0.72rem, 1.75vw, 1.42rem);
 }
 
 html[data-preview="achievements"] .achievement-secondary-card > p {
