@@ -465,35 +465,34 @@ if (cursorEye && cursorEyeGaze && isBeigeParticleTheme) {
 }
 
 const clickEffects = isBeigeParticleTheme ? document.createElement('div') : null;
-let queuedEyeBlinks = 0;
-let eyeBlinkInProgress = false;
+let eyePressedAt = 0;
+let eyeReleaseTimer = null;
 if (clickEffects) {
   clickEffects.className = 'cursor-click-effects';
   clickEffects.setAttribute('aria-hidden', 'true');
   document.body.appendChild(clickEffects);
 }
 
-function playQueuedEyeBlink() {
-  if (!cursorEye || eyeBlinkInProgress || queuedEyeBlinks <= 0) {
+function pressCursorEye() {
+  if (!cursorEye || reducedMotionQuery.matches) {
     return;
   }
 
-  queuedEyeBlinks -= 1;
-  eyeBlinkInProgress = true;
-  cursorEye.classList.remove('is-click-blinking');
-  void cursorEye.offsetWidth;
-  cursorEye.classList.add('is-click-blinking');
-
-  window.setTimeout(() => {
-    cursorEye.classList.remove('is-click-blinking');
-    eyeBlinkInProgress = false;
-    window.setTimeout(playQueuedEyeBlink, 45);
-  }, 420);
+  window.clearTimeout(eyeReleaseTimer);
+  eyePressedAt = performance.now();
+  cursorEye.classList.add('is-eye-pressed');
 }
 
-function queueEyeBlink() {
-  queuedEyeBlinks = Math.min(queuedEyeBlinks + 1, 8);
-  playQueuedEyeBlink();
+function releaseCursorEye() {
+  if (!cursorEye || !cursorEye.classList.contains('is-eye-pressed')) {
+    return;
+  }
+
+  const remainingClosedTime = Math.max(0, 90 - (performance.now() - eyePressedAt));
+  window.clearTimeout(eyeReleaseTimer);
+  eyeReleaseTimer = window.setTimeout(() => {
+    cursorEye.classList.remove('is-eye-pressed');
+  }, remainingClosedTime);
 }
 
 function createCursorClickRipple(x, y, button) {
@@ -532,9 +531,6 @@ function createCursorClickRipple(x, y, button) {
     particle.impulseY += dy / distance * force;
   });
 
-  if (!isRightClick && cursorEye) {
-    queueEyeBlink();
-  }
 }
 
 let heldPointerButton = null;
@@ -561,6 +557,9 @@ if (isBeigeParticleTheme) {
     if (event.button === 0 || event.button === 2) {
       heldPointerButton = event.button;
       lastDragWaveAt = performance.now();
+    }
+    if (event.button === 0) {
+      pressCursorEye();
     }
   }, { passive: true });
 
@@ -665,6 +664,7 @@ pressableCards.forEach((card) => {
 function releasePointerEffects() {
   heldPointerButton = null;
   releasePressedCard();
+  releaseCursorEye();
 }
 
 window.addEventListener('pointerup', releasePointerEffects, { passive: true });
