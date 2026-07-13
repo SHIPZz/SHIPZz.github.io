@@ -277,19 +277,34 @@ const observer = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => observer.observe(item));
 
-const entranceItems = document.querySelectorAll('.entrance-slide, .entrance-flip, .entrance-spin, .entrance-flow');
+const entranceItems = Array.from(document.querySelectorAll('.entrance-slide, .entrance-flip, .entrance-spin, .entrance-flow'))
+  .filter((item) => !item.classList.contains('projects-title-entrance'));
 const entranceSequenceStartedAt = performance.now();
 const projectEntranceReadyAfter = 2500;
+const projectsTitleEntrance = document.querySelector('.projects-title-entrance');
+
+function scheduleProjectsTitleEntrance(delay) {
+  if (!projectsTitleEntrance || projectsTitleEntrance.classList.contains('is-entrance-scheduled')) {
+    return;
+  }
+
+  projectsTitleEntrance.classList.add('is-entrance-scheduled');
+  window.setTimeout(() => projectsTitleEntrance.classList.add('is-entered'), delay);
+}
+
 const entranceObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
 
     const target = entry.target;
     const isProjectCard = target.classList.contains('entrance-flip');
-    const isProjectHeading = target.classList.contains('projects-title-entrance');
     const isSpinningCard = isProjectCard || target.classList.contains('entrance-spin');
     const elapsed = performance.now() - entranceSequenceStartedAt;
-    const sequenceDelay = isProjectCard || isProjectHeading ? Math.max(0, projectEntranceReadyAfter - elapsed) : 0;
+    const sequenceDelay = isProjectCard ? Math.max(0, projectEntranceReadyAfter - elapsed) : 0;
+
+    if (isProjectCard) {
+      scheduleProjectsTitleEntrance(sequenceDelay);
+    }
 
     target.classList.add('is-entrance-scheduled');
     entranceObserver.unobserve(entry.target);
