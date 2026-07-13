@@ -36,15 +36,15 @@
   const secondaryDetails = [
     {
       prefix: 'build',
-      problem: 'The production build included duplicated assets and shaders, while bootstrap dependencies pulled unnecessary content into the initial build.',
-      solution: 'Audited Addressables Build Report, removed duplicated content, separated bootstrap dependencies and excluded unused shader resources.',
+      problem: 'Production builds contained duplicated assets and shaders, while bootstrap dependencies pulled unnecessary content into the initial package.',
+      solution: 'Audited the Addressables Build Report, removed duplicates, separated bootstrap dependencies and excluded unused shaders.',
       result: 'Reduced the production build from 23 GB to 12 GB (-48%).'
     },
     {
       prefix: 'delivery',
-      problem: 'Build publishing, download-page preparation and team notifications required repeated manual steps.',
-      solution: 'Connected TeamCity, Cloudflare R2, n8n and Discord into one automated publication and distribution workflow.',
-      result: 'Build delivery and access no longer required manual archive uploads, link preparation or team notifications.'
+      problem: 'Publishing builds, preparing download pages and notifying the team required repeated manual work.',
+      solution: 'Connected TeamCity, Cloudflare R2, n8n and Discord into one automated delivery workflow.',
+      result: 'Build delivery no longer required manual uploads, link preparation or team notifications.'
     }
   ];
 

@@ -30,10 +30,10 @@
     const previewTheme = new URLSearchParams(window.location.search).get('theme');
     if (previewTheme === 'beige') {
       document.documentElement.classList.add('theme-beige-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=27">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=28">');
     } else if (previewTheme === 'gamedev') {
       document.documentElement.classList.add('theme-beige-prototype', 'theme-gamedev-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=27">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=28">');
       document.write('<link rel="stylesheet" href="previews/gamedev-prototype.css?v=3">');
     }
   </script>
@@ -88,10 +88,11 @@
         <p class="eyebrow" data-i18n="hero.eyebrow">Senior Unity Developer</p>
         <h1 data-i18n="hero.title">Kenan Ibragimov</h1>
         <p class="hero-text" data-i18n="hero.text">
-          Senior Unity Developer with 5+ years of commercial experience across AA, midcore, casual and mobile RPG projects. Areas of responsibility include gameplay architecture, multiplayer and client-server systems, UI and meta systems, rendering, performance engineering, SDK integrations, internal tools and build automation.
+          Senior Unity Developer with 5+ years of commercial experience building gameplay architecture, multiplayer and UI/meta systems, performance tooling and build automation for PC, console and mobile games.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="Kenan_Ibragimov_Unity_Developer.pdf?v=3" download data-i18n="hero.pdfCta">Download CV</a>
+          <a class="button ghost" href="#cases" data-i18n="hero.casesCta">View achievements</a>
         </div>
         <div class="hero-links" data-i18n-aria-label="aria.contactLinks" aria-label="Contact links">
           <a href="mailto:kenanibragimov@ro.ru" data-i18n="hero.emailCta">Email</a>
@@ -173,8 +174,8 @@
               <h3 data-i18n="cases.loadingTitle">Scene loading optimization</h3>
             </div>
             <dl class="case-study-details">
-              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.loadingProblem">Hub and mission loads pulled oversized dependency sets while enemies, loot and interactable objects were all created before the player needed them.</dd></div>
-              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.loadingSolution">Separated scene content from shared resources, reorganized Addressables dependencies and configured independent asset packing. Deferred non-critical object creation until it was required near the player.</dd></div>
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.loadingProblem">Hub and mission loads pulled oversized dependencies, while enemies, loot and interactables were created before the player needed them.</dd></div>
+              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.loadingSolution">Separated scene and shared content, reorganized Addressables packing and deferred non-critical objects until they were needed near the player.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.loadingResult">Hub loading dropped from 30s to 18s; mission loading from 47s to 23s.</dd></div>
             </dl>
           </div>
@@ -186,8 +187,8 @@
               <h3 data-i18n="cases.memoryTitle">Memory leak removal</h3>
             </div>
             <dl class="case-study-details">
-              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Data from completed missions was never released and accumulated on every subsequent mission entry. Static-event subscriptions, closures, references in global services and an undisposed ECS context retained the complete mission object graph.</dd></div>
-              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.memorySolution">Traced retention paths with Memory Profiler, corrected subscriptions and lifecycle cleanup, disposed the mission context and removed duplicated shaders and assets from bundles.</dd></div>
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Completed mission data accumulated between runs because static events, closures, global services and an undisposed ECS context retained the mission object graph.</dd></div>
+              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.memorySolution">Used Memory Profiler to trace retention, fixed subscriptions and cleanup, disposed the mission context and removed duplicated bundled content.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Hub memory fell from 6 GB to 3 GB, and missions from 7-10 GB to 4.5-5.3 GB.</dd></div>
             </dl>
           </div>
@@ -199,8 +200,8 @@
               <h3 data-i18n="cases.performanceTitle">FPS stabilization</h3>
             </div>
             <dl class="case-study-details">
-              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Ability simulation repeated the same evaluation and allocations; enemy turns repeatedly recalculated abilities and pathfinding, producing severe frame stalls.</dd></div>
-              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.performanceSolution">Removed duplicate calculations, reduced pathfinding calls, optimized pathfinding and replaced temporary collections with the project's custom thread-safe pools.</dd></div>
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Ability simulation repeated evaluations and allocations; enemy turns recalculated abilities and paths, causing severe stalls.</dd></div>
+              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.performanceSolution">Removed duplicate calculations, optimized pathfinding and replaced temporary collections with custom thread-safe pools.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.performanceResult">Ability simulation no longer collapsed from about 110 to 15 FPS; enemy turns no longer fell from 80-100 to 1-5 FPS.</dd></div>
             </dl>
           </div>
@@ -453,7 +454,7 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="previews/achievement-concept.js?v=3"></script>
-  <script src="assets/script.js?v=90"></script>
+  <script src="previews/achievement-concept.js?v=4"></script>
+  <script src="assets/script.js?v=91"></script>
 </body>
 </html>

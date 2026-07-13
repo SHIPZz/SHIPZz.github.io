@@ -776,6 +776,192 @@ html.theme-beige-prototype[data-preview="achievements"] .inline-metric-highlight
   }
 }
 
+/* Compact portfolio flow: visible content, tighter case studies, clearer CTA. */
+html.theme-beige-prototype:not(.theme-gamedev-prototype) [data-reveal],
+html.theme-beige-prototype:not(.theme-gamedev-prototype) .entrance-slide,
+html.theme-beige-prototype:not(.theme-gamedev-prototype) .entrance-flow,
+html.theme-beige-prototype:not(.theme-gamedev-prototype) .entrance-flip,
+html.theme-beige-prototype:not(.theme-gamedev-prototype) .entrance-spin {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition-delay: 0s !important;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype) .hero-actions .button.ghost {
+  color: #6F311F;
+  border-color: rgba(111, 49, 31, 0.55);
+  background: rgba(255, 232, 214, 0.58);
+}
+
+@media (min-width: 761px) {
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card,
+  html.theme-beige-prototype[data-preview="achievements"] .impact-card:last-child.achievement-secondary-card {
+    min-height: 0;
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    grid-template-areas:
+      "title details"
+      "metric details";
+    align-items: start;
+    gap: 14px 24px;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > h3,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > h3 {
+    grid-area: title;
+    margin: 0;
+    align-self: end;
+    text-align: left;
+    font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > .metric-breakdown,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric {
+    grid-area: metric;
+    width: 270px;
+    margin: 0;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > .metric-breakdown {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details {
+    grid-area: details;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    border-top: 0;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details > div,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details > div:first-child,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details > div:last-child {
+    margin: 0;
+    padding: 10px 12px;
+    display: grid;
+    grid-template-columns: 125px minmax(0, 1fr);
+    gap: 12px;
+    border-left: 1px solid rgba(21, 20, 18, 0.32);
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details dt {
+    margin: 0;
+    align-self: start;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details dd {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 700px) {
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .hero {
+    min-height: 0;
+    padding-top: 52px;
+    padding-bottom: 36px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .hero .eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.74rem;
+    letter-spacing: 0.13em;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .hero-text {
+    margin-top: 16px;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .hero-actions {
+    margin-top: 20px;
+    gap: 8px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .hero-actions .button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 0 16px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .hero-links {
+    margin-top: 14px;
+    gap: 8px 16px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .project-body {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .project-body > .tag {
+    min-height: 32px;
+    padding: 7px 10px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .project-contribution {
+    min-height: 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .stack-list {
+    padding-bottom: 4px;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype) .stack-list span {
+    min-height: 28px;
+    padding: 0 8px;
+    flex: 0 0 auto;
+    font-size: 0.75rem;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card,
+  html.theme-beige-prototype[data-preview="achievements"] .impact-card:last-child.achievement-secondary-card {
+    padding: 16px 14px;
+    gap: 12px;
+    border-radius: 18px;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > h3,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > h3 {
+    font-size: 1.2rem;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details {
+    padding-top: 8px;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details > div,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details > div:first-child,
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details > div:last-child {
+    margin: 4px 0;
+    padding: 10px;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details dt {
+    margin-bottom: 6px;
+  }
+
+  html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-details dd {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-beige-prototype .card-hover-aura { display: none; }
 }
