@@ -241,55 +241,47 @@
 }
 
 .theme-beige-prototype .hero-actions {
-  gap: 14px;
   margin-top: 30px;
 }
 
 .theme-beige-prototype .hero-links {
-  gap: 14px;
-  margin-top: 14px;
+  gap: 12px 24px;
+  margin-top: 18px;
 }
 
-.theme-beige-prototype .hero-actions .button[data-circle-label],
-.theme-beige-prototype .hero-links a[data-circle-label] {
-  width: 94px;
-  min-width: 94px;
-  height: 94px;
-  min-height: 94px;
-  padding: 10px;
-  display: inline-grid;
-  place-items: center;
-  color: #151412;
-  border: 1px solid rgba(21, 20, 18, 0.58);
-  border-radius: 50%;
-  box-shadow: 0 10px 22px rgba(68, 51, 35, 0.12);
-  overflow: hidden;
-  font-size: 0.72rem;
-  font-weight: 600;
-  line-height: 1.15;
-  text-align: center;
-  text-wrap: balance;
+.theme-beige-prototype .hero-actions .button.primary {
+  min-width: 190px;
+  min-height: 52px;
+  padding: 0 30px;
+  color: #FFF4EA;
+  border-color: #853A22;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #C96B47 0%, #B85C38 100%);
+  box-shadow: 0 12px 26px rgba(151, 69, 39, 0.22);
 }
 
-.theme-beige-prototype .hero-actions .button[data-circle-label]::after,
-.theme-beige-prototype .hero-links a[data-circle-label]::after {
-  display: none;
+.theme-beige-prototype .hero-links a {
+  padding: 3px 1px;
+  color: #6F311F;
+  border-bottom: 2px solid rgba(111, 49, 31, 0.45);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 4px;
 }
-
-.theme-beige-prototype .hero-actions .button[data-circle-label]:nth-child(1) { background: #CB997E; }
-.theme-beige-prototype .hero-actions .button[data-circle-label]:nth-child(2) { background: #A5A58D; }
-.theme-beige-prototype .hero-links a[data-circle-label]:nth-child(1) { background: #DDBEA9; }
-.theme-beige-prototype .hero-links a[data-circle-label]:nth-child(2) { background: #B7B7A4; }
-.theme-beige-prototype .hero-links a[data-circle-label]:nth-child(3) { background: #A5A58D; }
 
 @media (hover: hover) and (pointer: fine) {
-  .theme-beige-prototype .hero-actions .button[data-circle-label]:hover,
-  .theme-beige-prototype .hero-links a[data-circle-label]:hover {
+  .theme-beige-prototype .hero-actions .button.primary:hover {
+    color: #FFF4EA;
+    border-color: #6F311F;
+    background: linear-gradient(135deg, #D77B54 0%, #B45131 100%);
+    box-shadow: 0 16px 32px rgba(151, 69, 39, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .theme-beige-prototype .hero-links a:hover {
     color: #151412;
-    border-color: #151412;
-    box-shadow: 0 0 0 4px rgba(21, 20, 18, 0.08), 0 16px 28px rgba(68, 51, 35, 0.18);
-    filter: brightness(1.04) saturate(1.08);
-    transform: none !important;
+    border-bottom-color: #B85C38;
+    transform: translateY(-1px);
   }
 }
 
@@ -422,6 +414,19 @@
 .theme-beige-prototype .impact-card.violet,
 .theme-beige-prototype .impact-card.neutral {
   background: rgba(255, 232, 214, 0.92);
+}
+
+.theme-beige-prototype .achievement-project-context {
+  width: fit-content;
+  margin: 16px auto 0;
+  padding: 7px 13px;
+  color: #6F311F;
+  border: 1px solid rgba(184, 92, 56, 0.46);
+  border-radius: 8px;
+  background: rgba(221, 190, 169, 0.72);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
 }
 
 .theme-beige-prototype .impact-card > h3 {
@@ -563,6 +568,18 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-deta
   opacity: 1;
 }
 
+.theme-beige-prototype .inline-tech-highlight {
+  color: #151412;
+  font-weight: 700;
+}
+
+.theme-beige-prototype .inline-metric-highlight {
+  color: var(--metric-highlight);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 .theme-beige-prototype .skills-layout article,
 .theme-beige-prototype .skills-layout article:nth-child(even) {
   color: #151412;
@@ -680,16 +697,6 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-deta
   .theme-beige-prototype .project-body > p,
   .theme-beige-prototype .project-contribution {
     min-height: 0;
-  }
-
-  .theme-beige-prototype .hero-actions .button[data-circle-label],
-  .theme-beige-prototype .hero-links a[data-circle-label] {
-    width: 84px;
-    min-width: 84px;
-    height: 84px;
-    min-height: 84px;
-    padding: 8px;
-    font-size: 0.66rem;
   }
 
   .theme-beige-prototype .achievement-inline-details > div,

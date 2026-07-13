@@ -14,9 +14,10 @@ const translations = {
     'hero.title': 'Kenan Ibragimov',
     'hero.text': 'Senior Unity Developer with 5+ years of commercial experience across AA, midcore, casual and mobile RPG projects. Areas of responsibility include gameplay architecture, multiplayer and client-server systems, UI and meta systems, rendering, performance engineering, SDK integrations, internal tools and build automation.',
     'hero.emailCta': 'Email',
-    'hero.pdfCta': 'Download CV - EN',
+    'hero.pdfCta': 'Download CV',
     'hero.casesCta': 'View case studies',
     'impact.title': 'RECENT ACHIEVEMENTS',
+    'impact.projectContext': 'Project: Critical Shift',
     'impact.loadTitle': 'Scene loading reduced by up to 51%',
     'impact.hubLabel': 'Hub',
     'impact.hubDelta': '40% faster',
@@ -146,9 +147,10 @@ const translations = {
     'hero.title': 'Kenan Ibragimov',
     'hero.text': 'Senior Unity Developer с опытом коммерческой разработки более 5 лет. Проектирую игровые, многопользовательские, клиент-серверные, интерфейсные и мета-системы, занимаюсь оптимизацией, рендерингом, внутренними инструментами и автоматизацией билдов для ПК, консолей и мобильных платформ.',
     'hero.emailCta': 'Почта',
-    'hero.pdfCta': 'Скачать CV - EN',
+    'hero.pdfCta': 'Скачать CV',
     'hero.casesCta': 'Посмотреть кейсы',
     'impact.title': 'ПОСЛЕДНИЕ ДОСТИЖЕНИЯ',
+    'impact.projectContext': 'Проект: Critical Shift',
     'impact.loadTitle': 'Сократил время загрузки сцен до 51%',
     'impact.hubLabel': 'Хаб',
     'impact.hubDelta': 'На 40% быстрее',
@@ -513,6 +515,62 @@ function saveLanguage(language) {
   }
 }
 
+const achievementTechPattern = /Addressables Build Report|Memory Profiler|Cloudflare R2|Addressables|TeamCity|Discord|ECS|n8n/gi;
+const achievementMetricPattern = /-?\d+(?:[.,]\d+)?(?:-\d+(?:[.,]\d+)?)?(?:\s*(?:GB|ГБ|FPS|%|s|секунд(?:ы|у)?|секунд))?/gi;
+
+function highlightAchievementText(element, includeMetrics) {
+  const text = element.textContent || '';
+  const highlights = [];
+
+  const collectMatches = (pattern, className) => {
+    pattern.lastIndex = 0;
+    for (const match of text.matchAll(pattern)) {
+      highlights.push({
+        start: match.index,
+        end: match.index + match[0].length,
+        className
+      });
+    }
+  };
+
+  collectMatches(achievementTechPattern, 'inline-tech-highlight');
+  if (includeMetrics) {
+    collectMatches(achievementMetricPattern, 'inline-metric-highlight');
+  }
+
+  if (!highlights.length) {
+    return;
+  }
+
+  highlights.sort((left, right) => left.start - right.start || right.end - left.end);
+  const fragment = document.createDocumentFragment();
+  let cursor = 0;
+
+  highlights.forEach((highlight) => {
+    if (highlight.start < cursor) {
+      return;
+    }
+
+    fragment.append(text.slice(cursor, highlight.start));
+    const strong = document.createElement('strong');
+    strong.className = highlight.className;
+    strong.textContent = text.slice(highlight.start, highlight.end);
+    fragment.append(strong);
+    cursor = highlight.end;
+  });
+
+  fragment.append(text.slice(cursor));
+  element.replaceChildren(fragment);
+}
+
+function updateAchievementHighlights() {
+  document.querySelectorAll('#cases .achievement-summary, #cases .achievement-inline-details dd').forEach((element) => {
+    const details = element.closest('.achievement-inline-details');
+    const isResult = details && details.lastElementChild === element.parentElement;
+    highlightAchievementText(element, isResult);
+  });
+}
+
 function updateLanguageContent(language) {
   const dictionary = translations[language] || translations.en;
 
@@ -536,6 +594,8 @@ function updateLanguageContent(language) {
       element.setAttribute('aria-label', dictionary[key]);
     }
   });
+
+  updateAchievementHighlights();
 
   languageButtons.forEach((button) => {
     const isActive = button.dataset.lang === language;
