@@ -4,6 +4,7 @@
   --palette-cream: #FFE8D6;
   --palette-sage: #B7B7A4;
   --palette-olive: #A5A58D;
+  --metric-highlight: #B34C26;
   --bg: #FFE8D6;
   --panel: rgba(255, 232, 214, 0.9);
   --panel-strong: #FFE8D6;
@@ -478,15 +479,20 @@
 
 .theme-beige-prototype .metric-breakdown > div,
 .theme-beige-prototype .result-metric {
-  border: 1px solid rgba(21, 20, 18, 0.42);
-  background: #DDBEA9;
+  border: 2px solid rgba(203, 153, 126, 0.82);
+  background: #FFE8D6;
+  box-shadow: 0 10px 24px rgba(179, 76, 38, 0.1);
 }
 
 .theme-beige-prototype .metric-context,
-.theme-beige-prototype .metric-breakdown strong,
-.theme-beige-prototype .result-metric strong,
 .theme-beige-prototype .result-metric small {
   color: #171715;
+  font-weight: 600;
+}
+
+.theme-beige-prototype .metric-breakdown strong,
+.theme-beige-prototype .result-metric strong {
+  color: var(--metric-highlight);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -522,8 +528,8 @@
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > .metric-breakdown > div,
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric {
-  border: 1px solid rgba(21, 20, 18, 0.42);
-  background: #DDBEA9;
+  border: 2px solid rgba(203, 153, 126, 0.82);
+  background: #FFE8D6;
 }
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-summary {
