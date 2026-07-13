@@ -30,10 +30,10 @@
     const previewTheme = new URLSearchParams(window.location.search).get('theme');
     if (previewTheme === 'beige') {
       document.documentElement.classList.add('theme-beige-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=22">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=23">');
     } else if (previewTheme === 'gamedev') {
       document.documentElement.classList.add('theme-beige-prototype', 'theme-gamedev-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=22">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=23">');
       document.write('<link rel="stylesheet" href="previews/gamedev-prototype.css?v=3">');
     }
   </script>
@@ -113,23 +113,17 @@
             <div>
               <span class="metric-context" data-i18n="impact.hubLabel">Hub</span>
               <strong><span class="metric-before">30s</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">18s</span></strong>
-              <small data-i18n="impact.hubDelta">40% faster</small>
             </div>
             <div>
               <span class="metric-context" data-i18n="impact.missionLabel">Mission</span>
               <strong><span class="metric-before">47s</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">23s</span></strong>
-              <small data-i18n="impact.missionDelta">51% faster</small>
             </div>
           </div>
           <p data-i18n="impact.loadText">Restructured Addressables dependencies, separated scene-owned content and deferred the creation of non-critical world objects.</p>
         </article>
         <article class="impact-card blue entrance-flow">
           <h3 data-i18n="impact.memoryTitle">RAM reduced by up to 40%</h3>
-          <div class="metric-breakdown three-column-metrics">
-            <div>
-              <span class="metric-context" data-i18n="impact.menuLabel">Menu</span>
-              <strong><span class="metric-before">2.8</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">1.3 GB</span></strong>
-            </div>
+          <div class="metric-breakdown">
             <div>
               <span class="metric-context" data-i18n="impact.hubLabel">Hub</span>
               <strong><span class="metric-before">6</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">3 GB</span></strong>
@@ -147,12 +141,10 @@
             <div>
               <span class="metric-context" data-i18n="impact.fpsAbilityLabel">Ability simulation</span>
               <strong><span class="metric-before">15</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">110 FPS</span></strong>
-              <small data-i18n="impact.fpsAbilityDelta">Baseline performance restored</small>
             </div>
             <div>
               <span class="metric-context" data-i18n="impact.fpsEnemyLabel">Enemy turns</span>
               <strong><span class="metric-before">1-5</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">80-100 FPS</span></strong>
-              <small data-i18n="impact.fpsEnemyDelta">Severe turn stalls removed</small>
             </div>
           </div>
           <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; replaced allocation-heavy collections with custom thread-safe pools.</p>
@@ -161,7 +153,6 @@
           <h3 data-i18n="impact.sizeTitle">Build size reduced by 48%</h3>
           <div class="result-metric">
             <strong><span class="metric-before">23 GB</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">12 GB</span></strong>
-            <span data-i18n="impact.sizeDelta">Production build</span>
           </div>
           <p data-i18n="impact.sizeText">Audited Addressables bundles, removed duplicated assets and shaders, and separated bootstrap dependencies from initial build content.</p>
         </article>
@@ -169,7 +160,6 @@
           <h3 data-i18n="impact.deliveryTitle">Build publishing and distribution automated</h3>
           <div class="result-metric">
             <strong data-i18n="impact.deliveryMetric">Automatic upload, download pages and notifications</strong>
-            <span>TeamCity &rarr; R2 &rarr; n8n &rarr; Discord</span>
           </div>
           <p data-i18n="impact.deliveryText">Connected TeamCity, Cloudflare R2, n8n and Discord into one pipeline for build publication, download-page generation and team notifications.</p>
         </article>
@@ -198,7 +188,7 @@
             <dl class="case-study-details">
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.memoryProblem">Data from completed missions was never released and accumulated on every subsequent mission entry. Static-event subscriptions, closures, references in global services and an undisposed ECS context retained the complete mission object graph.</dd></div>
               <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.memorySolution">Traced retention paths with Memory Profiler, corrected subscriptions and lifecycle cleanup, disposed the mission context and removed duplicated shaders and assets from bundles.</dd></div>
-              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Menu memory fell from 2.8 GB to 1.3 GB, hub from 6 GB to 3 GB, and missions from 7-10 GB to 4.5-5.3 GB.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.memoryResult">Hub memory fell from 6 GB to 3 GB, and missions from 7-10 GB to 4.5-5.3 GB.</dd></div>
             </dl>
           </div>
         </article>
@@ -464,6 +454,6 @@
   </footer>
 
   <script src="previews/achievement-concept.js?v=3"></script>
-  <script src="assets/script.js?v=89"></script>
+  <script src="assets/script.js?v=90"></script>
 </body>
 </html>

@@ -387,9 +387,10 @@
 }
 
 .theme-beige-prototype .project-contribution p {
-  color: #151412;
-  font-weight: 500;
-  line-height: 1.6;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: inherit;
   opacity: 1;
 }
 
@@ -456,9 +457,21 @@
 
 .theme-beige-prototype .metric-breakdown strong,
 .theme-beige-prototype .result-metric strong {
-  color: var(--metric-highlight);
+  color: #151412;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+}
+
+.theme-beige-prototype .metric-before {
+  color: #A84428;
+}
+
+.theme-beige-prototype .metric-arrow {
+  color: #5F5A51;
+}
+
+.theme-beige-prototype .metric-after {
+  color: #4F6F3C;
 }
 
 .theme-beige-prototype .achievement-combined-card .metric-breakdown > div {
@@ -495,8 +508,8 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-ca
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric {
   border: 2px solid rgba(203, 153, 126, 0.82);
   background: #FFE8D6;
-  min-height: 132px;
-  padding: 20px 22px;
+  min-height: 100px;
+  padding: 14px 18px;
 }
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-summary {
@@ -573,8 +586,8 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-inline-deta
   font-weight: 700;
 }
 
-.theme-beige-prototype .inline-metric-highlight {
-  color: var(--metric-highlight);
+html.theme-beige-prototype[data-preview="achievements"] .inline-metric-highlight {
+  color: #151412;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
