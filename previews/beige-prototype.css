@@ -463,7 +463,8 @@
 }
 
 .theme-beige-prototype .metric-before {
-  color: #A84428;
+  color: #C13F2B;
+  font-weight: 800;
 }
 
 .theme-beige-prototype .metric-arrow {
@@ -471,12 +472,18 @@
 }
 
 .theme-beige-prototype .metric-after {
-  color: #4F6F3C;
+  color: #3F7D3B;
+  font-weight: 800;
 }
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric .build-size-value {
-  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  font-size: clamp(1rem, 2.05vw, 1.65rem);
   line-height: 1.05;
+}
+
+html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric .build-size-value > span {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .theme-beige-prototype .achievement-combined-card .metric-breakdown > div {
