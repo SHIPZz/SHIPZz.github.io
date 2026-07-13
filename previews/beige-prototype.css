@@ -518,10 +518,24 @@ html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-c
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-combined-card > .metric-breakdown > div,
 html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric {
+  height: 80px;
+  min-height: 80px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-sizing: border-box;
   border: 2px solid rgba(203, 153, 126, 0.82);
+  border-radius: 14px;
   background: #FFE8D6;
-  min-height: 100px;
-  padding: 14px 18px;
+  box-shadow: 0 6px 14px rgba(179, 76, 38, 0.08);
+  text-align: center;
+}
+
+html.theme-beige-prototype[data-preview="achievements"] .achievement-secondary-card > .result-metric {
+  width: min(405px, 100%);
 }
 
 html.theme-beige-prototype[data-preview="achievements"] .achievement-summary {
