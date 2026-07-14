@@ -1301,6 +1301,12 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
   line-height: inherit;
 }
 
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack > article:nth-child(2) .metric-breakdown strong,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack > article:nth-child(3) .metric-breakdown strong {
+  font-size: clamp(0.82rem, 1vw, 1rem) !important;
+  letter-spacing: -0.02em;
+}
+
 @media (hover: hover) and (pointer: fine) {
   html.theme-beige-prototype:not(.theme-gamedev-prototype) .project-card:hover,
   html.theme-beige-prototype:not(.theme-gamedev-prototype) .impact-card:hover,
