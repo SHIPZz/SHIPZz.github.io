@@ -1303,7 +1303,7 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
 
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack > article:nth-child(2) .metric-breakdown strong,
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack > article:nth-child(3) .metric-breakdown strong {
-  font-size: clamp(1.05rem, 1.35vw, 1.18rem) !important;
+  font-size: clamp(2.3rem, 3.3vw, 2.65rem) !important;
   letter-spacing: -0.02em;
 }
 
