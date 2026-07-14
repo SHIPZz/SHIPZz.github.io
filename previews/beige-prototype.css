@@ -1293,7 +1293,7 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
 
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack .metric-breakdown strong,
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-grid .build-size-value {
-  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
 }
 
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-grid .build-size-value > span {
