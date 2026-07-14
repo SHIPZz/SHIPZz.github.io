@@ -1259,21 +1259,30 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
   min-width: 0;
   min-height: 64px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: max-content auto max-content;
   align-items: center;
-  justify-content: stretch;
-  gap: clamp(8px, 1.4vw, 16px);
-  font-size: clamp(1.25rem, 2.6vw, 2.15rem);
+  justify-content: center;
+  gap: clamp(8px, 1vw, 14px);
+  font-size: clamp(1rem, 1.7vw, 1.45rem);
   line-height: 1.05;
-  white-space: normal;
+  white-space: nowrap;
 }
 
 @media (max-width: 760px) {
   html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card > .result-metric strong.delivery-flow-metric {
-    grid-template-columns: 1fr;
-    gap: 7px;
-    font-size: clamp(1.35rem, 6vw, 1.8rem);
+    grid-template-columns: max-content auto max-content;
+    gap: 5px;
+    font-size: clamp(0.72rem, 3vw, 0.9rem);
   }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .delivery-flow-metric .metric-arrow {
+    line-height: inherit;
+    transform: none;
+  }
+}
+
+html.theme-beige-prototype .cursor-aura {
+  display: none !important;
 }
 
 @media (hover: hover) and (pointer: fine) {
