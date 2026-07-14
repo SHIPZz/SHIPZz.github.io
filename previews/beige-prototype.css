@@ -1307,6 +1307,12 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
   letter-spacing: -0.02em;
 }
 
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack > article:nth-child(2) .metric-before,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack > article:nth-child(3) .metric-before {
+  text-decoration-color: #666057;
+  text-decoration-thickness: 2px;
+}
+
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases {
   width: min(1000px, calc(100% - 32px));
 }
