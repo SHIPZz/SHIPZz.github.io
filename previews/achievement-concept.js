@@ -6,6 +6,8 @@
   const caseWrapper = section?.querySelector('#case-studies');
   const impactCards = impactList ? Array.from(impactList.querySelectorAll('.impact-card')) : [];
   const caseCards = caseWrapper ? Array.from(caseWrapper.querySelectorAll('.case-study-card')) : [];
+  const useBeigeCardRedesign = document.documentElement.classList.contains('theme-beige-prototype')
+    && !document.documentElement.classList.contains('theme-gamedev-prototype');
 
   if (!section || !impactList || impactCards.length !== 5 || caseCards.length !== 3) return;
 
@@ -14,6 +16,26 @@
 
   const primaryStack = document.createElement('div');
   primaryStack.className = 'achievement-primary-stack';
+
+  const appendDetails = (card, details) => {
+    if (!useBeigeCardRedesign) {
+      card.appendChild(details);
+      return;
+    }
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'achievement-details-toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = '<span data-i18n="impact.details">Technical details</span><span class="achievement-details-icon" aria-hidden="true">+</span>';
+    toggle.addEventListener('click', () => {
+      const isOpen = card.classList.toggle('is-details-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.querySelector('.achievement-details-icon').textContent = isOpen ? '−' : '+';
+    });
+
+    card.append(toggle, details);
+  };
 
   impactCards.slice(0, 3).forEach((card, index) => {
     card.classList.add('achievement-combined-card');
@@ -24,7 +46,7 @@
     const details = caseCards[index].querySelector('.case-study-details');
     if (details) {
       details.classList.add('achievement-inline-details');
-      card.appendChild(details);
+      appendDetails(card, details);
     }
 
     primaryStack.appendChild(card);
@@ -72,7 +94,7 @@
       details.appendChild(item);
     });
 
-    card.appendChild(details);
+    appendDetails(card, details);
     secondaryGrid.appendChild(card);
   });
 

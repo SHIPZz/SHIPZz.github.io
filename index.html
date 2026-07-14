@@ -24,16 +24,16 @@
   <link rel="canonical" href="https://shipzz.github.io/" />
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
   <script>document.documentElement.classList.add('motion-ready');</script>
-  <link rel="stylesheet" href="assets/styles.css?v=66" />
+  <link rel="stylesheet" href="assets/styles.css?v=67" />
   <link rel="stylesheet" href="previews/achievement-concept.css?v=6" />
   <script>
     const previewTheme = new URLSearchParams(window.location.search).get('theme');
     if (previewTheme === 'beige') {
       document.documentElement.classList.add('theme-beige-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=37">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=38">');
     } else if (previewTheme === 'gamedev') {
       document.documentElement.classList.add('theme-beige-prototype', 'theme-gamedev-prototype');
-      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=37">');
+      document.write('<link rel="stylesheet" href="previews/beige-prototype.css?v=38">');
       document.write('<link rel="stylesheet" href="previews/gamedev-prototype.css?v=3">');
     }
   </script>
@@ -106,6 +106,12 @@
       <div class="section-heading centered">
         <h2 class="entrance-slide" data-i18n="impact.title">RECENT ACHIEVEMENTS</h2>
         <p class="achievement-project-context" data-i18n="impact.projectContext">Project: Critical Shift</p>
+      </div>
+      <div class="achievement-summary-strip" aria-label="Selected performance results">
+        <div><strong>&minus;51%</strong><span data-i18n="impact.summaryLoad">Load time</span></div>
+        <div><strong>&minus;40%</strong><span data-i18n="impact.summaryMemory">RAM usage</span></div>
+        <div><strong>110 FPS</strong><span data-i18n="impact.summaryAbility">Ability simulation</span></div>
+        <div><strong>&minus;48%</strong><span data-i18n="impact.summaryBuild">Build size</span></div>
       </div>
       <div class="impact-list">
         <article class="impact-card warm entrance-flow">
@@ -454,7 +460,7 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="previews/achievement-concept.js?v=5"></script>
-  <script src="assets/script.js?v=93"></script>
+  <script src="previews/achievement-concept.js?v=6"></script>
+  <script src="assets/script.js?v=94"></script>
 </body>
 </html>

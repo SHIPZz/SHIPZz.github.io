@@ -18,6 +18,11 @@ const translations = {
     'hero.casesCta': 'View achievements',
     'impact.title': 'RECENT ACHIEVEMENTS',
     'impact.projectContext': 'Project: Critical Shift',
+    'impact.summaryLoad': 'Load time',
+    'impact.summaryMemory': 'RAM usage',
+    'impact.summaryAbility': 'Ability simulation',
+    'impact.summaryBuild': 'Build size',
+    'impact.details': 'Technical details',
     'impact.loadTitle': 'Scene loading reduced by up to 51%',
     'impact.hubLabel': 'Hub',
     'impact.hubDelta': '40% faster',
@@ -134,6 +139,11 @@ const translations = {
     'footer.back': '↑ Back to top'
   },
   ru: {
+    'impact.summaryLoad': 'Время загрузки',
+    'impact.summaryMemory': 'Использование RAM',
+    'impact.summaryAbility': 'Расчёт способностей',
+    'impact.summaryBuild': 'Размер билда',
+    'impact.details': 'Технические детали',
     metaTitle: 'Kenan Ibragimov - Senior Unity Developer / Build Automation',
     metaDescription: 'Kenan Ibragimov - Senior Unity Developer / Build Automation portfolio.',
     metaShareDescription: 'Kenan Ibragimov - Senior Unity Developer / Build Automation portfolio.',
