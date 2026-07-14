@@ -1307,6 +1307,10 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
   letter-spacing: -0.02em;
 }
 
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases {
+  width: min(1080px, calc(100% - 32px));
+}
+
 @media (hover: hover) and (pointer: fine) {
   html.theme-beige-prototype:not(.theme-gamedev-prototype) .project-card:hover,
   html.theme-beige-prototype:not(.theme-gamedev-prototype) .impact-card:hover,
