@@ -1290,6 +1290,65 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
   }
 }
 
+html.theme-beige-prototype:not(.theme-gamedev-prototype) #cases .achievement-project-context {
+  padding: 9px 18px;
+  color: #FFF7EF;
+  border: 1px solid #7A321F;
+  border-radius: 999px;
+  background: #A8422B;
+  box-shadow: 0 8px 20px rgba(122, 50, 31, 0.18);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .impact-card:last-child.achievement-secondary-card {
+  padding: 20px 22px 18px;
+  gap: 12px;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card > h3 {
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-summary {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card > .metric-breakdown > div,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card > .result-metric {
+  min-height: 104px;
+  padding: 13px 15px;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card .metric-breakdown strong,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card .result-metric strong:not(.delivery-flow-metric) {
+  min-height: 48px;
+  font-size: clamp(2.1rem, 4.2vw, 3.35rem);
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype) #cases .achievement-details-toggle {
+  min-height: 38px;
+  padding: 8px 16px;
+  font-size: 0.76rem;
+}
+
+@media (max-width: 760px) {
+  html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card,
+  html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card,
+  html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .impact-card:last-child.achievement-secondary-card {
+    padding: 19px 14px 17px;
+  }
+
+  html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card .metric-breakdown strong,
+  html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card .result-metric strong:not(.delivery-flow-metric) {
+    font-size: clamp(2rem, 10.5vw, 3rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-beige-prototype .card-hover-aura { display: none; }
 }
