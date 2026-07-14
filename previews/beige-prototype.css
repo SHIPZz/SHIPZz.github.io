@@ -1308,7 +1308,43 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
 }
 
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases {
-  width: min(1080px, calc(100% - 32px));
+  width: min(1000px, calc(100% - 32px));
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-primary-stack,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-grid,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-concept-layout {
+  gap: 14px;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .impact-card:last-child.achievement-secondary-card {
+  padding: 16px 18px 14px;
+  gap: 9px;
+  border-radius: 18px;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card > h3 {
+  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-summary {
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-combined-card > .metric-breakdown > div,
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-secondary-card > .result-metric {
+  min-height: 88px;
+  padding: 10px 12px;
+  border-radius: 13px;
+}
+
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] #cases .achievement-details-toggle {
+  min-height: 34px;
+  padding: 6px 14px;
+  font-size: 0.72rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
