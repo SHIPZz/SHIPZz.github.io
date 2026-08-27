@@ -30,7 +30,11 @@
 }
 
 .theme-beige-prototype .ambient-background {
-  background: transparent;
+  display: none;
+}
+
+.theme-beige-prototype .noise {
+  display: none;
 }
 
 .theme-beige-prototype .ambient-background::before {

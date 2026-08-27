@@ -441,7 +441,7 @@ function renderCursorParticles(time) {
 }
 
 function updateParticleAnimation() {
-  const shouldShow = !reducedMotionQuery.matches && particleViewportWidth > 700;
+  const shouldShow = !isBeigeParticleTheme && !reducedMotionQuery.matches && particleViewportWidth > 700;
   const shouldAnimate = shouldShow && !isPageScrolling;
   particleField.hidden = !shouldShow;
 
@@ -925,7 +925,7 @@ function scheduleHeaderStateUpdate() {
 }
 
 function updateAmbientBackground(metrics) {
-  if (reducedMotionQuery.matches || metrics.viewportWidth <= 700) {
+  if (isBeigeParticleTheme || reducedMotionQuery.matches || metrics.viewportWidth <= 700) {
     document.documentElement.style.removeProperty('--ambient-primary-y');
     document.documentElement.style.removeProperty('--ambient-secondary-y');
     document.documentElement.style.removeProperty('--ambient-tertiary-x');
