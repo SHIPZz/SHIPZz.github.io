@@ -389,16 +389,22 @@ const cursorParticles = particleDefinitions.map(([left, top, size, depth, color,
 ambientBackground?.appendChild(particleField);
 
 let particleFrame = null;
-let particlePointerX = window.innerWidth * 0.5;
-let particlePointerY = window.innerHeight * 0.5;
+let particleViewportWidth = window.innerWidth;
+let particleViewportHeight = window.innerHeight;
+let particleScrollY = window.scrollY;
+let particlePointerX = particleViewportWidth * 0.5;
+let particlePointerY = particleViewportHeight * 0.5;
 let particleFollowX = particlePointerX;
 let particleFollowY = particlePointerY;
 let cursorAuraX = particlePointerX;
 let cursorAuraY = particlePointerY;
+let isPageScrolling = false;
+let scrollIdleTimer = null;
 
 function renderCursorParticles(time) {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const width = particleViewportWidth;
+  const height = particleViewportHeight;
+  const scrollY = particleScrollY;
   const pointerActive = finePointerQuery.matches;
   const followBoost = isBeigeParticleTheme ? 2.15 : 1;
 
@@ -420,7 +426,7 @@ function renderCursorParticles(time) {
     const proximity = Math.max(0.18, 1 - distance / Math.max(width, height));
     const follow = pointerActive ? (0.025 + particle.depth * 0.055) * proximity * followBoost : 0;
     const targetX = driftX + (particleFollowX - baseX) * follow;
-    const targetY = driftY + (particleFollowY - baseY) * follow + Math.sin(window.scrollY * 0.0012 + particle.phase) * 14 * particle.depth;
+    const targetY = driftY + (particleFollowY - baseY) * follow + Math.sin(scrollY * 0.0012 + particle.phase) * 14 * particle.depth;
 
     particle.x += (targetX - particle.x) * (0.012 + particle.depth * 0.01);
     particle.y += (targetY - particle.y) * (0.012 + particle.depth * 0.01);
@@ -435,8 +441,9 @@ function renderCursorParticles(time) {
 }
 
 function updateParticleAnimation() {
-  const shouldAnimate = !reducedMotionQuery.matches && window.innerWidth > 700;
-  particleField.hidden = !shouldAnimate;
+  const shouldShow = !reducedMotionQuery.matches && particleViewportWidth > 700;
+  const shouldAnimate = shouldShow && !isPageScrolling;
+  particleField.hidden = !shouldShow;
 
   if (shouldAnimate && particleFrame === null) {
     particleFrame = window.requestAnimationFrame(renderCursorParticles);
@@ -446,12 +453,18 @@ function updateParticleAnimation() {
   }
 }
 
+function handleParticleResize() {
+  particleViewportWidth = window.innerWidth;
+  particleViewportHeight = window.innerHeight;
+  updateParticleAnimation();
+}
+
 window.addEventListener('pointermove', (event) => {
   particlePointerX = event.clientX;
   particlePointerY = event.clientY;
 }, { passive: true });
 
-window.addEventListener('resize', updateParticleAnimation);
+window.addEventListener('resize', handleParticleResize);
 reducedMotionQuery.addEventListener('change', updateParticleAnimation);
 updateParticleAnimation();
 
@@ -510,6 +523,10 @@ let mobileScrollDirection = 0;
 let mobileScrollDistance = 0;
 let anchorScrollFrame = null;
 let isProgrammaticScroll = false;
+let activeNavLink = null;
+let activeNavInitialized = false;
+let lastHeaderProgress = null;
+let lastHeaderViewportWidth = null;
 
 function getSavedLanguage() {
   try {
@@ -659,30 +676,50 @@ videoPosters.forEach((poster) => {
   });
 });
 
-function updateActiveNav() {
-  const activationLine = window.scrollY + window.innerHeight * 0.36;
-  const firstTargetTop = navTargets[0]?.target.offsetTop ?? 0;
+function readScrollMetrics() {
+  const metrics = {
+    scrollY: window.scrollY,
+    viewportWidth: window.innerWidth,
+    viewportHeight: window.innerHeight,
+    documentScrollHeight: document.documentElement.scrollHeight,
+    navTargetTops: navTargets.map(({ target }) => target.offsetTop)
+  };
+
+  particleScrollY = metrics.scrollY;
+  return metrics;
+}
+
+function updateActiveNav(metrics) {
+  const activationLine = metrics.scrollY + metrics.viewportHeight * 0.36;
+  const firstTargetTop = metrics.navTargetTops[0] ?? 0;
   let activeLink = null;
 
   if (activationLine >= firstTargetTop - 120) {
-    navTargets.forEach(({ link, target }) => {
-      if (target.offsetTop <= activationLine) {
+    navTargets.forEach(({ link }, index) => {
+      if (metrics.navTargetTops[index] <= activationLine) {
         activeLink = link;
       }
     });
   }
 
-  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
+  if (metrics.viewportHeight + metrics.scrollY >= metrics.documentScrollHeight - 8) {
     activeLink = navTargets[navTargets.length - 1]?.link ?? activeLink;
+  }
+
+  if (activeNavInitialized && activeLink === activeNavLink) {
+    return;
   }
 
   navLinks.forEach((link) => {
     link.classList.toggle('is-active', link === activeLink);
   });
+
+  activeNavLink = activeLink;
+  activeNavInitialized = true;
 }
 
-function resetMobileScrollTracking() {
-  lastMobileScrollY = window.scrollY;
+function resetMobileScrollTracking(scrollY = window.scrollY) {
+  lastMobileScrollY = scrollY;
   mobileScrollDirection = 0;
   mobileScrollDistance = 0;
 }
@@ -738,7 +775,6 @@ function scrollToNavTarget(target, hash) {
     anchorScrollFrame = null;
     isProgrammaticScroll = false;
     resetMobileScrollTracking();
-    updateActiveNav();
     scheduleHeaderStateUpdate();
   };
 
@@ -766,24 +802,26 @@ window.addEventListener('keydown', (event) => {
   }
 });
 
-function updateHeaderState() {
-  const rawProgress = (window.scrollY - compactHeaderStart) / (compactHeaderEnd - compactHeaderStart);
+function updateHeaderState(metrics) {
+  const rawProgress = (metrics.scrollY - compactHeaderStart) / (compactHeaderEnd - compactHeaderStart);
   const progress = Math.max(0, Math.min(1, rawProgress));
   const eased = progress * progress * (3 - 2 * progress);
   const fadeProgress = Math.max(0, Math.min(1, progress / 0.32));
   const fadeEased = fadeProgress * fadeProgress * (3 - 2 * fadeProgress);
   const collapseProgress = Math.max(0, Math.min(1, (progress - 0.28) / 0.72));
   const collapseEased = collapseProgress * collapseProgress * (3 - 2 * collapseProgress);
-  const viewportWidth = window.innerWidth;
+  const viewportWidth = metrics.viewportWidth;
   const isMobile = viewportWidth <= 700;
 
   if (isMobile) {
     const isMobileCompact = document.body.classList.contains('is-mobile-header-compact');
-    const currentScrollY = window.scrollY;
+    const currentScrollY = metrics.scrollY;
+    lastHeaderProgress = null;
+    lastHeaderViewportWidth = null;
 
     if (isProgrammaticScroll) {
       document.body.classList.toggle('is-mobile-header-compact', currentScrollY > mobileCompactEnter);
-      resetMobileScrollTracking();
+      resetMobileScrollTracking(currentScrollY);
       return;
     }
 
@@ -820,9 +858,16 @@ function updateHeaderState() {
   }
 
   document.body.classList.remove('is-mobile-header-compact');
-  lastMobileScrollY = window.scrollY;
+  lastMobileScrollY = metrics.scrollY;
   mobileScrollDirection = 0;
   mobileScrollDistance = 0;
+
+  if (progress === lastHeaderProgress && viewportWidth === lastHeaderViewportWidth) {
+    return;
+  }
+
+  lastHeaderProgress = progress;
+  lastHeaderViewportWidth = viewportWidth;
 
   const fullSideSpace = Math.max((viewportWidth - 1160) / 2, 16);
   const startTop = 18;
@@ -872,14 +917,15 @@ function scheduleHeaderStateUpdate() {
 
   headerFrame = window.requestAnimationFrame(() => {
     headerFrame = null;
-    updateAmbientBackground();
-    updateHeaderState();
-    updateActiveNav();
+    const metrics = readScrollMetrics();
+    updateHeaderState(metrics);
+    updateActiveNav(metrics);
+    updateAmbientBackground(metrics);
   });
 }
 
-function updateAmbientBackground() {
-  if (reducedMotionQuery.matches || window.innerWidth <= 700) {
+function updateAmbientBackground(metrics) {
+  if (reducedMotionQuery.matches || metrics.viewportWidth <= 700) {
     document.documentElement.style.removeProperty('--ambient-primary-y');
     document.documentElement.style.removeProperty('--ambient-secondary-y');
     document.documentElement.style.removeProperty('--ambient-tertiary-x');
@@ -887,19 +933,48 @@ function updateAmbientBackground() {
     return;
   }
 
-  const scroll = window.scrollY;
+  const scroll = metrics.scrollY;
   document.documentElement.style.setProperty('--ambient-primary-y', `${(-scroll * 0.045).toFixed(1)}px`);
   document.documentElement.style.setProperty('--ambient-secondary-y', `${(scroll * 0.032).toFixed(1)}px`);
   document.documentElement.style.setProperty('--ambient-tertiary-x', `${(Math.sin(scroll * 0.0014) * 44).toFixed(1)}px`);
   document.documentElement.style.setProperty('--ambient-tertiary-y', `${(-scroll * 0.018).toFixed(1)}px`);
 }
 
-window.addEventListener('scroll', scheduleHeaderStateUpdate, { passive: true });
-window.addEventListener('scrollend', updateActiveNav);
+function finishPageScrolling() {
+  if (scrollIdleTimer !== null) {
+    window.clearTimeout(scrollIdleTimer);
+    scrollIdleTimer = null;
+  }
+
+  if (!isPageScrolling) {
+    return;
+  }
+
+  isPageScrolling = false;
+  document.body.classList.remove('is-scrolling');
+  updateParticleAnimation();
+  scheduleHeaderStateUpdate();
+}
+
+function handlePageScroll() {
+  if (!isPageScrolling) {
+    isPageScrolling = true;
+    document.body.classList.add('is-scrolling');
+    updateParticleAnimation();
+  }
+
+  if (scrollIdleTimer !== null) {
+    window.clearTimeout(scrollIdleTimer);
+  }
+
+  scrollIdleTimer = window.setTimeout(finishPageScrolling, 140);
+  scheduleHeaderStateUpdate();
+}
+
+window.addEventListener('scroll', handlePageScroll, { passive: true });
+window.addEventListener('scrollend', scheduleHeaderStateUpdate);
 window.addEventListener('resize', scheduleHeaderStateUpdate);
 reducedMotionQuery.addEventListener('change', scheduleHeaderStateUpdate);
-updateAmbientBackground();
-updateHeaderState();
-updateActiveNav();
+scheduleHeaderStateUpdate();
 
 applyLanguage(getSavedLanguage() || 'en');

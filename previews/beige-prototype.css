@@ -760,7 +760,7 @@ html.theme-beige-prototype[data-preview="achievements"] .inline-metric-highlight
 
   .theme-beige-prototype .ambient-background,
   .theme-beige-prototype .noise {
-    display: block;
+    display: none;
   }
 
   .theme-beige-prototype .site-header {

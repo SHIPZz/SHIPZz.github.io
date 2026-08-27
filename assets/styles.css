@@ -128,6 +128,12 @@ h1, h2, h3, p, li, dd, dt, a, span { overflow-wrap: break-word; }
   animation: ambient-pulse 8s ease-in-out infinite alternate;
 }
 
+body.is-scrolling .ambient-background::before,
+body.is-scrolling .ambient-background::after,
+body.is-scrolling .ambient-orb {
+  animation-play-state: paused;
+}
+
 .ambient-orb-primary {
   top: 4%;
   left: -18%;
