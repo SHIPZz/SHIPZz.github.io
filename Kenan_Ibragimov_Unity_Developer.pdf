@@ -17,7 +17,7 @@ endobj
 3 0 obj
 <<
 /Annots [ 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R ]
-/Contents 9 0 R
+/Contents 25 0 R
 /MediaBox [ 0 0 595.2756 841.8898 ]
 /Parent 2 0 R
 /Resources <<
@@ -51,7 +51,7 @@ endobj
 /URI (https\072\057\057play\056google\056com\057store\057apps\057details\077id\075fighting\056rpg\056adventure)
 >>
 /Border [ 0 0 0 ]
-/Rect [ 244.5648 377.3998 525.354 387.5398 ]
+/Rect [ 244.5648 365.9498 525.354 376.0898 ]
 /Subtype /Link
 /Type /Annot
 >>
@@ -64,7 +64,7 @@ endobj
 /URI (https\072\057\057drive\056google\056com\057drive\057folders\0571E3uEmsLNGYkOBP69HAMItjyiyvXR3fhG\077usp\075sharing)
 >>
 /Border [ 0 0 0 ]
-/Rect [ 42 354.7998 418.2107 364.9398 ]
+/Rect [ 42 343.3498 418.2107 353.4898 ]
 /Subtype /Link
 /Type /Annot
 >>
@@ -77,7 +77,7 @@ endobj
 /URI (https\072\057\057drive\056google\056com\057drive\057folders\0571yE6p0bcoGjM2GxkCJEAR2snwESCdE3kS\077usp\075sharing)
 >>
 /Border [ 0 0 0 ]
-/Rect [ 171.337 342.9498 547.5353 353.0898 ]
+/Rect [ 171.337 331.4998 547.5353 341.6398 ]
 /Subtype /Link
 /Type /Annot
 >>
@@ -90,7 +90,7 @@ endobj
 /URI (https\072\057\057drive\056google\056com\057drive\057folders\0571dI1AztIPANE\055xAH\055J\055a2ftM\137lnph\055oVS\077usp\075sharing)
 >>
 /Border [ 0 0 0 ]
-/Rect [ 42 320.3498 405.449 330.4898 ]
+/Rect [ 42 308.8998 405.449 319.0398 ]
 /Subtype /Link
 /Type /Annot
 >>
@@ -732,40 +732,355 @@ endobj
 /Trapped /False
 >>
 endobj
+25 0 obj
+<<
+/Length 14843
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+1 1 1 rg
+n 0 0 595.2756 841.8898 re f*
+0 0 0 rg
+BT 1 0 0 1 42 787.8898 Tm /F2+0 24 Tf 28.8 TL (KENAN IBRAGIMOV) Tj T* ET
+BT 1 0 0 1 42 765.8898 Tm /F2+0 11.2 Tf 13.44 TL (UNITY DEVELOPER) Tj T* ET
+BT 1 0 0 1 488.3923 766.8898 Tm /F3+0 8.2 Tf 9.84 TL () Tj T* ET
+.85098 .870588 .823529 rg
+n
+47.5 729.8898 m
+547.7756 729.8898 l
+553.0272 729.8898 557.2756 734.1382 557.2756 739.3898 c
+557.2756 739.3898 l
+557.2756 744.6414 553.0272 748.8898 547.7756 748.8898 c
+47.5 748.8898 l
+42.2484 748.8898 38 744.6414 38 739.3898 c
+38 739.3898 l
+38 734.1382 42.2484 729.8898 47.5 729.8898 c
+h
+f*
+0 0 0 rg
+BT 1 0 0 1 56 735.8898 Tm /F4+0 8.8 Tf 10.56 TL (SUMMARY) Tj T* ET
+q
+1 0 0 1 43 679.8898 cm
+q
+BT 1 0 0 1 0 34.55 Tm 10.75 TL 0 0 0 rg /F2+0 8.45 Tf 10.75 TL (Unity) Tj /F3+0 8.45 Tf 10.75 TL ( developer with ) Tj /F2+0 8.45 Tf 10.75 TL (5+ years) Tj /F3+0 8.45 Tf 10.75 TL ( of experience across teams from small prototype squads to ) Tj /F2+0 8.45 Tf 10.75 TL (35-person AA productions) Tj /F3+0 8.45 Tf 10.75 TL (. Shipped casual,) Tj T* (hybrid-casual, and AA turn-based RPG titles on mobile, PC, and consoles. Focused on ) Tj /F2+0 8.45 Tf 10.75 TL (performance optimization) Tj /F3+0 8.45 Tf 10.75 TL ( \() Tj /F2+0 8.45 Tf 10.75 TL (CPU/GPU/RAM) Tj /F3+0 8.45 Tf 10.75 TL (\),) Tj T* /F2+0 8.45 Tf 10.75 TL (legacy code refactoring) Tj /F3+0 8.45 Tf 10.75 TL (, and building ) Tj /F2+0 8.45 Tf 10.75 TL (internal tools) Tj /F3+0 8.45 Tf 10.75 TL ( that accelerate the whole team. Extensive experience integrating ) Tj /F2+0 8.45 Tf 10.75 TL (AI tooling) Tj /F3+0 8.45 Tf 10.75 TL ( into) Tj T* (day-to-day development and ) Tj /F2+0 8.45 Tf 10.75 TL (CI/CD) Tj /F3+0 8.45 Tf 10.75 TL ( pipelines) Tj T* ET
+Q
+Q
+.85098 .870588 .823529 rg
+n
+47.5 654.8898 m
+547.7756 654.8898 l
+553.0272 654.8898 557.2756 659.1382 557.2756 664.3898 c
+557.2756 664.3898 l
+557.2756 669.6414 553.0272 673.8898 547.7756 673.8898 c
+47.5 673.8898 l
+42.2484 673.8898 38 669.6414 38 664.3898 c
+38 664.3898 l
+38 659.1382 42.2484 654.8898 47.5 654.8898 c
+h
+f*
+0 0 0 rg
+BT 1 0 0 1 56 660.8898 Tm /F4+0 8.8 Tf 10.56 TL (TECHNICAL SKILLS) Tj T* ET
+q
+1 0 0 1 43 628.9898 cm
+q
+BT 1 0 0 1 0 11.45 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 ) Tj /F2+0 7.45 Tf 9.45 TL (ECS) Tj /F3+0 7.45 Tf 9.45 TL (\(Leo, ) Tj /F2+0 7.45 Tf 9.45 TL (Entitas) Tj /F3+0 7.45 Tf 9.45 TL (\), OOP, SOLID,GRASP,CLEAN) Tj T* (CODE) Tj T* ET
+Q
+Q
+q
+1 0 0 1 43 589.9898 cm
+q
+BT 1 0 0 1 0 30.35 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 DI\() Tj /F2+0 7.45 Tf 9.45 TL (Zenject) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (VContainer) Tj /F3+0 7.45 Tf 9.45 TL (\), ) Tj /F2+0 7.45 Tf 9.45 TL (UniTask) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (UniRx) Tj /F3+0 7.45 Tf 9.45 TL (,) Tj T* /F2+0 7.45 Tf 9.45 TL (Async Programming) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (Multi-platform) Tj T* (Development) Tj /F3+0 7.45 Tf 9.45 TL ( \(iOS, Android, WebGL, PC, PS,) Tj T* (Xbox\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 216.7585 638.4398 cm
+q
+BT 1 0 0 1 0 2 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 ) Tj /F2+0 7.45 Tf 9.45 TL (Unity) Tj /F3+0 7.45 Tf 9.45 TL ( Engine, ) Tj /F2+0 7.45 Tf 9.45 TL (C#) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (URP) Tj T* ET
+Q
+Q
+q
+1 0 0 1 216.7585 627.7898 cm
+q
+BT 1 0 0 1 0 2 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 Spine, ) Tj /F2+0 7.45 Tf 9.45 TL (Animancer) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (Addressables) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (DoTween) Tj T* ET
+Q
+Q
+q
+1 0 0 1 216.7585 617.1398 cm
+q
+BT 1 0 0 1 0 2 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 ) Tj /F2+0 7.45 Tf 9.45 TL (REST API) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (SignalR) Tj T* ET
+Q
+Q
+q
+1 0 0 1 216.7585 597.0398 cm
+q
+BT 1 0 0 1 0 11.45 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 Git, ) Tj /F2+0 7.45 Tf 9.45 TL (Odin Inspector) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (SRDebugger) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (CI/CD) Tj  T* /F3+0 7.45 Tf 9.45 TL (\() Tj /F2+0 7.45 Tf 9.45 TL (TeamCity) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (GitLab) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (GitHub) Tj /F3+0 7.45 Tf 9.45 TL (\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 390.5171 638.4398 cm
+q
+BT 1 0 0 1 0 2 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 CPU, GPU, RAM Optimization, ) Tj /F2+0 7.45 Tf 9.45 TL (Unity Profiler) Tj T* ET
+Q
+Q
+q
+1 0 0 1 390.5171 618.3398 cm
+q
+BT 1 0 0 1 0 11.45 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 ) Tj /F2+0 7.45 Tf 9.45 TL (Firebase) Tj /F3+0 7.45 Tf 9.45 TL (, Adjust, Facebook, ) Tj /F2+0 7.45 Tf 9.45 TL (Unity) Tj /F3+0 7.45 Tf 9.45 TL ( Analytics,) Tj T* /F2+0 7.45 Tf 9.45 TL (Unity Remote Config) Tj /F3+0 7.45 Tf 9.45 TL (, ) Tj /F2+0 7.45 Tf 9.45 TL (Unity Localization) Tj T* ET
+Q
+Q
+q
+1 0 0 1 390.5171 607.6898 cm
+q
+BT 1 0 0 1 0 2 Tm 9.45 TL 0 0 0 rg /F3+0 7.45 Tf 9.45 TL (\001 ) Tj /F2+0 7.45 Tf 9.45 TL (Unity) Tj /F3+0 7.45 Tf 9.45 TL ( UI \(uGUI, UI Toolkit, IMGUI\)) Tj T* ET
+Q
+Q
+.85098 .870588 .823529 rg
+n
+47.5 564.7898 m
+547.7756 564.7898 l
+553.0272 564.7898 557.2756 569.0382 557.2756 574.2898 c
+557.2756 574.2898 l
+557.2756 579.5414 553.0272 583.7898 547.7756 583.7898 c
+47.5 583.7898 l
+42.2484 583.7898 38 579.5414 38 574.2898 c
+38 574.2898 l
+38 569.0382 42.2484 564.7898 47.5 564.7898 c
+h
+f*
+0 0 0 rg
+BT 1 0 0 1 56 570.7898 Tm /F4+0 8.8 Tf 10.56 TL (PROFESSIONAL EXPERIENCE) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 42 547.7898 Tm /F2+0 9.8 Tf 11.76 TL (Rhinotales) Tj T* ET
+BT 1 0 0 1 478.967 548.7898 Tm /F2+0 8.5 Tf 10.2 TL (Feb 2025 - Present) Tj T* ET
+.34902 .419608 .356863 RG
+.7 w
+n 42 542.7898 m 553.2756 542.7898 l S
+q
+1 0 0 1 42 525.0398 cm
+q
+.266667 .345098 .282353 RG
+n 0 1.24375 m 101.0658 1.24375 l S
+BT 1 0 0 1 0 2.3 Tm 10.75 TL .266667 .345098 .282353 rg /F2+0 8.45 Tf 10.75 TL (https://critical-shift.com/) Tj 0 0 0 rg /F3+0 8.45 Tf 10.75 TL ( - hardcore turn-based RPG on PC, PS, XBOX) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 511.1898 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Reduced scene load times on a shipping AA title: ) Tj /F2+0 8.45 Tf 10.75 TL (Hub 37s -) Tj (> 18s) Tj /F3+0 8.45 Tf 10.75 TL (, ) Tj /F2+0 8.45 Tf 10.75 TL (Mission 50s -) Tj (> 22s) Tj /F3+0 8.45 Tf 10.75 TL ( via ) Tj /F2+0 8.45 Tf 10.75 TL (Addressables) Tj /F3+0 8.45 Tf 10.75 TL ( and lazy loading.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 499.7398 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Eliminated memory leaks and optimized shaders, cutting RAM usage by ) Tj /F2+0 8.45 Tf 10.75 TL (~7.5 GB) Tj /F3+0 8.45 Tf 10.75 TL (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 488.2898 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 ) Tj /F2+0 8.45 Tf 10.75 TL (Doubled FPS) Tj /F3+0 8.45 Tf 10.75 TL ( through GPU optimization: ) Tj /F2+0 8.45 Tf 10.75 TL (35 -> 65-70 FPS) Tj /F3+0 8.45 Tf 10.75 TL ( in affected scenes; optimized shaders, decals and smoke.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 0 -11.45 cm
+q
+1 0 0 1 42 488.2898 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Built an in-house tool that tracks ) Tj /F2+0 8.45 Tf 10.75 TL (ECS) Tj /F3+0 8.45 Tf 10.75 TL ( entities and UI lifecycle across scene transitions, exposing leaks that were invisible in the Profiler.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 476.8398 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.3 Tm /F3+0 8.45 Tf 10.75 TL (\001 Refactored legacy UI code by introducing proper lifecycle management, removing long-standing leaks.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 465.3898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.3 Tm /F3+0 8.45 Tf 10.75 TL (\001 Delivered a suite of editor tools for game designers: save inspection, content editing, and UI management windows.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 443.1898 cm
+q
+BT 1 0 0 1 0 13.05 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Automated the ) Tj /F2+0 8.45 Tf 10.75 TL (CI/CD) Tj /F3+0 8.45 Tf 10.75 TL ( pipeline across ) Tj /F2+0 8.45 Tf 10.75 TL (ClickUp) Tj /F3+0 8.45 Tf 10.75 TL (, Git, and Discord using ) Tj /F2+0 8.45 Tf 10.75 TL (Claude Code) Tj /F3+0 8.45 Tf 10.75 TL ( and ) Tj /F2+0 8.45 Tf 10.75 TL (n8n) Tj /F3+0 8.45 Tf 10.75 TL ( - auto-granting access, updating test) Tj T* (branches, and notifying on rejects/conflicts. Materially cut turnaround time for testers and developers.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 431.7398 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Implemented gameplay, UI, and meta systems on ) Tj /F2+0 8.45 Tf 10.75 TL (ECS) Tj /F3+0 8.45 Tf 10.75 TL ( \() Tj /F2+0 8.45 Tf 10.75 TL (Entitas) Tj /F3+0 8.45 Tf 10.75 TL (\) + ) Tj /F2+0 8.45 Tf 10.75 TL (Zenject) Tj /F3+0 8.45 Tf 10.75 TL (.) Tj T* ET
+Q
+Q
+0 0 0 rg
+BT 1 0 0 1 42 420.5398 Tm /F2+0 8 Tf 9.6 TL (Stack:) Tj T* ET
+q
+1 0 0 1 72 418.5398 cm
+q
+BT 1 0 0 1 0 2 Tm 10 TL 0 0 0 rg /F2+0 8 Tf 10 TL (Unity) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (C#) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Zenject) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Entitas) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Addressables) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (DOTween) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Odin Inspector) Tj /F3+0 8 Tf 10 TL (, Wwise, ) Tj /F2+0 8 Tf 10 TL (Unit Testing) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Claude Code) Tj /F3+0 8 Tf 10 TL (, Cursor, ) Tj /F2+0 8 Tf 10 TL (Codex CLI) Tj T* ET
+Q
+Q
+0 0 0 rg
+BT 1 0 0 1 42 399.5398 Tm /F2+0 9.8 Tf 11.76 TL (GameFlinker) Tj T* ET
+BT 1 0 0 1 473.5549 400.5398 Tm /F2+0 8.5 Tf 10.2 TL (Jan 2021 - Feb 2025) Tj T* ET
+.34902 .419608 .356863 RG
+.7 w
+n 42 394.5398 m 553.2756 394.5398 l S
+q
+1 0 0 1 42 376.7898 cm
+q
+.266667 .345098 .282353 RG
+n 202.5648 1.24375 m 483.354 1.24375 l S
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (Client-server midcore turn-based RPG project on ) Tj /F2+0 8.45 Tf 10.75 TL (ECS) Tj /F3+0 8.45 Tf 10.75 TL (: ) Tj .266667 .345098 .282353 rg /F2+0 8.45 Tf 10.75 TL (https://play.google.com/store/apps/details?id=fighting.rpg.adventure) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 354.1898 cm
+q
+.266667 .345098 .282353 RG
+n 0 1.24375 m 376.2107 1.24375 l S
+BT 1 0 0 1 0 13.05 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (Mahjong Solitaire Classic \(a matching game based on the famous classic Chinese game\):) Tj T* .266667 .345098 .282353 rg /F2+0 8.45 Tf 10.75 TL (https://drive.google.com/drive/folders/1E3uEmsLNGYkOBP69HAMItjyiyvXR3fhG?usp=sharing) Tj 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 342.3398 cm
+q
+.266667 .345098 .282353 RG
+n 129.337 1.24375 m 505.5353 1.24375 l S
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (BusyBrain \(A simple puzzle game\): ) Tj .266667 .345098 .282353 rg /F2+0 8.45 Tf 10.75 TL (https://drive.google.com/drive/folders/1yE6p0bcoGjM2GxkCJEAR2snwESCdE3kS?usp=sharing) Tj 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 319.7398 cm
+q
+.266667 .345098 .282353 RG
+n 0 1.24375 m 363.449 1.24375 l S
+BT 1 0 0 1 0 13.05 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (StoreMania \(Store Management Game\):) Tj T* .266667 .345098 .282353 rg /F2+0 8.45 Tf 10.75 TL (https://drive.google.com/drive/folders/1dI1AztIPANE-xAH-J-a2ftM_lnph-oVS?usp=sharing) Tj 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 295.1398 cm
+q
+BT 1 0 0 1 0 13.05 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Shipped core gameplay, ) Tj /F2+0 8.45 Tf 10.75 TL (MVP) Tj /F3+0 8.45 Tf 10.75 TL (-based UI, and client-server modules \(chat, groups, friends, cloud saves, leaderboards, quests\) using REST) Tj T* (and ) Tj /F2+0 8.45 Tf 10.75 TL (SignalR) Tj /F3+0 8.45 Tf 10.75 TL (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 283.6898 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Reduced build size from ) Tj /F2+0 8.45 Tf 10.75 TL (700 MB to 190 MB) Tj /F3+0 8.45 Tf 10.75 TL ( through ) Tj /F2+0 8.45 Tf 10.75 TL (Addressables) Tj /F3+0 8.45 Tf 10.75 TL ( \(remote\) and asset auditing.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 272.2398 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Improved runtime performance: ) Tj /F2+0 8.45 Tf 10.75 TL (RAM -20%, CPU -10%, GPU -35%) Tj /F3+0 8.45 Tf 10.75 TL (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 260.7898 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Cut scene load times from ) Tj /F2+0 8.45 Tf 10.75 TL (30s to 12s) Tj /F3+0 8.45 Tf 10.75 TL ( via async loading.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 249.3398 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Designed the app architecture around a generic async ) Tj /F2+0 8.45 Tf 10.75 TL (StateMachine) Tj /F3+0 8.45 Tf 10.75 TL (, enabling flexible expansion of infrastructure and UI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 237.8898 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (\001 Integrated analytics \() Tj /F2+0 8.45 Tf 10.75 TL (Firebase) Tj /F3+0 8.45 Tf 10.75 TL (, Adjust\), IAP, and ) Tj /F2+0 8.45 Tf 10.75 TL (Unity Localization) Tj /F3+0 8.45 Tf 10.75 TL ( end-to-end.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 226.4398 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.3 Tm /F3+0 8.45 Tf 10.75 TL (\001 Built editor extensions and config windows that simplified daily work for programmers and game designers.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 214.9898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.3 Tm /F3+0 8.45 Tf 10.75 TL (\001 Wrote unit tests covering core gameplay and infrastructure modules.) Tj T* ET
+Q
+Q
+0 0 0 rg
+BT 1 0 0 1 42 203.7898 Tm /F2+0 8 Tf 9.6 TL (Stack:) Tj T* ET
+q
+1 0 0 1 72 201.7898 cm
+q
+BT 1 0 0 1 0 2 Tm 10 TL 0 0 0 rg /F2+0 8 Tf 10 TL (Unity) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (C#) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Zenject) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (UniRx) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (UniTask) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (DOTween) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Entitas) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Addressables) Tj /F3+0 8 Tf 10 TL (, ) Tj /F2+0 8 Tf 10 TL (Firebase) Tj /F3+0 8 Tf 10 TL (, Adjust, ) Tj /F2+0 8 Tf 10 TL (Unity Remote Config) Tj /F3+0 8 Tf 10 TL (, Spine, ) Tj /F2+0 8 Tf 10 TL (SRDebugger) Tj T* ET
+Q
+Q
+.85098 .870588 .823529 rg
+n
+47.5 174.7898 m
+547.7756 174.7898 l
+553.0272 174.7898 557.2756 179.0382 557.2756 184.2898 c
+557.2756 184.2898 l
+557.2756 189.5414 553.0272 193.7898 547.7756 193.7898 c
+47.5 193.7898 l
+42.2484 193.7898 38 189.5414 38 184.2898 c
+38 184.2898 l
+38 179.0382 42.2484 174.7898 47.5 174.7898 c
+h
+f*
+0 0 0 rg
+BT 1 0 0 1 56 180.7898 Tm /F4+0 8.8 Tf 10.56 TL (ADDITIONAL INFORMATION) Tj T* ET
+q
+1 0 0 1 44 157.0398 cm
+q
+BT 1 0 0 1 0 2.3 Tm 10.75 TL 0 0 0 rg /F3+0 8.45 Tf 10.75 TL (Languages: ) Tj /F2+0 8.45 Tf 10.75 TL (English B2) Tj /F3+0 8.45 Tf 10.75 TL (, ) Tj /F2+0 8.45 Tf 10.75 TL (Russian) Tj /F3+0 8.45 Tf 10.75 TL (, ) Tj /F2+0 8.45 Tf 10.75 TL (Azerbaijani) Tj /F3+0 8.45 Tf 10.75 TL (.) Tj T* ET
+Q
+Q
+ 
+
+Q
+
+endstream
+endobj
 xref
-0 25
+0 26
 0000000000 65535 f 
 0000000015 00000 n 
 0000000083 00000 n 
 0000000142 00000 n 
-0000000384 00000 n 
-0000000575 00000 n 
-0000000830 00000 n 
-0000001090 00000 n 
-0000001355 00000 n 
-0000001629 00000 n 
-0000016165 00000 n 
-0000016237 00000 n 
-0000016345 00000 n 
-0000017670 00000 n 
-0000017933 00000 n 
-0000034251 00000 n 
-0000035002 00000 n 
-0000036310 00000 n 
-0000036562 00000 n 
-0000055263 00000 n 
-0000056015 00000 n 
-0000057345 00000 n 
-0000057607 00000 n 
-0000071647 00000 n 
-0000072399 00000 n 
+0000000385 00000 n 
+0000000576 00000 n 
+0000000831 00000 n 
+0000001091 00000 n 
+0000001356 00000 n 
+0000001630 00000 n 
+0000016166 00000 n 
+0000016238 00000 n 
+0000016346 00000 n 
+0000017671 00000 n 
+0000017934 00000 n 
+0000034252 00000 n 
+0000035003 00000 n 
+0000036311 00000 n 
+0000036563 00000 n 
+0000055264 00000 n 
+0000056016 00000 n 
+0000057346 00000 n 
+0000057608 00000 n 
+0000071648 00000 n 
+0000072400 00000 n 
+0000072733 00000 n 
 trailer
 <<
-/Size 25
+/Size 26
 /Root 1 0 R
 /Info 24 0 R
 /ID [ (\205\2117\301\202\357\265\274L\323D\022\332\174W\371) (\205\2117\301\202\357\265\274L\323D\022\332\174W\371) ]
 >>
 startxref
-72732
+87630
 %%EOF
