@@ -9,7 +9,8 @@
   const useBeigeCardRedesign = document.documentElement.classList.contains('theme-beige-prototype')
     && !document.documentElement.classList.contains('theme-gamedev-prototype');
 
-  if (!section || !impactList || impactCards.length !== 5 || caseCards.length !== 3) return;
+  const primaryCount = caseCards.length;
+  if (!section || !impactList || !primaryCount || impactCards.length !== primaryCount + 2) return;
 
   const layout = document.createElement('div');
   layout.className = 'achievement-concept-layout';
@@ -37,8 +38,9 @@
     card.append(toggle, details);
   };
 
-  impactCards.slice(0, 3).forEach((card, index) => {
+  impactCards.slice(0, primaryCount).forEach((card, index) => {
     card.classList.add('achievement-combined-card');
+    card.dataset.achievementNumber = String(index + 1).padStart(2, '0');
 
     const summary = Array.from(card.children).find((element) => element.tagName === 'P');
     summary?.classList.add('achievement-summary');
@@ -70,8 +72,9 @@
     }
   ];
 
-  impactCards.slice(3).forEach((card, index) => {
+  impactCards.slice(primaryCount).forEach((card, index) => {
     card.classList.add('achievement-combined-card', 'achievement-secondary-card');
+    card.dataset.achievementNumber = String(primaryCount + index + 1).padStart(2, '0');
 
     const summary = Array.from(card.children).find((element) => element.tagName === 'P');
     summary?.classList.add('achievement-summary');

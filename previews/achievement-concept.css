@@ -38,6 +38,10 @@ html[data-preview="achievements"] .achievement-combined-card > .metric-breakdown
   margin: 0 auto;
 }
 
+html[data-preview="achievements"] .achievement-combined-card > .metric-breakdown.single-metric {
+  grid-template-columns: 1fr;
+}
+
 html[data-preview="achievements"] .achievement-combined-card > .metric-breakdown > div {
   min-height: 132px;
   align-content: center;

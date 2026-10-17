@@ -25,8 +25,8 @@
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
   <script>document.documentElement.classList.add('motion-ready');</script>
   <link rel="stylesheet" href="assets/styles.css?v=68" />
-  <link rel="stylesheet" href="previews/achievement-concept.css?v=6" />
-  <link rel="stylesheet" href="previews/beige-prototype.css?v=55" />
+  <link rel="stylesheet" href="previews/achievement-concept.css?v=7" />
+  <link rel="stylesheet" href="previews/beige-prototype.css?v=56" />
   <script>
     const previewTheme = new URLSearchParams(window.location.search).get('theme');
     if (previewTheme === 'gamedev') {
@@ -105,7 +105,7 @@
       <div class="achievement-summary-strip" aria-label="Selected performance results">
         <div><strong>&minus;51%</strong><span data-i18n="impact.summaryLoad">Load time</span></div>
         <div><strong>&minus;40%</strong><span data-i18n="impact.summaryMemory">RAM usage</span></div>
-        <div><strong>110 FPS</strong><span data-i18n="impact.summaryAbility">Ability simulation</span></div>
+        <div><strong>65–70 FPS</strong><span data-i18n="impact.summaryGpu">GPU optimization</span></div>
         <div><strong>&minus;48%</strong><span data-i18n="impact.summaryBuild">Build size</span></div>
       </div>
       <div class="impact-list">
@@ -150,6 +150,16 @@
             </div>
           </div>
           <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; replaced allocation-heavy collections with custom thread-safe pools.</p>
+        </article>
+        <article class="impact-card blue entrance-flow" id="gpu-optimization">
+          <h3 data-i18n="impact.gpuTitle">Nearly doubled FPS through GPU optimization</h3>
+          <div class="metric-breakdown single-metric">
+            <div>
+              <span class="metric-context" data-i18n="impact.gpuSceneLabel">Affected scenes</span>
+              <strong><span class="metric-before">35</span><span class="metric-arrow"> &rarr; </span><span class="metric-after">65–70 FPS</span></strong>
+            </div>
+          </div>
+          <p data-i18n="impact.gpuText">Optimized Unity URP shaders for snow, environment materials and smoke, enabled decal instancing and smoke particle culling. FPS rose from about 35 to 65–70 in the affected scenes.</p>
         </article>
         <article class="impact-card violet entrance-flow">
           <h3 data-i18n="impact.sizeTitle">Build size reduced by 48%</h3>
@@ -204,6 +214,18 @@
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.performanceProblem">Ability simulation repeated the same evaluation and allocations; enemy turns repeatedly recalculated abilities and pathfinding, producing severe frame stalls.</dd></div>
               <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.performanceSolution">Removed duplicate calculations, reduced pathfinding calls, optimized pathfinding and replaced temporary collections with the project's custom thread-safe pools.</dd></div>
               <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.performanceResult">Ability simulation no longer collapsed from about 110 to 15 FPS; enemy turns no longer fell from 80-100 to 1-5 FPS.</dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="case-study-card entrance-flow">
+          <div class="case-study-content">
+            <div class="case-study-heading">
+              <h3 data-i18n="cases.gpuTitle">GPU rendering optimization</h3>
+            </div>
+            <dl class="case-study-details">
+              <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.gpuProblem">GPU-heavy scenes ran at about 35 FPS. Frame captures exposed expensive procedural noise in camera clipping, snow shading and overlapping smoke particles.</dd></div>
+              <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.gpuSolution">Profiled GPU passes with RenderDoc and frame timing with PresentMon. Replaced costly Voronoi noise with simpler 3D value noise across snow, walls, environment and smoke shaders, moved snow alpha rejection before expensive shading, enabled ice decal instancing and smoke particle frustum culling.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.gpuResult">FPS increased from about 35 to 65–70 in the affected scenes, approaching a twofold improvement.</dd></div>
             </dl>
           </div>
         </article>
@@ -351,7 +373,7 @@
         <article class="entrance-spin">
           <h3 data-i18n="skills.performanceTitle">Performance & Profiling</h3>
           <div class="skill-highlights" aria-label="Key skills">
-            <span>Unity Profiler</span><span>Memory Profiler</span><span>Frame Debugger</span><span>CPU Profiling</span><span>GPU Profiling</span><span>RAM Analysis</span><span>Shader Stripping</span><span>Draw Calls</span>
+            <span>Unity Profiler</span><span>Memory Profiler</span><span>Frame Debugger</span><span>RenderDoc</span><span>PresentMon</span><span>CPU Profiling</span><span>GPU Profiling</span><span>RAM Analysis</span><span>Shader Stripping</span><span>Draw Calls</span>
           </div>
         </article>
         <article class="entrance-spin">
@@ -454,7 +476,7 @@
     <a class="footer-back" href="#top" data-i18n="footer.back">Back to top</a>
   </footer>
 
-  <script src="previews/achievement-concept.js?v=6"></script>
-  <script src="assets/script.js?v=100"></script>
+  <script src="previews/achievement-concept.js?v=7"></script>
+  <script src="assets/script.js?v=101"></script>
 </body>
 </html>

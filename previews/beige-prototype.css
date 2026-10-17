@@ -1008,14 +1008,15 @@ html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achieveme
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-primary-stack > article:nth-child(1)::before { content: "01 / LOADING"; }
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-primary-stack > article:nth-child(2)::before { content: "02 / MEMORY"; }
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-primary-stack > article:nth-child(3)::before { content: "03 / PERFORMANCE"; }
-html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(1)::before { content: "04 / BUILD"; }
-html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(2)::before { content: "05 / DELIVERY"; }
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-primary-stack > article:nth-child(4)::before { content: attr(data-achievement-number) " / GPU"; }
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(1)::before { content: attr(data-achievement-number) " / BUILD"; }
+html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(2)::before { content: attr(data-achievement-number) " / DELIVERY"; }
 
 html[lang="ru"].theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-primary-stack > article:nth-child(1)::before { content: "01 / ЗАГРУЗКА"; }
 html[lang="ru"].theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-primary-stack > article:nth-child(2)::before { content: "02 / ПАМЯТЬ"; }
 html[lang="ru"].theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-primary-stack > article:nth-child(3)::before { content: "03 / ОПТИМИЗАЦИЯ"; }
-html[lang="ru"].theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(1)::before { content: "04 / БИЛД"; }
-html[lang="ru"].theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(2)::before { content: "05 / ДОСТАВКА"; }
+html[lang="ru"].theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(1)::before { content: attr(data-achievement-number) " / БИЛД"; }
+html[lang="ru"].theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-secondary-grid > article:nth-child(2)::before { content: attr(data-achievement-number) " / ДОСТАВКА"; }
 
 html.theme-beige-prototype:not(.theme-gamedev-prototype)[data-preview="achievements"] .achievement-combined-card > h3 {
   order: 2;
