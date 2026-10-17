@@ -152,7 +152,7 @@
           <p data-i18n="impact.fpsText">Eliminated duplicate ability evaluation, redundant pathfinding and temporary allocations; replaced allocation-heavy collections with custom thread-safe pools.</p>
         </article>
         <article class="impact-card blue entrance-flow" id="gpu-optimization">
-          <h3 data-i18n="impact.gpuTitle">Nearly doubled FPS through GPU optimization</h3>
+          <h3 data-i18n="impact.gpuTitle">Doubled FPS through GPU optimization</h3>
           <div class="metric-breakdown single-metric">
             <div>
               <span class="metric-context" data-i18n="impact.gpuSceneLabel">Affected scenes</span>
@@ -225,7 +225,7 @@
             <dl class="case-study-details">
               <div><dt data-i18n="cases.problem">Problem</dt><dd data-i18n="cases.gpuProblem">GPU-heavy scenes ran at about 35 FPS. Frame captures exposed expensive procedural noise in camera clipping, snow shading and overlapping smoke particles.</dd></div>
               <div><dt data-i18n="cases.solution">Engineering changes</dt><dd data-i18n="cases.gpuSolution">Profiled GPU passes with RenderDoc and frame timing with PresentMon. Replaced costly Voronoi noise with simpler 3D value noise across snow, walls, environment and smoke shaders, moved snow alpha rejection before expensive shading, enabled ice decal instancing and smoke particle frustum culling.</dd></div>
-              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.gpuResult">FPS increased from about 35 to 65–70 in the affected scenes, approaching a twofold improvement.</dd></div>
+              <div><dt data-i18n="cases.result">Result</dt><dd data-i18n="cases.gpuResult">FPS increased from about 35 to 65–70 in the affected scenes.</dd></div>
             </dl>
           </div>
         </article>
@@ -477,6 +477,6 @@
   </footer>
 
   <script src="previews/achievement-concept.js?v=7"></script>
-  <script src="assets/script.js?v=101"></script>
+  <script src="assets/script.js?v=102"></script>
 </body>
 </html>
