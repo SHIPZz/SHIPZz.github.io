@@ -22,11 +22,7 @@
 .theme-beige-prototype body {
   display: flow-root;
   color: var(--text);
-  background:
-    radial-gradient(circle at 5% 10%, rgba(192, 142, 58, 0.54), transparent 23rem),
-    radial-gradient(circle at 95% 20%, rgba(139, 157, 131, 0.52), transparent 27rem),
-    radial-gradient(circle at 14% 76%, rgba(198, 107, 61, 0.4), transparent 25rem),
-    #E8DCC7;
+  background: #E8DCC7;
 }
 
 .theme-beige-prototype .ambient-background {
@@ -755,11 +751,7 @@ html.theme-beige-prototype[data-preview="achievements"] .inline-metric-highlight
   }
 
   .theme-beige-prototype body {
-    background:
-      radial-gradient(circle at 5% 10%, rgba(192, 142, 58, 0.54), transparent 23rem),
-      radial-gradient(circle at 95% 20%, rgba(139, 157, 131, 0.52), transparent 27rem),
-      radial-gradient(circle at 14% 76%, rgba(198, 107, 61, 0.4), transparent 25rem),
-      #E8DCC7;
+    background: #E8DCC7;
   }
 
   .theme-beige-prototype .ambient-background,
