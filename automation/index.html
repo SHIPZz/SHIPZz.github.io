@@ -12,7 +12,7 @@
   <title>Kenan Ibragimov — AI & Automation Engineer</title>
   <link rel="canonical" href="https://shipzz.github.io/automation/" />
   <link rel="icon" href="../assets/favicon.svg?v=2" type="image/svg+xml" />
-  <link rel="stylesheet" href="automation.css?v=2" />
+  <link rel="stylesheet" href="automation.css?v=3" />
   <script src="automation.js?v=2" defer></script>
 </head>
 <body>
@@ -66,19 +66,17 @@
       <article class="case-card analytics-card" id="project-analytics" aria-labelledby="project-analytics-title">
         <div class="case-heading"><span class="case-number">02</span><span class="case-topic" data-en="Analytics · GameFlinker">Аналитика · GameFlinker</span></div>
         <h3 id="project-analytics-title" data-en="A game analytics dashboard">Дашборд игровой аналитики</h3>
-        <p class="case-lead" data-en="At GameFlinker, I worked on a dashboard that helped the team see how people were playing the project.">В GameFlinker занимался дашбордом, на котором команда могла смотреть данные о том, как играют в проект.</p>
-        <div class="analytics-layout">
-          <div>
-            <h4 data-en="My contribution">Моя часть работы</h4>
-            <p data-en="I worked on the project dashboard, including the average-playtime view. Alongside game features and builds, I took on tools that helped the team understand player behaviour.">Работал над дашбордом проекта, в том числе отображением среднего плейтайма. Помимо игровых функций и сборок, занимался инструментами, которые помогают команде понимать поведение игроков.</p>
-            <p data-en="The dashboard made this metric available for project discussions. It helped connect development work with data about how people actually played.">Дашборд давал команде доступ к этой метрике при обсуждении проекта. Так работа над игрой связывалась с данными о том, как в неё действительно играют.</p>
-          </div>
-          <div class="metric-note">
-            <p class="eyebrow" data-en="Dashboard metric">Метрика дашборда</p>
-            <h4 data-en="Average playtime">Средний плейтайм</h4>
-            <p data-en="How much time people spend in the game.">Сколько времени игроки проводят в игре.</p>
-          </div>
+        <p class="case-lead" data-en="I built a dashboard for the team, bringing game metrics together to show how much time people spend in the project, how often they play and whether they return after their first visit.">Сделал дашборд для команды: собрал игровые метрики в одном месте, чтобы видеть, сколько времени люди проводят в проекте, как часто заходят и возвращаются ли после первого запуска.</p>
+        <div class="metric-grid">
+          <div><h4 data-en="Activity">Активность</h4><p class="metric-values" data-en="DAU / WAU / MAU, new and returning players">DAU / WAU / MAU, новые и вернувшиеся игроки</p><p class="metric-question" data-en="How many people are actually playing?">Сколько людей действительно играет?</p></div>
+          <div><h4 data-en="Retention">Удержание</h4><p class="metric-values" data-en="Day 1 / 7 / 30 retention">Retention D1 / D7 / D30</p><p class="metric-question" data-en="Do players return after their first visit?">Возвращаются ли игроки после первого запуска?</p></div>
+          <div><h4 data-en="Engagement">Вовлечённость</h4><p class="metric-values" data-en="Daily playtime, session length and sessions per player">Плейтайм за день, длительность сессии, сессии на игрока</p><p class="metric-question" data-en="How long and how often do people play?">Как долго и как часто играют?</p></div>
+          <div><h4 data-en="Onboarding">Обучение</h4><p class="metric-values" data-en="Tutorial starts, completions and drop-off at each step">Начало и завершение туториала, отвал на каждом шаге</p><p class="metric-question" data-en="Where do we lose new players?">Где теряем новых игроков?</p></div>
+          <div><h4 data-en="Progression">Прогресс</h4><p class="metric-values" data-en="Level starts and completions, wins, losses and retries">Начатые и завершённые уровни, победы, поражения, повторные попытки</p><p class="metric-question" data-en="Which levels cause players to get stuck or stop playing?">На каких уровнях игроки застревают или прекращают играть?</p></div>
+          <div><h4 data-en="Monetisation, where applicable">Монетизация, если есть</h4><p class="metric-values" data-en="Purchase conversion, revenue per active player and ad views">Конверсия в покупку, доход на активного игрока, просмотры рекламы</p><p class="metric-question" data-en="How does the game earn revenue and what do players use?">Как игра зарабатывает и чем пользуются игроки?</p></div>
+          <div><h4 data-en="Stability">Стабильность</h4><p class="metric-values" data-en="Crash-free sessions, recurring errors and loading times">Сессии без крашей, повторяющиеся ошибки, время загрузки</p><p class="metric-question" data-en="Are technical issues getting in the way of playing?">Не мешают ли технические проблемы играть?</p></div>
         </div>
+        <div class="analytics-result"><h4 data-en="How the team used the data">Как команда использовала данные</h4><p data-en="I added comparisons by version and platform. After updates, the team could compare activity, playtime and retention, spot changes and decide what to investigate. The dashboard provided a starting point, rather than assuming the cause of a change.">Настроил сравнение по версиям и платформам. После обновлений можно было сопоставить активность, плейтайм и удержание, заметить изменения и выбрать, что проверять дальше. Дашборд давал отправную точку для разбора, а не готовое объяснение причин.</p></div>
       </article>
 
       <article class="case-card" id="build-delivery" aria-labelledby="build-title">
@@ -129,11 +127,24 @@
         <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>C# / .NET</li><li>ASP.NET Core</li><li>React</li><li>TypeScript</li><li>PostgreSQL</li><li>Elsa</li></ul>
       </article>
 
-      <aside class="idea-note" aria-labelledby="idea-title">
-        <p class="eyebrow" data-en="Next idea · not implemented yet">Следующая идея · ещё не реализована</p>
-        <h3 id="idea-title" data-en="AI summaries of project crashes">AI-сводки по крашам проекта</h3>
-        <p data-en="I want to use AI in error analysis as well: collect crash events, group similar stack traces and prepare a short report on recurring issues, affected versions and where to start investigating. Findings should link to the original events so they can be checked.">Хочу попробовать AI ещё и в разборе ошибок: собирать события крашей, группировать похожие стеки и готовить для команды короткий отчёт — что повторяется, в каких версиях и с чего начать проверку. Выводы должны ссылаться на исходные события, чтобы их можно было проверить.</p>
-      </aside>
+      <article class="case-card" id="ai-bug-analysis" aria-labelledby="idea-title">
+        <div class="case-heading"><span class="case-number">06</span><span class="case-topic" data-en="AI and error analysis">AI и разбор ошибок</span></div>
+        <h3 id="idea-title" data-en="AI analysis of crashes and recurring bugs">AI-анализ крашей и повторяющихся багов</h3>
+        <p class="case-lead" data-en="I connected AI to project error analysis: bringing bug reports and logs together, identifying similar cases and preparing a team digest. This helped start with recurring issues rather than reading every report separately.">Подключил AI к разбору ошибок проекта: объединил баг-репорты и логи, добавил поиск похожих случаев и сводку для команды. Это помогало начинать разбор с повторяющихся проблем, а не перечитывать все сообщения по отдельности.</p>
+        <ol class="workflow" aria-label="Схема анализа ошибок" data-en-aria="Error-analysis workflow">
+          <li><strong>ClickUp + Logs</strong><span data-en="Bug reports and crashes">Баг-репорты и краши</span></li>
+          <li><strong>n8n</strong><span data-en="Context preparation">Подготовка контекста</span></li>
+          <li><strong>AI</strong><span data-en="Recurring issues and possible duplicates">Повторения и возможные дубли</span></li>
+          <li><strong>Discord</strong><span data-en="Digest with source links">Сводка со ссылками</span></li>
+        </ol>
+        <div class="case-body">
+          <div><h4 data-en="The problem">С чем столкнулся</h4><p data-en="The same bug could appear across different tasks and logs with different wording. Manual triage made it difficult to quickly see recurring issues and affected versions.">Один баг мог появляться в разных задачах и логах, с разными формулировками. При ручном разборе было сложно быстро понять, что повторяется и какие версии затронуты.</p></div>
+          <div><h4 data-en="What I built">Что сделал</h4><p data-en="I built an n8n workflow to prepare descriptions, reproduction steps, stack traces and versions for AI. The model grouped similar cases, suggested possible duplicates and produced a short report.">Собрал сценарий n8n: он подготавливал описания, шаги воспроизведения, стеки и версии для AI. Модель группировала похожие случаи, предлагала возможные дубли и формировала краткий отчёт.</p></div>
+          <div class="case-outcome"><h4 data-en="What the team received">Что получила команда</h4><p data-en="A Discord digest showing recurring problems, the number of matching reports, affected builds and investigation leads, with links to the original tasks and logs.">Сводку в Discord: какие проблемы повторяются, сколько случаев найдено, какие сборки затронуты и с чего начать проверку. Выводы сопровождались ссылками на исходные задачи и логи.</p></div>
+        </div>
+        <details class="case-details"><summary><span data-en="How AI output was checked">Как проверялся результат AI</span></summary><div class="details-content"><p data-en="Suspected duplicates were kept separate from confirmed matches. AI suggested investigation leads; people decided whether to merge reports and change priorities.">Предположения о дублях отделял от подтверждённых совпадений. AI предлагал направления проверки; решение об объединении задач и приоритетах оставалось за человеком.</p></div></details>
+        <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>n8n</li><li>AI</li><li>ClickUp</li><li>Logs</li><li>Discord</li></ul>
+      </article>
     </section>
 
     <section id="story" class="section story-section" aria-labelledby="story-title">
