@@ -23,8 +23,8 @@
     if (resumeLink) resumeLink.href = `resume.html?lang=${language}`;
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = language === 'en'
-      ? 'Kenan Ibragimov: n8n workflows, AI-assisted code review, API integrations and internal developer tools.'
-      : 'Кенан Ибрагимов — разработчик автоматизаций. Кейсы n8n, AI code review, интеграции API и инструменты для команды.';
+      ? 'Kenan Ibragimov: integrations and automation with n8n, AI workflows, analytics, CI/CD and internal tools.'
+      : 'Кенан Ибрагимов — интеграции и автоматизация: n8n, AI в рабочих процессах, аналитика, CI/CD и инструменты для команды.';
     try { localStorage.setItem('automation-language', language); } catch { /* Language changes still work without browser storage. */ }
   }
   languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));

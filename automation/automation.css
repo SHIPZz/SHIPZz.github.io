@@ -517,6 +517,62 @@ h2 {
   color:#665442
 }
 
+.analytics-layout {
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:32px;
+  margin:26px 0 32px
+}
+
+.analytics-layout h4 {
+  margin-bottom:10px;
+  font-size:16px
+}
+
+.analytics-layout p {
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.7
+}
+
+.analytics-layout p+p {
+  margin-top:12px
+}
+
+.metric-note {
+  padding:24px;
+  border-left:2px solid var(--sage);
+  border-radius:0 14px 14px 0;
+  background:rgba(139,157,131,.1);
+  align-self:start
+}
+
+.metric-note h4 {
+  margin-top:12px;
+  font-size:24px;
+  color:#4B6143
+}
+
+.idea-note {
+  margin:36px 0 0;
+  padding:28px 32px;
+  border:1px dashed var(--line);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.14)
+}
+
+.idea-note h3 {
+  margin:10px 0 12px;
+  font-size:clamp(1.3rem,2.4vw,1.6rem)
+}
+
+.idea-note>p:last-child {
+  max-width:900px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.7
+}
+
 .story-section {
   display:grid;
   grid-template-columns:1.2fr 1fr;
@@ -827,6 +883,14 @@ h2 {
 }
 
 @media(max-width:600px) {
+  .analytics-layout {
+    grid-template-columns:1fr;
+    gap:22px;
+    margin-bottom:24px
+  }
+  .idea-note {
+    padding:22px 20px
+  }
   :root {
     scroll-padding-top:105px
   }
