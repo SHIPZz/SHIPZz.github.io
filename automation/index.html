@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Кенан Ибрагимов — разработчик автоматизаций. Кейсы n8n, AI code review, интеграции API и инструменты для команды." />
+  <meta name="theme-color" content="#E8DCC7" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shipzz.github.io/automation/" />
+  <meta property="og:title" content="Kenan Ibragimov — AI & Automation Engineer" />
+  <meta property="og:description" content="Из разработки игр — в автоматизацию процессов команды. n8n, AI review, API, сборки и собственные инструменты." />
+  <title>Kenan Ibragimov — AI & Automation Engineer</title>
+  <link rel="canonical" href="https://shipzz.github.io/automation/" />
+  <link rel="icon" href="../assets/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="stylesheet" href="automation.css?v=1" />
+  <script src="automation.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content">К содержанию</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#cases" class="is-active" data-en="Cases">Кейсы</a>
+      <a href="#experience" data-en="Experience">Опыт</a>
+      <a href="#skills" data-en="Skills">Стек</a>
+      <a href="#contact" data-en="Contact">Контакты</a>
+    </nav>
+    <div class="language-switch" role="group" aria-label="Язык / Language">
+      <button type="button" data-language="ru" class="is-active" aria-pressed="true">RU</button>
+      <button type="button" data-language="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero section">
+      <p class="hero-role">AI &amp; Automation Engineer</p>
+      <h1>Kenan Ibragimov</h1>
+      <p class="hero-text" data-en="I have 5+ years of commercial software development experience. I started in game development, then took on build automation, integrations and AI-assisted code review. I use n8n, Python, JavaScript and APIs to automate the team's day-to-day work.">У меня 5+ лет коммерческого опыта разработки. Начинал с игр, затем занялся автоматизацией сборок, интеграциями и AI-проверкой кода. Использую n8n, Python, JavaScript и API, чтобы автоматизировать повседневную работу команды.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#cases" data-en="View cases">Смотреть кейсы</a>
+        <a class="button secondary" href="resume.html" data-en="View CV">Резюме</a>
+      </div>
+      <div class="hero-links">
+        <a href="mailto:dumau.art@mail.ru">Email</a>
+        <a href="https://t.me/dumrotation" target="_blank" rel="noreferrer">Telegram</a>
+        <a href="../" data-en="Unity portfolio">Unity-портфолио</a>
+      </div>
+      <a class="hero-note" href="#story" data-en="How game development led me to automation">Как из геймдева я пришёл к автоматизации</a>
+    </section>
+
+    <section id="cases" class="section cases-section" aria-labelledby="cases-title">
+      <div class="section-heading">
+        <p class="eyebrow" data-en="Selected work">Что я автоматизировал</p>
+        <h2 id="cases-title" data-en="Cases from a development team">Кейсы из работы команды</h2>
+        <p data-en="These projects grew out of everyday work at Rhinotales: code review, task handoffs, build delivery and maintaining the automations themselves.">Эти проекты появились из повседневных задач в Rhinotales: проверить изменения, передать задачу дальше, собрать и раздать билд, поддерживать сами автоматизации.</p>
+      </div>
+
+      <article class="case-card" id="ai-review" aria-labelledby="review-title">
+        <div class="case-heading"><span class="case-number">01</span><span class="case-topic" data-en="AI-assisted code review">AI-проверка кода</span></div>
+        <h3 id="review-title" data-en="From a task in Review to feedback on the code">От задачи в Review до замечаний по коду</h3>
+        <p class="case-lead" data-en="I connected ClickUp, n8n, GitHub and a Python agent so a task entering Review could start an AI review of the relevant changes.">Связал ClickUp, n8n, GitHub и Python-агент, чтобы при переходе задачи в Review запускалась AI-проверка связанных с ней изменений.</p>
+        <ol class="workflow" aria-label="Схема AI Review" data-en-aria="AI review workflow">
+          <li><strong>ClickUp</strong><span data-en="Task enters Review">Статус Review</span></li>
+          <li><strong>n8n</strong><span data-en="Checks and context">Проверки и контекст</span></li>
+          <li><strong>GitHub</strong><span data-en="PR and review queue">PR и очередь</span></li>
+          <li><strong>Python + Codex</strong><span data-en="Review and feedback">Ревью и замечания</span></li>
+        </ol>
+        <div class="case-body">
+          <div><h4 data-en="The problem">С чем столкнулся</h4><p data-en="Review involved several separate steps: finding the task branch, opening a PR, preparing context and passing the result back to the team.">Для ревью приходилось отдельно находить ветку задачи, открывать PR, собирать контекст и передавать результат команде.</p></div>
+          <div><h4 data-en="What I built">Что сделал</h4><p data-en="The workflow checks the task and branch, finds or creates a PR and adds a review job. The agent reads the diff, gathers project context and runs Codex CLI. Feedback goes to GitHub and Discord.">Сценарий проверяет задачу и ветку, находит или создаёт PR и ставит задание в очередь. Агент читает diff, собирает контекст проекта и запускает Codex CLI. Замечания отправляются в GitHub и Discord.</p></div>
+          <div class="case-outcome"><h4 data-en="What changed">Что получилось</h4><p data-en="The review has a clear path from the task to the feedback, with job states that show whether it is queued, running or failed. The team still makes the final decision on the code.">У проверки появился понятный путь от задачи до замечаний и состояния, по которым видно, ждёт она запуска, выполняется или завершилась ошибкой. Решение по коду по-прежнему принимает команда.</p></div>
+        </div>
+        <details class="case-details"><summary><span data-en="How the integration works">Как устроена интеграция</span></summary><div class="details-content"><p data-en="n8n handles the trigger, task filters and GitHub job preparation. A separate Python poller claims jobs through PR labels. The LLM runs through Codex CLI.">n8n обрабатывает событие, фильтрует задачи и подготавливает задание в GitHub. Отдельный Python-poller забирает задания по меткам PR. LLM подключена через Codex CLI.</p><p data-en="The agent has job states, retries for network errors and recovery logic for interrupted work. A queue notification and a completed review are recorded as different stages.">У агента есть состояния задания, повторные попытки при сетевых ошибках и логика восстановления прерванной работы. Уведомление о постановке в очередь и завершённое ревью — разные этапы.</p></div></details>
+        <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>n8n</li><li>Python</li><li>JavaScript</li><li>Codex CLI</li><li>GitHub API</li><li>ClickUp API</li></ul>
+      </article>
+
+      <article class="case-card" id="team-workflows" aria-labelledby="team-title">
+        <div class="case-heading"><span class="case-number">02</span><span class="case-topic" data-en="Team workflows">Процессы команды</span></div>
+        <h3 id="team-title" data-en="Tasks, branches and notifications in one workflow">Задачи, ветки и уведомления в одной цепочке</h3>
+        <p class="case-lead" data-en="I built and adapted n8n workflows that react to ClickUp events, perform the required GitHub action and notify the right people in Discord.">Собрал и доработал n8n-сценарии, которые реагируют на события ClickUp, выполняют нужное действие в GitHub и уведомляют ответственных в Discord.</p>
+        <ol class="workflow" aria-label="Схема обработки задач" data-en-aria="Task automation workflow">
+          <li><strong>ClickUp</strong><span data-en="Status or checkbox">Статус или чекбокс</span></li>
+          <li><strong>n8n</strong><span data-en="Rules and lookups">Условия и справочники</span></li>
+          <li><strong>GitHub</strong><span data-en="Branches and PRs">Ветки и PR</span></li>
+          <li><strong>Discord</strong><span data-en="Notify the team">Уведомление команды</span></li>
+        </ol>
+        <div class="case-body">
+          <div><h4 data-en="The problem">С чем столкнулся</h4><p data-en="Task changes were followed by repetitive work: finding a branch, opening a PR, syncing master and telling the next person what had happened.">За изменением задачи шли повторяющиеся действия: найти ветку, открыть PR, подлить master и сообщить следующему участнику, что произошло.</p></div>
+          <div><h4 data-en="What I built">Что сделал</h4><p data-en="I connected branch lookup, PR creation, branch syncing, task templates and notifications. Channels, roles and user mappings live in tables rather than being repeated across every workflow.">Связал поиск ветки, создание PR, синхронизацию веток, шаблоны задач и уведомления. Каналы, роли и соответствия пользователей вынес в таблицы, чтобы не менять их отдельно в каждом сценарии.</p></div>
+          <div class="case-outcome"><h4 data-en="What changed">Что получилось</h4><p data-en="Task events can start the next step without a separate manual handoff. Failures and merge conflicts follow their own routes and notify the people who need to act.">Событие в задаче может запускать следующий шаг без отдельной ручной передачи. Ошибки и конфликты слияния идут по своим веткам и сообщают о себе тем, кто должен разобраться.</p></div>
+        </div>
+        <details class="case-details"><summary><span data-en="Examples and failure handling">Примеры сценариев и обработка ошибок</span></summary><div class="details-content"><ul><li data-en="Merge status: wait, check the current task status again, then create the PR.">Статус Merge: подождать, повторно проверить статус задачи и только потом создать PR.</li><li data-en="Testing status or a checkbox: merge master into the task branch; handle conflicts separately.">Статус Testing или чекбокс: подлить master в ветку задачи, отдельно обработать конфликт.</li><li data-en="Rejected or Closed: select the notification channel and mentions using the configured rules.">Статус Rejected или Closed: выбрать канал и упоминания по настроенным правилам.</li><li data-en="New BUG or REPEAT task: insert the appropriate description template when needed.">Новая задача BUG или REPEAT: при необходимости подставить шаблон описания.</li></ul><p data-en="I also worked on webhook routing and diagnostics: separating a failed event delivery from an error inside the workflow, checking signatures and avoiding duplicate processing.">Отдельно занимался маршрутизацией и диагностикой вебхуков: отличал недоставленное событие от ошибки внутри сценария, проверял подписи и защиту от повторной обработки.</p></div></details>
+        <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>n8n</li><li>REST API</li><li>Webhooks</li><li>JavaScript</li><li>Data Tables</li><li>Discord</li></ul>
+      </article>
+
+      <article class="case-card" id="build-delivery" aria-labelledby="build-title">
+        <div class="case-heading"><span class="case-number">03</span><span class="case-topic" data-en="Build delivery">Сборки и доставка</span></div>
+        <h3 id="build-title" data-en="From a finished build to a download link">От готовой сборки до ссылки на скачивание</h3>
+        <p class="case-lead" data-en="I connected TeamCity, object storage, n8n and Discord, and worked on a portal where the team can find builds and start the next action.">Связал TeamCity, объектное хранилище, n8n и Discord. Развивал портал, на котором команда может найти сборку и запустить нужное действие.</p>
+        <ol class="workflow" aria-label="Схема доставки сборок" data-en-aria="Build delivery workflow">
+          <li><strong>TeamCity</strong><span data-en="Build and archive">Сборка и архив</span></li>
+          <li><strong>R2 / S3 API</strong><span data-en="Upload and checksum">Загрузка и checksum</span></li>
+          <li><strong>n8n</strong><span data-en="Portal and actions">Портал и действия</span></li>
+          <li><strong>Discord</strong><span data-en="Build report">Отчёт о сборке</span></li>
+        </ol>
+        <div class="case-body">
+          <div><h4 data-en="The problem">С чем столкнулся</h4><p data-en="The team needed a consistent place to get a build, understand its status and choose an archive for deployment. Large archive downloads also needed proper failure handling.">Команде нужен был единый способ получить билд, понять его состояние и выбрать архив для публикации. При скачивании больших архивов приходилось разбираться с обрывами и повреждёнными файлами.</p></div>
+          <div><h4 data-en="What I built">Что сделал</h4><p data-en="I worked on archive upload, signed download links, storage search, notifications and Steam deployment through TeamCity. I added download retries, temporary files and checksum and archive-integrity checks.">Занимался загрузкой архивов, подписанными ссылками, поиском по хранилищу, уведомлениями и запуском Steam deploy через TeamCity. Добавил повторы скачивания, временные файлы и проверки контрольной суммы и целостности архива.</p></div>
+          <div class="case-outcome"><h4 data-en="What changed">Что получилось</h4><p data-en="Build delivery became a connected process with a portal and notifications. A bad download can be detected before extraction and SteamCMD, with diagnostics for the failed stage.">Доставка сборок стала связным процессом с порталом и уведомлениями. Проблему со скачиванием можно обнаружить до распаковки и запуска SteamCMD, а не искать её уже после неудачной публикации.</p></div>
+        </div>
+        <details class="case-details"><summary><span data-en="Portal features and archive checks">Возможности портала и проверки архивов</span></summary><div class="details-content"><p data-en="The portal workflows cover browsing and searching archives, download links, build notes and retention rules. The dashboard integrates with TeamCity to select branches, queue or cancel builds and inspect history.">Сценарии портала включают просмотр и поиск архивов, ссылки скачивания, заметки и правила хранения. Dashboard связан с TeamCity: можно выбрать ветку, поставить сборку в очередь, отменить её и посмотреть историю.</p><p data-en="For archive delivery, I added SHA-256 metadata, partial downloads and archive validation before deployment. Hosting the migrated portal on a permanent custom domain is a separate step still in preparation.">В цепочку доставки добавил SHA-256 в метаданных, скачивание во временный файл и проверку архива перед публикацией. Размещение перенесённого портала на постоянном собственном домене — отдельный этап, который ещё готовится.</p></div></details>
+        <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>TeamCity</li><li>n8n</li><li>PowerShell</li><li>Cloudflare R2</li><li>S3 API</li><li>SteamCMD</li></ul>
+      </article>
+
+      <article class="case-card" id="automation-hub" aria-labelledby="hub-title">
+        <div class="case-heading"><span class="case-number">04</span><span class="case-topic" data-en="Internal platform">Внутренний инструмент</span></div>
+        <h3 id="hub-title" data-en="Automation Hub: a service for team workflows">Automation Hub — сервис для сценариев команды</h3>
+        <p class="case-lead" data-en="Alongside the n8n workflows, I developed an internal service with a visual editor, workflow versions, execution history and configuration tables.">Параллельно со сценариями n8n разрабатывал внутренний сервис с визуальным редактором, версиями сценариев, историей запусков и таблицами настроек.</p>
+        <ol class="workflow" aria-label="Устройство Automation Hub" data-en-aria="Automation Hub architecture">
+          <li><strong data-en="Editor">Редактор</strong><span>React + TypeScript</span></li>
+          <li><strong data-en="Execution">Выполнение</strong><span>ASP.NET Core + Elsa</span></li>
+          <li><strong data-en="State">Состояние</strong><span>PostgreSQL</span></li>
+          <li><strong data-en="Integrations">Интеграции</strong><span>Webhooks + API</span></li>
+        </ol>
+        <div class="case-body">
+          <div><h4 data-en="The problem">С чем столкнулся</h4><p data-en="I wanted to manage our workflows on our own infrastructure, inspect their execution and reuse the automations we already had in n8n.">Хотел управлять сценариями на своей инфраструктуре, видеть ход выполнения и использовать уже собранные автоматизации n8n.</p></div>
+          <div><h4 data-en="What I built">Что сделал</h4><p data-en="I built the editor and backend, an importer for the n8n nodes we use, published workflow versions and a run inspector. I moved shared lookups into Data Tables and added authenticated access.">Сделал редактор и backend, импорт используемых узлов n8n, публикацию версий и просмотр данных запуска. Перенёс общие справочники в Data Tables и добавил вход по паролю.</p></div>
+          <div class="case-outcome"><h4 data-en="What changed">Что получилось</h4><p data-en="The service runs on the build machine. Workflows, settings and execution history are stored in its database. I migrated existing workflows and worked through integration and deployment issues as they appeared.">Сервис запускается на билдмашине. Сценарии, настройки и история хранятся в базе. Перенёс существующие сценарии и по мере проверки дорабатывал интеграции и развёртывание.</p></div>
+        </div>
+        <details class="case-details"><summary><span data-en="Scope and current limits">Что входит в сервис и его границы</span></summary><div class="details-content"><p data-en="The implemented features include branching, configurable waits, immutable published versions, run inputs and outputs, data tables and separate event receivers. The importer targets the n8n nodes used by our workflows, not every n8n feature.">Реализованы ветвления, настраиваемые ожидания, неизменяемые опубликованные версии, входы и выходы узлов, таблицы и отдельные приёмники событий. Импорт рассчитан на узлы наших сценариев, а не на полную совместимость со всеми возможностями n8n.</p><p data-en="I also prepared installation, migration, diagnostics and startup scripts. End-to-end checks are done per workflow; importing a graph alone does not mean its external actions have been verified.">Также подготовил скрипты установки, переноса, диагностики и автозапуска. Сквозная проверка идёт по отдельным сценариям: сам импорт графа ещё не означает, что все внешние действия проверены.</p></div></details>
+        <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>C# / .NET</li><li>ASP.NET Core</li><li>React</li><li>TypeScript</li><li>PostgreSQL</li><li>Elsa</li></ul>
+      </article>
+    </section>
+
+    <section id="story" class="section story-section" aria-labelledby="story-title">
+      <div class="story-copy">
+        <p class="eyebrow" data-en="My background">Как я к этому пришёл</p>
+        <h2 id="story-title" data-en="It started with game development">Всё началось с разработки игр</h2>
+        <p data-en="I started with gameplay, interfaces, client-server systems and performance work. As the project grew, I also took on the tools around development: builds, artifact delivery, task updates and passing changes to QA.">Начинал с геймплея, интерфейсов, клиент-серверных систем и оптимизации. По мере роста проекта стал заниматься и тем, что окружает разработку: сборками, доставкой билдов, обновлением задач и передачей изменений на QA.</p>
+        <p data-en="I began by writing scripts and connecting services through APIs, then moved more of these processes into n8n. Later I added AI-assisted code review and started building Automation Hub. That work is what brought me to automation as a separate engineering focus.">Сначала писал скрипты и связывал сервисы через API, затем стал переносить процессы в n8n. Позже добавил AI-проверку кода и начал делать Automation Hub. Так автоматизация стала для меня отдельным направлением работы.</p>
+        <a class="text-link" href="../" data-en="See my game development work">Посмотреть мой опыт в геймдеве</a>
+      </div>
+      <ol class="career-path">
+        <li><span>01</span><div><h3 data-en="Game systems">Игровые системы</h3><p data-en="Architecture, interfaces and integrations">Архитектура, интерфейсы и интеграции</p></div></li>
+        <li><span>02</span><div><h3 data-en="Developer tools">Инструменты команды</h3><p data-en="Builds, archives and CI/CD">Сборки, архивы и CI/CD</p></div></li>
+        <li><span>03</span><div><h3 data-en="Workflow automation">Автоматизация процессов</h3><p data-en="n8n, APIs and task workflows">n8n, API и работа с задачами</p></div></li>
+        <li><span>04</span><div><h3 data-en="AI integrations">AI-интеграции</h3><p data-en="Code review and Automation Hub">Code review и Automation Hub</p></div></li>
+      </ol>
+    </section>
+
+    <section id="experience" class="section experience-section" aria-labelledby="experience-title">
+      <div class="section-heading"><p class="eyebrow" data-en="Professional experience">Коммерческий опыт</p><h2 id="experience-title" data-en="Development and automation">Разработка и автоматизация</h2></div>
+      <div class="experience-list">
+        <article class="experience-item"><p class="experience-date" data-en="Feb 2025 — present">Февраль 2025 — настоящее время</p><div><h3>Rhinotales</h3><p class="experience-role">Senior Unity Developer / Build Automation</p><p data-en="Critical Shift, a tactical RPG for PC and consoles. Alongside game development, I worked on CI/CD, build delivery, ClickUp and GitHub integrations, n8n workflows and AI-assisted code review.">Critical Shift, тактическая RPG для PC и консолей. Помимо разработки игры, занимался CI/CD, доставкой сборок, интеграциями ClickUp и GitHub, сценариями n8n и AI-проверкой кода.</p><ul><li data-en="Designed and adapted workflows, worked with APIs, routing and shared configuration.">Проектировал и дорабатывал сценарии, работал с API, маршрутизацией и общими настройками.</li><li data-en="Investigated failures using workflow history, webhook deliveries and build logs.">Разбирал ошибки по истории запусков, доставкам вебхуков и логам сборок.</li><li data-en="Developed internal tools and scripts for deployment and maintenance.">Разрабатывал внутренние инструменты и скрипты развёртывания и обслуживания.</li></ul></div></article>
+        <article class="experience-item"><p class="experience-date" data-en="Jan 2021 — Feb 2025">Январь 2021 — февраль 2025</p><div><h3>GameFlinker / FlinkStudio</h3><p class="experience-role">Unity Developer</p><p data-en="Developed gameplay, interfaces and client-server features for mobile projects. Worked with REST APIs, SignalR, external SDKs and editor tools. This gave me a practical foundation in integration work, asynchronous code and debugging systems across service boundaries.">Разрабатывал геймплей, интерфейсы и клиент-серверные функции мобильных проектов. Работал с REST API, SignalR, внешними SDK и инструментами редактора. Отсюда — опыт интеграций, асинхронного кода и поиска ошибок на стыке систем.</p></div></article>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills-section" aria-labelledby="skills-title">
+      <div class="section-heading"><p class="eyebrow" data-en="Tools">С чем работаю</p><h2 id="skills-title" data-en="Technical skills">Технический стек</h2></div>
+      <div class="skills-grid">
+        <article><h3 data-en="Workflows and integrations">Сценарии и интеграции</h3><p>n8n · REST API · Webhooks · JSON · GitHub API · ClickUp API · Discord API</p></article>
+        <article><h3 data-en="Code and data">Код и данные</h3><p>Python · JavaScript · C# / .NET · SQL · PostgreSQL · PowerShell</p></article>
+        <article><h3 data-en="AI-assisted workflows">AI в рабочих процессах</h3><p>Codex CLI · AI code review · Git diff · <span data-en="Project context · Job queues">Контекст проекта · Очереди заданий</span></p></article>
+        <article><h3 data-en="Delivery and internal tools">Доставка и инструменты</h3><p>TeamCity · CI/CD · Git · Cloudflare R2 · S3 API · SteamCMD · React · TypeScript</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+      <p class="eyebrow" data-en="Contact">Связаться со мной</p>
+      <h2 id="contact-title" data-en="Let's talk about your workflows">Давайте обсудим ваши задачи</h2>
+      <p data-en="I'm looking for an AI Automation Engineer role where I can build integrations, automate team workflows and maintain the solutions after launch.">Ищу работу AI Automation Engineer: хочу заниматься интеграциями, автоматизацией процессов и сопровождением решений после запуска.</p>
+      <div class="hero-actions"><a class="button primary" href="https://t.me/dumrotation" target="_blank" rel="noreferrer" data-en="Message on Telegram">Написать в Telegram</a><a class="button secondary" href="mailto:dumau.art@mail.ru">dumau.art@mail.ru</a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© <span data-year>2026</span> Kenan Ibragimov</span><a href="../" data-en="Unity portfolio">Unity-портфолио</a><a href="#top" data-en="Back to top">Наверх</a></footer>
+</body>
+</html>
