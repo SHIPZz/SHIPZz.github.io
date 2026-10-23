@@ -1,0 +1,120 @@
+.resume-page {
+  background: #f2f3f1;
+  color: #000;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.resume-page::before, .resume-page::after { display: none; }
+.resume-page .site-header {
+  max-width: 794px;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+.resume-page .print-button {
+  display: inline-block;
+  border-radius: 5px;
+  background: #445848;
+  color: white;
+  text-decoration: none;
+}
+.resume-page .resume-sheet {
+  box-sizing: border-box;
+  width: 210mm;
+  max-width: calc(100% - 32px);
+  min-height: 297mm;
+  margin: 12px auto 40px;
+  padding: 10.5mm 14.8mm 15mm;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 18px #0000000c;
+}
+.resume-page .resume-sheet h1 {
+  margin: 0;
+  font-family: inherit;
+  font-size: 24pt;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.resume-page .resume-sheet .resume-title {
+  margin: 5px 0 17px;
+  font-size: 11.2pt;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+.resume-page .resume-sheet h2 {
+  margin: 9px -5px 8px;
+  padding: 5px 18px;
+  background: #d8ddd0;
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 8.8pt;
+  line-height: 1.3;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.resume-page .resume-sheet p,
+.resume-page .resume-sheet li {
+  font-size: 8.45pt;
+  line-height: 1.36;
+}
+.resume-page .resume-sheet p { margin: 0 0 6px; }
+.resume-page .resume-sheet ul {
+  padding-left: 10px;
+  margin: 5px 0 7px;
+  list-style: disc;
+}
+.resume-page .resume-sheet li + li { margin-top: 2px; }
+.resume-page .resume-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+  margin: 0 0 12px;
+}
+.resume-page .resume-skills-grid ul { margin: 0; }
+.resume-page .resume-skills-grid li { font-size: 8pt; }
+.resume-page .resume-job-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+  border-bottom: .6px solid #445848;
+  padding-bottom: 4px;
+  margin: 9px 0 7px;
+}
+.resume-page .resume-sheet h3 {
+  margin: 0;
+  font-family: inherit;
+  font-size: 9.8pt;
+  font-weight: 700;
+}
+.resume-page .resume-job-heading span { font-size: 8.5pt; font-weight: 700; }
+.resume-page .resume-job-description { color: #445848; }
+.resume-page .resume-sheet .resume-job-stack { font-size: 8pt; font-weight: 700; margin: 5px 0 10px; }
+.resume-page .resume-sheet .resume-contact { font-size: 8pt; color: #000; }
+.resume-page .resume-sheet a { color: #445848; text-decoration: underline; }
+@media(max-width: 600px) {
+  .resume-page .resume-sheet { max-width: 100%; padding: 24px 18px; margin-top: 0; }
+  .resume-page .resume-sheet h1 { font-size: 22pt; }
+  .resume-page .resume-sheet .resume-title { font-size: 10pt; }
+  .resume-page .resume-skills-grid { grid-template-columns: 1fr; gap: 5px; }
+  .resume-page .resume-job-heading { flex-wrap: wrap; gap: 3px; }
+}
+@media print {
+  @page { size: A4; margin: 0; }
+  .resume-page { background: white; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .resume-page .site-header { display: none; }
+  .resume-page .resume-sheet {
+    width: 210mm; max-width: none; min-height: 0; margin: 0;
+    padding: 10.5mm 14.8mm 15mm; box-shadow: none;
+  }
+  .resume-page .resume-skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .resume-page .resume-job-heading { flex-wrap: nowrap; }
+  .resume-section, .resume-job { break-inside: avoid; }
+}

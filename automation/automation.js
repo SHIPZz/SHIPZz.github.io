@@ -21,10 +21,13 @@
     if (nav) nav.setAttribute('aria-label', language === 'en' ? 'Main navigation' : 'Основная навигация');
     const resumeLink = document.querySelector('a[href^="resume.html"]');
     if (resumeLink) resumeLink.href = `resume.html?lang=${language}`;
+    document.querySelectorAll('[data-resume-download]').forEach(link => {
+      link.href = `downloads/Kenan_Ibragimov_AI_Automation_Engineer_${language.toUpperCase()}.pdf`;
+    });
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = language === 'en'
-      ? 'Kenan Ibragimov: integrations and automation with n8n, AI workflows, analytics, CI/CD and internal tools.'
-      : 'Кенан Ибрагимов — интеграции и автоматизация: n8n, AI в рабочих процессах, аналитика, CI/CD и инструменты для команды.';
+      ? 'Kenan Ibragimov — AI Automation Engineer / n8n Developer / Low-code Developer. Business process automation, AI integrations, Python, JavaScript, REST API, webhooks and SQL.'
+      : 'Кенан Ибрагимов — AI Automation Engineer / n8n Developer / Low-code Developer. Автоматизация бизнес-процессов, AI-интеграции, Python, JavaScript, REST API, webhooks и SQL.';
     try { localStorage.setItem('automation-language', language); } catch { /* Language changes still work without browser storage. */ }
   }
   languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
