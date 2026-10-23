@@ -19,8 +19,6 @@
     });
     const nav = document.querySelector('nav');
     if (nav) nav.setAttribute('aria-label', language === 'en' ? 'Main navigation' : 'Основная навигация');
-    const resumeLink = document.querySelector('a[href^="resume.html"]');
-    if (resumeLink) resumeLink.href = `resume.html?lang=${language}&v=2026-10-23-r3`;
     document.querySelectorAll('[data-resume-download]').forEach(link => {
       const version = link.dataset.resumeVersion;
       const filename = `Kenan_Ibragimov_AI_Automation_Engineer_${language.toUpperCase()}`;
@@ -35,6 +33,13 @@
   }
   languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
   setLanguage(readLanguage());
+  // Read old language links first, then keep the page address canonical.
+  const pageUrl = new URL(location.href);
+  if (pageUrl.searchParams.has('lang') || pageUrl.searchParams.has('v')) {
+    pageUrl.searchParams.delete('lang');
+    pageUrl.searchParams.delete('v');
+    history.replaceState(history.state, '', `${pageUrl.pathname}${pageUrl.search}${pageUrl.hash}`);
+  }
   document.querySelectorAll('[data-year]').forEach(element => { element.textContent = String(new Date().getFullYear()); });
   document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
 
