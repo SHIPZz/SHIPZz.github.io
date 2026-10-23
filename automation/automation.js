@@ -20,7 +20,7 @@
     const nav = document.querySelector('nav');
     if (nav) nav.setAttribute('aria-label', language === 'en' ? 'Main navigation' : 'Основная навигация');
     const resumeLink = document.querySelector('a[href^="resume.html"]');
-    if (resumeLink) resumeLink.href = `resume.html?lang=${language}&v=2026-10-23-r2`;
+    if (resumeLink) resumeLink.href = `resume.html?lang=${language}&v=2026-10-23-r3`;
     document.querySelectorAll('[data-resume-download]').forEach(link => {
       const version = link.dataset.resumeVersion;
       const filename = `Kenan_Ibragimov_AI_Automation_Engineer_${language.toUpperCase()}`;
