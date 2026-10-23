@@ -39,7 +39,7 @@
       <div class="hero-actions">
         <a class="button primary" href="#cases" data-en="View cases">Смотреть кейсы</a>
         <a class="button secondary" href="resume.html" data-en="View CV">Резюме</a>
-        <a class="button secondary" href="downloads/Kenan_Ibragimov_AI_Automation_Engineer_RU.pdf?v=2026-10-23-r5" download="Kenan_Ibragimov_AI_Automation_Engineer_RU.pdf" data-resume-download data-resume-version="2026-10-23-r5" data-en="Download PDF">Скачать PDF</a>
+        <a class="button secondary" href="downloads/Kenan_Ibragimov_AI_Automation_Engineer_RU.pdf?v=2026-10-23-r6" download="Kenan_Ibragimov_AI_Automation_Engineer_RU.pdf" data-resume-download data-resume-version="2026-10-23-r6" data-en="Download PDF">Скачать PDF</a>
       </div>
       <div class="hero-links">
         <a href="mailto:dumau.art@mail.ru">Email</a>
@@ -146,6 +146,24 @@
           <div class="case-outcome"><h4 data-en="What changed">Что получилось</h4><p data-en="AI received visual feedback on its changes. I could check both the code and the resulting leg positions, with final acceptance kept under human control.">AI получал визуальную обратную связь по своим правкам. Я проверял и код, и фактическое положение ног; окончательное решение оставалось за человеком.</p></div>
         </div>
         <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>Unity</li><li>C#</li><li>MCP</li><li>AI-assisted development</li><li>Visual feedback</li><li>Iterative refinement</li><li>Human-in-the-loop</li></ul>
+      </article>
+
+      <article class="case-card" id="ai-performance-analysis" aria-labelledby="ai-performance-analysis-title">
+        <div class="case-heading"><span class="case-number">08</span><span class="case-topic" data-en="AI and performance">AI и производительность</span></div>
+        <h3 id="ai-performance-analysis-title" data-en="AI-assisted FPS drop detection and rendering optimisation">AI-поиск просадок FPS и оптимизация рендеринга</h3>
+        <p class="case-lead" data-en="QA had limited capacity to investigate performance across the entire map regularly. I proposed automating the initial search: an AI agent traversed the map and flagged areas with the largest FPS drops. Profiler data from those areas was then analysed to prepare a report and optimisation hypotheses.">У QA не хватало ресурсов на регулярное исследование производительности всей карты. Предложил автоматизировать первичный поиск проблем: AI-агент проходил карту и отмечал участки с наиболее сильными просадками FPS. Затем запускался анализ данных профайлера для подготовки отчёта и гипотез по оптимизации.</p>
+        <ol class="workflow" aria-label="Схема поиска проблем производительности" data-en-aria="Performance investigation workflow">
+          <li><strong>AI + Unity</strong><span data-en="Map traversal and FPS drops">Обход карты и просадки FPS</span></li>
+          <li><strong>Profiler</strong><span data-en="Data from problem areas">Данные проблемных участков</span></li>
+          <li><strong>AI</strong><span data-en="Report and hypotheses">Отчёт и гипотезы</span></li>
+          <li><strong>Shader Graph</strong><span data-en="Verification and optimisation">Проверка и оптимизация</span></li>
+        </ol>
+        <div class="case-body">
+          <div><h4 data-en="The problem">С чем столкнулся</h4><p data-en="Investigating the whole map manually required QA time that was not always available. Before optimisation, we needed to locate the worst performance drops and understand which operations were responsible.">Ручное исследование всей карты требовало времени QA, которого не всегда хватало. До начала оптимизации нужно было найти наиболее проблемные участки и понять, какие операции создавали нагрузку.</p></div>
+          <div><h4 data-en="What I built">Что сделал</h4><p data-en="Set up an AI agent to traverse the map and identify low-FPS areas, followed by a separate stage for analysing profiler data. The report listed problem locations, expensive operations and hypotheses about the causes. I checked those hypotheses and used AI to help optimise heavy Shader Graph shaders.">Настроил AI-агента для обхода карты и выявления участков с низким FPS, а отдельный этап анализа — для разбора данных профайлера. В отчёт попадали проблемные места, наиболее затратные операции и гипотезы о причинах нагрузки. Проверял эти гипотезы и с помощью AI оптимизировал тяжёлые шейдеры Shader Graph.</p></div>
+          <div class="case-outcome"><h4 data-en="What changed">Что получилось</h4><p data-en="Initial performance investigation became less dependent on manual QA passes. The report provided specific areas and hypotheses to investigate. After optimising heavy Shader Graph shaders, average FPS increased from 30–35 to 60–75.">Первичный поиск проблем стал меньше зависеть от ручных проходов QA. Отчёт давал конкретные участки и гипотезы для проверки. После оптимизации тяжёлых шейдеров Shader Graph средний FPS вырос с 30–35 до 60–75.</p></div>
+        </div>
+        <ul class="stack" aria-label="Технологии" data-en-aria="Technologies"><li>Unity</li><li>AI agents</li><li>Performance analysis</li><li>Profiler analysis</li><li>Shader Graph</li><li>Rendering optimisation</li><li>Human-in-the-loop</li></ul>
       </article>
     </section>
 
