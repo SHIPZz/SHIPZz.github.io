@@ -23,7 +23,7 @@
       const version = link.dataset.resumeVersion;
       const filename = `Kenan_Ibragimov_AI_Automation_Engineer_${language.toUpperCase()}`;
       link.href = `downloads/${filename}.pdf${version ? `?v=${encodeURIComponent(version)}` : ''}`;
-      link.download = `${filename}${version ? `_${version}` : ''}.pdf`;
+      link.download = `${filename}.pdf`;
     });
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = language === 'en'
@@ -42,6 +42,21 @@
   }
   document.querySelectorAll('[data-year]').forEach(element => { element.textContent = String(new Date().getFullYear()); });
   document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+
+  document.querySelectorAll('.video-poster').forEach(poster => {
+    poster.addEventListener('click', () => {
+      const params = new URLSearchParams({ autoplay: '1', rel: '0' });
+      const start = Number.parseInt(poster.dataset.videoStart || '0', 10);
+      if (start > 0) params.set('start', String(start));
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${poster.dataset.videoId}?${params}`;
+      iframe.title = poster.dataset.videoTitle || 'Project video';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      poster.parentElement.replaceChildren(iframe);
+      iframe.focus();
+    });
+  });
 
   const links = [...document.querySelectorAll('.nav a[href^="#"]')];
   const sections = links.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean);
